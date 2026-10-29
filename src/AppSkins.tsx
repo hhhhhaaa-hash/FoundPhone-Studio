@@ -155,11 +155,13 @@ function WeChatMomentPost({
   item,
   avatar,
   contacts,
+  gallery = [],
   onItem,
 }: {
   item: Item;
   avatar?: string;
   contacts: Item[];
+  gallery?: Item[];
   onItem: (item: Item) => void;
 }) {
   let likedBy: string[] = [];
@@ -173,7 +175,10 @@ function WeChatMomentPost({
   } catch {
     /* Unconfigured posts retain the original count fallback. */
   }
-  const date = /^(\d{4})-(\d{2})-(\d{2})$/.exec(item.time);
+  const date = /^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{2}):(\d{2}))?$/.exec(
+    item.time,
+  );
+  const photos = [...(item.media ? [item] : []), ...gallery];
   return (
     <article className="wx-moment-post" data-post-id={item.id}>
       <Avatar name={item.sender} src={item.avatar || avatar} />
@@ -182,18 +187,29 @@ function WeChatMomentPost({
           <strong>{item.sender}</strong>
           <p className="wx-moment-caption">{item.body}</p>
         </button>
-        {item.media && (
-          <button
-            className="wx-moment-photo"
-            aria-label="查看朋友圈配图"
-            onClick={() => onItem(item)}
+        {photos.length > 0 && (
+          <div
+            className={
+              photos.length > 1 ? "wx-moment-gallery" : "wx-moment-single-photo"
+            }
           >
-            <ItemMedia item={item} />
-          </button>
+            {photos.map((photo, index) => (
+              <button
+                key={photo.id}
+                className="wx-moment-photo"
+                aria-label={
+                  "查看朋友圈配图" + (photos.length > 1 ? index + 1 : "")
+                }
+                onClick={() => onItem(photo)}
+              >
+                <ItemMedia item={photo} />
+              </button>
+            ))}
+          </div>
         )}
         <small>
           {date
-            ? `${date[1]}年${Number(date[2])}月${Number(date[3])}日`
+            ? `${date[1]}年${Number(date[2])}月${Number(date[3])}日${date[4] ? ` ${date[4]}:${date[5]}` : ""}`
             : item.time}
         </small>
         {(likedBy.length > 0 || item.likes > 0 || item.comments.length > 0) && (
@@ -235,7 +251,7 @@ export function WeChatSkin(p: SkinProps) {
     (i) => i.folder === "通讯录" && i.meta.contact === "true",
   );
   const messageItems = p.items.filter(
-    (i) => !["朋友圈", "我", "通讯录"].includes(i.folder),
+    (i) => !["朋友圈", "朋友圈配图", "我", "通讯录"].includes(i.folder),
   );
   const [contactId, setContactId] = useState("");
   const [contactMoments, setContactMoments] = useState(false);
@@ -273,9 +289,13 @@ export function WeChatSkin(p: SkinProps) {
       ...messageItems.map((i) => i.sender).filter((s) => s && s !== "我"),
     ]),
   ];
-  const posts = p.items.filter(
-    (i) => i.folder === "朋友圈" || i.kind === "post",
-  );
+  const posts = p.items
+    .filter((i) => i.folder === "朋友圈" || i.kind === "post")
+    .sort((a, b) => b.time.localeCompare(a.time));
+  const galleryFor = (post: Item) =>
+    p.items
+      .filter((i) => i.folder === "朋友圈配图" && i.meta.momentId === post.id)
+      .sort((a, b) => Number(a.meta.order || 0) - Number(b.meta.order || 0));
   return (
     <div
       className="wechat-ui independent-skin"
@@ -384,6 +404,7 @@ export function WeChatSkin(p: SkinProps) {
                   item={i}
                   avatar={activeContact.avatar}
                   contacts={contactProfiles}
+                  gallery={galleryFor(i)}
                   onItem={p.onItem}
                 />
               ))}
@@ -521,6 +542,7 @@ export function WeChatSkin(p: SkinProps) {
                   : contactProfiles.find((c) => c.title === i.sender)?.avatar
               }
               contacts={contactProfiles}
+              gallery={galleryFor(i)}
               onItem={p.onItem}
             />
           ))}

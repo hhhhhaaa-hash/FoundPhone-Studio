@@ -18,7 +18,7 @@ test("published default matches full test preview, four dock apps and updated st
       (i: { meta: Record<string, string>; folder: string }) =>
         i.meta.profile !== "true" &&
         i.meta.contact !== "true" &&
-        i.folder !== "朋友圈",
+        !["朋友圈", "朋友圈配图"].includes(i.folder),
     ),
   }).toEqual(preview.data);
   expect(
@@ -181,7 +181,7 @@ test("July 5 birthday Moments shows its photo, seven friends and exact replies",
   const post = items.find(
     (i: { id: string }) => i.id === "wechat-birthday-20260705",
   );
-  expect(post.time).toBe("2026-07-05");
+  expect(post.time).toBe("2026-07-05 00:00");
   expect(post.body).toBe("🎂");
   expect(post.likes).toBe(7);
   await page.setViewportSize({ width: 393, height: 852 });
@@ -198,7 +198,7 @@ test("July 5 birthday Moments shows its photo, seven friends and exact replies",
     .click();
   const card = wx.locator('[data-post-id="wechat-birthday-20260705"]');
   await expect(card.locator(".wx-moment-caption")).toHaveText("🎂");
-  await expect(card.locator("small")).toHaveText("2026年7月5日");
+  await expect(card.locator("small")).toHaveText("2026年7月5日 00:00");
   const photo = card.locator(".wx-moment-photo img");
   await photo.scrollIntoViewIfNeeded();
   await expect(photo).toHaveAttribute("src", post.media);
@@ -233,6 +233,81 @@ test("July 5 birthday Moments shows its photo, seven friends and exact replies",
     "Matt💙：陪你過的第一個生日。",
     "Mingbo 回复 Matt💙：以后还有很多个呢",
   ]);
+});
+
+test("exclusive memory has three ordered photos, exact timestamp, like order and replies", async ({
+  page,
+  request,
+}) => {
+  const work = await (await request.get("/work.json")).json();
+  const photos = work.data.wechat
+    .filter(
+      (i: { meta: Record<string, string> }) =>
+        i.meta.momentId === "wechat-memory-20260706",
+    )
+    .sort(
+      (
+        a: { meta: Record<string, string> },
+        b: { meta: Record<string, string> },
+      ) => Number(a.meta.order) - Number(b.meta.order),
+    );
+  const post = work.data.wechat.find(
+    (i: { id: string }) => i.id === "wechat-memory-20260706",
+  );
+  expect(post.time).toBe("2026-07-06 15:20");
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.goto("/");
+  await page.getByRole("button", { name: "轻触解锁", exact: true }).click();
+  for (const n of "980705")
+    await page.getByRole("button", { name: "密码键" + n, exact: true }).click();
+  await page.getByRole("button", { name: "打开微信", exact: true }).click();
+  const wx = page.locator(".wechat-ui");
+  await expect(
+    wx.locator(".wx-chat-row").filter({ hasText: "独家记忆" }),
+  ).toHaveCount(0);
+  await wx.getByRole("button", { name: "我", exact: true }).click();
+  await wx
+    .locator(".wx-profile-menu")
+    .getByRole("button", { name: /朋友圈/ })
+    .click();
+  const card = wx.locator('[data-post-id="wechat-memory-20260706"]');
+  await expect(wx.locator(".wx-moment-post").first()).toHaveAttribute(
+    "data-post-id",
+    post.id,
+  );
+  await expect(card.locator(".wx-moment-caption")).toHaveText("独家记忆");
+  await expect(card.locator("small")).toHaveText("2026年7月6日 15:20");
+  await expect(card.locator(".wx-moment-gallery img")).toHaveCount(3);
+  const sources = [
+    post.media,
+    ...photos.map((p: { media: string }) => p.media),
+  ];
+  for (let n = 0; n < 3; n++) {
+    const photo = card.locator(".wx-moment-gallery img").nth(n);
+    await photo.scrollIntoViewIfNeeded();
+    await expect(photo).toHaveAttribute("src", sources[n]);
+    expect(
+      await photo.evaluate(
+        (i: HTMLImageElement) => i.complete && i.naturalWidth > 0,
+      ),
+    ).toBe(true);
+  }
+  await expect(card.getByLabel("点赞名单")).toHaveText(
+    "妈妈，Matt💙，🍔，爸爸，安子，大周，Dior 许",
+  );
+  await expect(card.locator(".wx-moment-comment")).toHaveText([
+    "妈妈：圆满完成！",
+    "Mingbo 回复 妈妈：开心！",
+    "Matt💙：Don't be shy.",
+    "Mingbo 回复 Matt💙：人老实话不多",
+  ]);
+  await card
+    .getByRole("button", { name: "查看朋友圈配图2", exact: true })
+    .click();
+  await expect(page.locator(".detail-content img")).toHaveAttribute(
+    "src",
+    sources[1],
+  );
 });
 
 test("Matt is pinned, has a separate nickname and shares Mingbo's Moments cover", async ({
