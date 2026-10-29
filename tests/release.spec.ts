@@ -12,8 +12,10 @@ test("published default matches full test preview, four dock apps and updated st
   expect({
     ...work.data,
     wechat: work.data.wechat.filter(
-      (i: { meta: Record<string, string> }) =>
-        i.meta.profile !== "true" && i.meta.contact !== "true",
+      (i: { meta: Record<string, string>; folder: string }) =>
+        i.meta.profile !== "true" &&
+        i.meta.contact !== "true" &&
+        i.folder !== "朋友圈",
     ),
   }).toEqual(preview.data);
   expect(
@@ -103,6 +105,69 @@ test("published default matches full test preview, four dock apps and updated st
     ),
   ).toBe(true);
   expect(errors).toEqual([]);
+});
+
+test("July 5 birthday Moments shows its photo, seven friends and exact replies", async ({
+  page,
+  request,
+}) => {
+  const work = await (await request.get("/work.json")).json();
+  const items = work.data.wechat;
+  const post = items.find(
+    (i: { id: string }) => i.id === "wechat-birthday-20260705",
+  );
+  expect(post.time).toBe("2026-07-05");
+  expect(post.body).toBe("🎂");
+  expect(post.likes).toBe(7);
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.goto("/");
+  await page.getByRole("button", { name: "轻触解锁", exact: true }).click();
+  for (const n of "980705")
+    await page.getByRole("button", { name: "密码键" + n, exact: true }).click();
+  await page.getByRole("button", { name: "打开微信", exact: true }).click();
+  const wx = page.locator(".wechat-ui");
+  await wx.getByRole("button", { name: "我", exact: true }).click();
+  await wx
+    .locator(".wx-profile-menu")
+    .getByRole("button", { name: /朋友圈/ })
+    .click();
+  const card = wx.locator('[data-post-id="wechat-birthday-20260705"]');
+  await expect(card.locator(".wx-moment-caption")).toHaveText("🎂");
+  await expect(card.locator("small")).toHaveText("2026年7月5日");
+  const photo = card.locator(".wx-moment-photo img");
+  await photo.scrollIntoViewIfNeeded();
+  await expect(photo).toHaveAttribute("src", post.media);
+  expect(
+    await photo.evaluate(
+      (i: HTMLImageElement) => i.complete && i.naturalWidth > 0,
+    ),
+  ).toBe(true);
+  const owner = items.find(
+    (i: { id: string }) => i.id === "wechat-owner-profile",
+  );
+  await expect(card.locator(".skin-avatar img")).toHaveAttribute(
+    "src",
+    owner.avatar,
+  );
+  await expect(wx.getByAltText("朋友圈背景")).toHaveAttribute(
+    "src",
+    owner.media,
+  );
+  const likerIds = JSON.parse(post.meta.likeContactIds);
+  expect(likerIds).toHaveLength(7);
+  for (const id of likerIds) {
+    const contact = items.find((i: { id: string }) => i.id === id);
+    expect(contact.meta.contact).toBe("true");
+    await expect(card.getByLabel("点赞名单")).toContainText(contact.title);
+  }
+  await expect(card.locator(".wx-moment-comment")).toHaveText([
+    "妈妈：生日快乐，宝贝！",
+    "Mingbo 回复 妈妈：谢谢妈妈带我来这个世界！",
+    "爸爸：生日快乐，儿子。",
+    "Mingbo 回复 爸爸：谢谢爸！",
+    "Matt💙：陪你過的第一個生日。",
+    "Mingbo 回复 Matt💙：以后还有很多个呢",
+  ]);
 });
 
 test("Matt is pinned, has a separate nickname and shares Mingbo's Moments cover", async ({

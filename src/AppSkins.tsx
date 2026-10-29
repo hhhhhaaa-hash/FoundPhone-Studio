@@ -151,6 +151,80 @@ function Compose({
     </div>
   );
 }
+function WeChatMomentPost({
+  item,
+  avatar,
+  contacts,
+  onItem,
+}: {
+  item: Item;
+  avatar?: string;
+  contacts: Item[];
+  onItem: (item: Item) => void;
+}) {
+  let likedBy: string[] = [];
+  try {
+    const ids: unknown = JSON.parse(item.meta.likeContactIds || "[]");
+    if (Array.isArray(ids))
+      likedBy = [...new Set(ids)]
+        .filter((id): id is string => typeof id === "string")
+        .map((id) => contacts.find((c) => c.id === id)?.title || "")
+        .filter(Boolean);
+  } catch {
+    /* Unconfigured posts retain the original count fallback. */
+  }
+  const date = /^(\d{4})-(\d{2})-(\d{2})$/.exec(item.time);
+  return (
+    <article className="wx-moment-post" data-post-id={item.id}>
+      <Avatar name={item.sender} src={item.avatar || avatar} />
+      <div>
+        <button className="wx-moment-text" onClick={() => onItem(item)}>
+          <strong>{item.sender}</strong>
+          <p className="wx-moment-caption">{item.body}</p>
+        </button>
+        {item.media && (
+          <button
+            className="wx-moment-photo"
+            aria-label="查看朋友圈配图"
+            onClick={() => onItem(item)}
+          >
+            <ItemMedia item={item} />
+          </button>
+        )}
+        <small>
+          {date
+            ? `${date[1]}年${Number(date[2])}月${Number(date[3])}日`
+            : item.time}
+        </small>
+        {(likedBy.length > 0 || item.likes > 0 || item.comments.length > 0) && (
+          <div className="wx-moment-reactions">
+            {(likedBy.length > 0 || item.likes > 0) && (
+              <div className="wx-moment-likes" aria-label="点赞名单">
+                <Heart size={13} />
+                {likedBy.length ? likedBy.join("，") : `${item.likes} 人赞过`}
+              </div>
+            )}
+            {item.comments.map((comment, index) => {
+              const split = comment.indexOf("：");
+              return (
+                <p className="wx-moment-comment" key={index}>
+                  {split >= 0 ? (
+                    <>
+                      <span>{comment.slice(0, split)}：</span>
+                      {comment.slice(split + 1)}
+                    </>
+                  ) : (
+                    comment
+                  )}
+                </p>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </article>
+  );
+}
 export function WeChatSkin(p: SkinProps) {
   const profile = p.items.find(
     (i) => i.folder === "我" && i.meta.profile === "true",
@@ -305,22 +379,13 @@ export function WeChatSkin(p: SkinProps) {
                   i.sender === activeContact.title,
               )
               .map((i) => (
-                <button
+                <WeChatMomentPost
                   key={i.id}
-                  className="wx-moment-post"
-                  onClick={() => p.onItem(i)}
-                >
-                  <Avatar
-                    name={activeContact.title}
-                    src={activeContact.avatar}
-                  />
-                  <div>
-                    <strong>{activeContact.title}</strong>
-                    <p>{i.body}</p>
-                    {i.media && <ItemMedia item={i} />}
-                    <small>{i.time}</small>
-                  </div>
-                </button>
+                  item={i}
+                  avatar={activeContact.avatar}
+                  contacts={contactProfiles}
+                  onItem={p.onItem}
+                />
               ))}
             {!posts.some(
               (i) =>
@@ -447,19 +512,17 @@ export function WeChatSkin(p: SkinProps) {
             )}
           </div>
           {posts.map((i) => (
-            <button
+            <WeChatMomentPost
               key={i.id}
-              className="wx-moment-post"
-              onClick={() => p.onItem(i)}
-            >
-              <Avatar name={i.sender} />
-              <div>
-                <strong>{i.sender}</strong>
-                <p>{i.body}</p>
-                {i.media && <ItemMedia item={i} />}
-                <small>{i.time}</small>
-              </div>
-            </button>
+              item={i}
+              avatar={
+                i.meta.authorId === "owner" || i.sender === profileName
+                  ? profile?.avatar
+                  : contactProfiles.find((c) => c.title === i.sender)?.avatar
+              }
+              contacts={contactProfiles}
+              onItem={p.onItem}
+            />
           ))}
           {!posts.length && <p className="skin-empty">暂无朋友圈动态</p>}
           {p.creator && (

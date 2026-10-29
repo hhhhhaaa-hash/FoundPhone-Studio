@@ -4147,6 +4147,60 @@ label {
   width: 100%;
   margin-top: 8px;
 }
+.wx-moment-post > div {
+  min-width: 0;
+}
+.wx-moment-post .skin-avatar img {
+  height: 100%;
+  margin-top: 0;
+}
+.wx-moment-photo {
+  display: block;
+  max-width: 220px;
+  padding: 0;
+  background: transparent;
+}
+.wx-moment-text {
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  text-align: left;
+}
+.wx-moment-photo img {
+  display: block;
+  height: auto;
+}
+.wx-moment-reactions {
+  margin-top: 10px;
+  background: #f3f3f5;
+  padding: 7px 9px;
+  border-radius: 3px;
+}
+.wx-moment-likes {
+  color: #576b95;
+  font-size: 12px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.wx-moment-likes svg {
+  vertical-align: -2px;
+  margin-right: 5px;
+}
+.wx-moment-post .wx-moment-comment {
+  margin-top: 2px;
+  font-size: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.wx-moment-likes + .wx-moment-comment {
+  border-top: 1px solid #e2e2e4;
+  padding-top: 5px;
+  margin-top: 5px;
+}
+.wx-moment-comment > span {
+  color: #576b95;
+}
 .skin-empty {
   padding: 35px 20px;
   text-align: center;
