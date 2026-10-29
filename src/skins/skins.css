@@ -3183,6 +3183,81 @@
   color: #fff;
   border-color: #292929;
 }
+.douyin-profile {
+  padding: 26px 18px;
+}
+.douyin-profile-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.douyin-profile-heading .catalog-avatar {
+  width: 76px;
+  height: 76px;
+}
+.douyin-profile h1 {
+  font-size: 23px;
+  margin: 0 0 8px;
+}
+.douyin-profile-heading p,
+.douyin-profile-location,
+.douyin-profile-updated {
+  font-size: 12px;
+  color: #aaa;
+}
+.douyin-profile-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 26px 0;
+}
+.douyin-profile-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.douyin-profile-stats strong {
+  font-size: 18px;
+}
+.douyin-profile-stats span {
+  color: #aaa;
+  font-size: 12px;
+}
+.douyin-profile-bio,
+.douyin-profile-location,
+.douyin-profile-updated {
+  margin: 10px 0;
+}
+.douyin-profile-source {
+  display: block;
+  text-align: center;
+  margin: 22px 0;
+  padding: 12px;
+  border-radius: 6px;
+  color: white;
+  background: #fe2c55;
+  text-decoration: none;
+}
+.douyin-profile h2 {
+  font-size: 16px;
+  padding: 18px 0 12px;
+  border-bottom: 1px solid #333;
+}
+.douyin-profile-empty {
+  text-align: center;
+  padding: 36px 0;
+  color: #999;
+  font-size: 12px;
+}
+.douyin-profile-works {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3px;
+}
+.douyin-profile-works img,
+.douyin-profile-works video {
+  width: 100%;
+}
 .douyin-top,
 .tiktok-top {
   display: flex;

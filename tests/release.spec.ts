@@ -11,6 +11,9 @@ test("published default matches full test preview, four dock apps and updated st
   expect(work.apps).toEqual(preview.apps);
   expect({
     ...work.data,
+    douyin: work.data.douyin.filter(
+      (i: { meta: Record<string, string> }) => i.meta.profile !== "true",
+    ),
     wechat: work.data.wechat.filter(
       (i: { meta: Record<string, string>; folder: string }) =>
         i.meta.profile !== "true" &&
@@ -105,6 +108,68 @@ test("published default matches full test preview, four dock apps and updated st
     ),
   ).toBe(true);
   expect(errors).toEqual([]);
+});
+
+test("renamed friends stay linked to birthday likes and Douyin displays its public account snapshot", async ({
+  page,
+  request,
+}) => {
+  const work = await (await request.get("/work.json")).json();
+  const wxItems = work.data.wechat;
+  const expected = [
+    ["wechat-linyuan-profile", "安子"],
+    ["wechat-zhouyu-profile", "大周"],
+    ["wechat-xuzhixia-profile", "Dior 许"],
+  ];
+  const birthday = wxItems.find(
+    (i: { id: string }) => i.id === "wechat-birthday-20260705",
+  );
+  for (const [id, title] of expected) {
+    expect(wxItems.find((i: { id: string }) => i.id === id).title).toBe(title);
+    expect(JSON.parse(birthday.meta.likeContactIds)).toContain(id);
+  }
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.goto("/");
+  await page.getByRole("button", { name: "轻触解锁", exact: true }).click();
+  for (const n of "980705")
+    await page.getByRole("button", { name: "密码键" + n, exact: true }).click();
+  await page.getByRole("button", { name: "打开抖音", exact: true }).click();
+  const dy = page.locator(".douyin-ui");
+  await expect(dy.locator(".douyin-profile")).toHaveCount(0);
+  await dy
+    .locator(".catalog-tabs")
+    .getByRole("button", { name: "我", exact: true })
+    .click();
+  await expect(dy.locator(".douyin-profile h1")).toHaveText("章明伯");
+  await expect(
+    dy.getByText("抖音号：Mingbo619", { exact: true }),
+  ).toBeVisible();
+  await expect(dy.locator(".douyin-profile-stats")).toContainText("257.0万");
+  await expect(dy.locator(".douyin-profile-stats")).toContainText("16.1万");
+  const avatar = dy.locator(".douyin-profile-heading img");
+  expect(
+    await avatar.evaluate(
+      (i: HTMLImageElement) => i.complete && i.naturalWidth > 0,
+    ),
+  ).toBe(true);
+  const link = dy.getByRole("link", { name: "在抖音查看主页", exact: true });
+  await expect(link).toHaveAttribute(
+    "href",
+    /^https:\/\/www\.douyin\.com\/user\//,
+  );
+  await expect(link).toHaveAttribute("rel", "noopener noreferrer");
+  await expect(
+    dy.getByText("作品暂未导入，可前往抖音查看。", { exact: true }),
+  ).toBeVisible();
+  await dy
+    .locator(".catalog-tabs")
+    .getByRole("button", { name: "推荐", exact: true })
+    .click();
+  await expect(dy.locator(".vertical-video")).toHaveCount(
+    work.data.douyin.filter(
+      (i: { meta: Record<string, string> }) => i.meta.profile !== "true",
+    ).length,
+  );
 });
 
 test("July 5 birthday Moments shows its photo, seven friends and exact replies", async ({

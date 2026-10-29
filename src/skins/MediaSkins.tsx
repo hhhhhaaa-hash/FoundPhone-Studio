@@ -401,27 +401,108 @@ function VerticalVideo({ p, item }: { p: Props; item: Item }) {
 }
 export function DouyinSkin(p: Props) {
   const { tab, setTab, items } = useContent(p, "推荐");
-  const list = tab === "推荐" ? items : items.filter((i) => i.folder === tab);
+  const profile = p.items.find(
+    (i) => i.folder === "个人主页" && i.meta.profile === "true",
+  );
+  const videos = items.filter((i) => i !== profile);
+  const list = tab === "推荐" ? videos : videos.filter((i) => i.folder === tab);
+  const works = videos.filter((i) => ["我", "个人主页"].includes(i.folder));
+  let sourceUrl = "";
+  try {
+    const url = new URL(profile?.meta.sourceUrl || "");
+    if (
+      url.protocol === "https:" &&
+      ["www.douyin.com", "www.iesdouyin.com", "v.douyin.com"].includes(
+        url.hostname,
+      )
+    )
+      sourceUrl = url.href;
+  } catch {
+    /* A profile without a source URL remains usable offline. */
+  }
   return (
     <div className="catalog-skin douyin-ui">
       <Header p={p} />
-      <div className="douyin-top">
-        {["同城", "关注", "推荐"].map((t) => (
-          <button
-            className={tab === t ? "selected" : ""}
-            key={t}
-            onClick={() => setTab(t)}
-          >
-            {t}
-          </button>
-        ))}
-      </div>
-      <div className="vertical-feed">
-        {list.map((i) => (
-          <VerticalVideo key={i.id} p={p} item={i} />
-        ))}
-        <Empty items={list} />
-      </div>
+      {tab === "我" && profile ? (
+        <div className="catalog-scroll douyin-profile">
+          <div className="douyin-profile-heading">
+            <Avatar name={profile.title} src={profile.avatar} />
+            <div>
+              <h1>{profile.title}</h1>
+              <p>抖音号：{profile.meta.handle || "未设置"}</p>
+            </div>
+          </div>
+          <div className="douyin-profile-stats">
+            {[
+              ["获赞", "totalLikes"],
+              ["关注", "following"],
+              ["粉丝", "followers"],
+              ["作品", "works"],
+            ].map(([label, key]) => (
+              <div key={key}>
+                <strong>{profile.meta[key] || "—"}</strong>
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+          {profile.body && <p className="douyin-profile-bio">{profile.body}</p>}
+          {profile.meta.location && (
+            <p className="douyin-profile-location">
+              IP属地：{profile.meta.location}
+            </p>
+          )}
+          {profile.meta.importedAt && (
+            <p className="douyin-profile-updated">
+              资料更新于 {profile.meta.importedAt}
+            </p>
+          )}
+          {sourceUrl && (
+            <a
+              className="douyin-profile-source"
+              href={sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              在抖音查看主页
+            </a>
+          )}
+          <h2>作品</h2>
+          {works.length ? (
+            <div className="douyin-profile-works">
+              {works.map((i) => (
+                <button key={i.id} onClick={() => p.onItem(i)}>
+                  <Media item={i} />
+                  <span>{i.title}</span>
+                </button>
+              ))}
+            </div>
+          ) : (
+            <p className="douyin-profile-empty">
+              作品暂未导入，可前往抖音查看。
+            </p>
+          )}
+        </div>
+      ) : (
+        <>
+          <div className="douyin-top">
+            {["同城", "关注", "推荐"].map((t) => (
+              <button
+                className={tab === t ? "selected" : ""}
+                key={t}
+                onClick={() => setTab(t)}
+              >
+                {t}
+              </button>
+            ))}
+          </div>
+          <div className="vertical-feed">
+            {list.map((i) => (
+              <VerticalVideo key={i.id} p={p} item={i} />
+            ))}
+            <Empty items={list} />
+          </div>
+        </>
+      )}
       <Tabs
         tabs={["推荐", "关注", "我"]}
         value={tab}
@@ -542,4 +623,3 @@ export function NetflixSkin(p: Props) {
     </div>
   );
 }
-
