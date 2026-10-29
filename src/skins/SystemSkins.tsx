@@ -46,7 +46,14 @@ export function PhoneSkin(p: Props) {
   const { tab, setTab, q, setQ, items } = useContent(p, "最近通话");
   const [digits, setDigits] = useState(""),
     [call, setCall] = useState("");
-  const list = tab === "收藏" ? items.filter((i) => i.favorite) : items;
+  const list = (tab === "收藏" ? items.filter((i) => i.favorite) : items)
+    .slice()
+    .sort((a, b) => b.time.localeCompare(a.time));
+  const contacts = (p.contacts ?? []).filter((i) =>
+    (i.title + i.body + Object.values(i.meta).join(" "))
+      .toLowerCase()
+      .includes(q.toLowerCase()),
+  );
   return (
     <div className="catalog-skin native-phone">
       <Header p={p} />
@@ -96,6 +103,14 @@ export function PhoneSkin(p: Props) {
               删除
             </button>
           </div>
+        ) : tab === "通讯录" ? (
+          <>
+            <SearchBox value={q} set={setQ} />
+            <ContactList
+              p={{ ...p, items: p.contacts ?? [] }}
+              items={contacts}
+            />
+          </>
         ) : (
           <>
             <SearchBox value={q} set={setQ} />
@@ -111,9 +126,10 @@ export function PhoneSkin(p: Props) {
                   <small>
                     {meta(i, "number", i.sender)} ·{" "}
                     {meta(i, "status", "通话记录")}
+                    {meta(i, "label") && ` · ${meta(i, "label")}`}
                   </small>
                 </span>
-                <time>{i.time.slice(5, 10)}</time>
+                <time>{i.time.slice(5)}</time>
               </button>
             ))}
             <Empty items={list} />
@@ -148,38 +164,48 @@ export function ContactsSkin(p: Props) {
       <div className="catalog-scroll">
         <h1>通讯录</h1>
         <SearchBox value={q} set={setQ} />
-        <button
-          className="contact-self"
-          onClick={() => {
-            if (items[0]) p.onItem(items[0]);
-            else if (p.creator) p.onAdd();
-          }}
-        >
-          <Avatar name={p.owner ?? "我"} />
-          <span>
-            <strong>{p.owner ?? "我的名片"}</strong>
-            <small>我的名片</small>
-          </span>
-        </button>
-        {groupItems(items, "所有联系人").map((g) => (
-          <section key={g}>
-            <h4 className="native-section">{g}</h4>
-            {items
-              .filter((i) => (i.folder || "所有联系人") === g)
-              .sort((a, b) => a.title.localeCompare(b.title, "zh-CN"))
-              .map((i) => (
-                <Row
-                  key={i.id}
-                  item={i}
-                  onItem={p.onItem}
-                  leading={<Avatar name={i.title} />}
-                />
-              ))}
-          </section>
-        ))}
+        <ContactList p={p} items={items} />
         <Empty items={items} />
       </div>
     </div>
+  );
+}
+function ContactList({ p, items }: { p: Props; items: Item[] }) {
+  const self = p.items.find((i) => meta(i, "self") === "true");
+  const contacts = items.filter((i) => meta(i, "self") !== "true");
+  return (
+    <>
+      <button
+        className="contact-self"
+        onClick={() => {
+          if (self) p.onItem(self);
+          else if (p.creator) p.onAdd();
+        }}
+      >
+        <Avatar name={self?.title ?? p.owner ?? "我"} src={self?.avatar} />
+        <span>
+          <strong>{self?.title ?? p.owner ?? "我的名片"}</strong>
+          <small>我的名片</small>
+          {self && <small>{meta(self, "phone")}</small>}
+        </span>
+      </button>
+      {groupItems(contacts, "所有联系人").map((g) => (
+        <section key={g}>
+          <h4 className="native-section">{g}</h4>
+          {contacts
+            .filter((i) => (i.folder || "所有联系人") === g)
+            .sort((a, b) => a.title.localeCompare(b.title, "zh-CN"))
+            .map((i) => (
+              <Row
+                key={i.id}
+                item={i}
+                onItem={p.onItem}
+                leading={<Avatar name={i.title} src={i.avatar} />}
+              />
+            ))}
+        </section>
+      ))}
+    </>
   );
 }
 export function PhotosSkin(p: Props) {

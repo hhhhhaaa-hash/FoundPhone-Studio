@@ -993,6 +993,13 @@ function AppContent({
               onUi={creator ? undefined : onUi}
               name={name}
               items={shown}
+              contacts={
+                app.id === "phone"
+                  ? (work.data.contacts ?? []).filter(
+                      (i) => creator || visible(i, state),
+                    )
+                  : undefined
+              }
               creator={creator}
               onRead={onRead}
               onItem={read}

@@ -1,4 +1,72 @@
 import { test, expect } from "@playwright/test";
+test("phone shares contacts and own card, separates missed calls, and service SMS opens by sender", async ({
+  page,
+  request,
+}) => {
+  const work = await (await request.get("/work.json")).json();
+  expect(work.data.phone).toHaveLength(12);
+  expect(
+    work.data.phone.filter(
+      (i: { meta: Record<string, string> }) => i.meta.status === "未接",
+    ),
+  ).toHaveLength(5);
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.goto("/");
+  await page.getByRole("button", { name: "轻触解锁", exact: true }).click();
+  for (const d of "980705")
+    await page.getByRole("button", { name: "密码键" + d, exact: true }).click();
+  await page.getByRole("button", { name: "打开电话", exact: true }).click();
+  const phone = page.locator(".native-phone");
+  await expect(phone.locator(".call-row")).toHaveCount(12);
+  await expect(phone.locator(".call-row").first()).toContainText("顺丰快递 李");
+  await expect(phone.locator(".call-row.missed")).toHaveCount(5);
+  await expect(
+    phone.locator(".call-row.missed").filter({ hasText: "贷款营销" }),
+  ).toContainText("未接");
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/recent-calls.png" });
+  await phone.getByRole("button", { name: "通讯录", exact: true }).click();
+  const rows = phone.locator(".catalog-row");
+  await expect(rows).toHaveCount(17);
+  await expect(phone.locator(".call-row")).toHaveCount(0);
+  await phone.locator(".contact-self").click();
+  await expect(page.locator(".native-contact-hero h1")).toHaveText("Mingbo");
+  await expect(page.locator(".native-detail-group .native-blue")).toHaveText(
+    "+86 199 0000 0705",
+  );
+  await page.getByRole("button", { name: "返回", exact: true }).click();
+  const mother = work.data.contacts.find(
+    (i: { title: string }) => i.title === "妈妈",
+  );
+  await phone
+    .getByRole("textbox", { name: "搜索", exact: true })
+    .fill(mother.meta.phone);
+  await expect(rows).toHaveCount(1);
+  await expect(rows).toContainText("妈妈");
+  await rows.click();
+  await expect(page.locator(".native-detail-group .native-blue")).toHaveText(
+    mother.meta.phone,
+  );
+  await page.getByRole("button", { name: "返回桌面", exact: true }).click();
+  await page.getByRole("button", { name: "打开信息", exact: true }).click();
+  const sms = page.locator(".native-messages");
+  await expect(sms.locator(".catalog-chat")).toHaveCount(5);
+  await sms.getByRole("button", { name: "未读", exact: true }).click();
+  await expect(sms.locator(".catalog-chat")).toHaveCount(2);
+  await sms.getByRole("button", { name: "全部", exact: true }).click();
+  await sms
+    .locator(".catalog-chat")
+    .filter({ has: page.getByText("顺丰速运", { exact: true }) })
+    .click();
+  await expect(sms.locator(".catalog-message")).toHaveCount(2);
+  await expect(sms.locator(".catalog-message").last()).toContainText(
+    "取件码 07-0528",
+  );
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/service-sms.png" });
+});
 test("published default matches full test preview, four dock apps and updated status bar", async ({
   page,
   request,
@@ -11,7 +79,14 @@ test("published default matches full test preview, four dock apps and updated st
   expect(work.apps).toEqual(preview.apps);
   expect({
     ...work.data,
-    contacts: work.data.contacts.filter((i: { id: string }) => !i.id.startsWith("phone-person-")),
+    phone: preview.data.phone,
+    messages: work.data.messages.filter(
+      (i: { id: string }) => !i.id.startsWith("service-sms-"),
+    ),
+    contacts: work.data.contacts.filter(
+      (i: { id: string }) =>
+        !i.id.startsWith("phone-person-") && i.id !== "phone-owner-card",
+    ),
     douyin: work.data.douyin.filter(
       (i: { meta: Record<string, string> }) => i.meta.profile !== "true",
     ),
@@ -202,7 +277,7 @@ test("July 5 birthday Moments shows its photo, all authored friends and exact re
   await expect(card.locator("small")).toHaveText("2026年7月5日 00:00");
   const photo = card.locator(".wx-moment-photo img");
   await photo.scrollIntoViewIfNeeded();
-    await photo.evaluate((img: HTMLImageElement) => img.decode());
+  await photo.evaluate((img: HTMLImageElement) => img.decode());
   await expect(photo).toHaveAttribute("src", post.media);
   expect(
     await photo.evaluate(
@@ -222,7 +297,15 @@ test("July 5 birthday Moments shows its photo, all authored friends and exact re
   );
   const likerIds = JSON.parse(post.meta.likeContactIds);
   expect(likerIds).toHaveLength(49);
-  expect(new Set(likerIds)).toEqual(new Set(items.filter((i: { meta: Record<string,string> }) => i.meta.contact === "true").map((i: { id: string }) => i.id)));
+  expect(new Set(likerIds)).toEqual(
+    new Set(
+      items
+        .filter(
+          (i: { meta: Record<string, string> }) => i.meta.contact === "true",
+        )
+        .map((i: { id: string }) => i.id),
+    ),
+  );
   for (const id of likerIds) {
     const contact = items.find((i: { id: string }) => i.id === id);
     expect(contact.meta.contact).toBe("true");
@@ -296,7 +379,9 @@ test("exclusive memory has three ordered photos, exact timestamp, like order and
       ),
     ).toBe(true);
   }
-  await expect(card.getByLabel("点赞名单")).toContainText("妈妈，Matt💙，🍔，爸爸，安子，大周，Dior 许");
+  await expect(card.getByLabel("点赞名单")).toContainText(
+    "妈妈，Matt💙，🍔，爸爸，安子，大周，Dior 许",
+  );
   await expect(card.getByLabel("点赞名单")).toContainText("陆li");
   await expect(card.locator(".wx-moment-comment")).toHaveText([
     "妈妈：圆满完成！",

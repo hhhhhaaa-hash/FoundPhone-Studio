@@ -18,6 +18,8 @@
 
 测试step支持event/target、password、advanceMs、choose。测试是指定路径的可达性证据，不是对任意用户自定义条件的数学穷举证明。未知密码、隐藏内容、悬空引用、无测试结局会失败。
 
+电话 App 的“通讯录”与独立通讯录 App 共用 `data.contacts`，并遵守原有内容可见性规则。机主名片可在 `content.contacts` 添加一条记录，设置 `meta.self: "true"` 和 `meta.phone`；姓名使用该记录的 `title`。通话记录继续放在 `content.phone`，支持 `meta.number`、`meta.phone`（详情号码）、`meta.status`（`未接` 显示红色）、`meta.label` 和 `meta.duration`，按 `time` 倒序显示。服务短信放在 `content.messages`，相同 `title` 归入同一会话，按会话内消息时间顺序编写。
+
 媒体仅支持safeMedia允许的内嵌data URL格式。禁止HTML/JS脚本；富文本为安全结构化JSON。作品脚本是公开静态数据，谜题密码不属于安全保密机制。
 
 使用校验、测试和构建 CLI 时，`media` 与 `avatar` 也可填写 `asset:media/文件名.jpg`，素材放在脚本所在目录的 `media/` 下。仅支持 JPG、PNG、GIF、WebP，单张不超过10MB；路径不能越界，也不能引用远程地址或脚本。CLI 会在调用编译器前将其转换为原有安全 data URL，因此发布后的玩家不依赖额外的素材请求，原有内嵌媒体继续兼容。直接调用编译器的工具应先调用 `scripts/story-media.mjs` 的 `resolveStoryMedia`。

@@ -40,6 +40,7 @@ export type SkinProps = {
   virtualTime?: string;
   name: string;
   items: Item[];
+  contacts?: Item[];
   creator: boolean;
   onRead: (id: string) => void;
   onItem: (i: Item) => void;

@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 12,
+  "revision": 13,
   "phone": {
     "owner": "机主",
     "date": "2026-10-25",
@@ -340,12 +340,208 @@
   "content": {
     "phone": [
       {
-        "id": "test-item-phone",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "recent-call-1",
+        "title": "顺丰快递 李",
+        "time": "2026-10-25 09:26",
+        "kind": "call",
+        "body": "来电 · 已接 · 通话时长 00:38",
+        "outgoing": false,
+        "read": true,
+        "favorite": false,
+        "meta": {
+          "number": "+86 199 0000 3132",
+          "phone": "+86 199 0000 3132",
+          "status": "已接",
+          "label": "来电",
+          "duration": "00:38"
+        }
+      },
+      {
+        "id": "recent-call-2",
+        "title": "妈妈",
+        "time": "2026-10-25 08:55",
+        "kind": "call",
+        "body": "去电 · 已拨 · 通话时长 12:16",
+        "outgoing": true,
+        "read": true,
+        "favorite": true,
+        "meta": {
+          "number": "+86 199 0000 3844",
+          "phone": "+86 199 0000 3844",
+          "status": "已拨",
+          "label": "去电",
+          "duration": "12:16"
+        }
+      },
+      {
+        "id": "recent-call-3",
+        "title": "+86 199 0000 5831",
+        "time": "2026-10-25 08:42",
+        "kind": "call",
+        "body": "陌生号码 · 未接",
+        "outgoing": false,
+        "read": false,
+        "favorite": false,
+        "meta": {
+          "number": "+86 199 0000 5831",
+          "phone": "+86 199 0000 5831",
+          "status": "未接",
+          "label": "陌生号码",
+          "duration": ""
+        }
+      },
+      {
+        "id": "recent-call-4",
+        "title": "中戏 郭老师",
+        "time": "2026-10-24 19:18",
+        "kind": "call",
+        "body": "来电 · 已接 · 通话时长 06:42",
+        "outgoing": false,
+        "read": true,
+        "favorite": false,
+        "meta": {
+          "number": "+86 199 0000 2004",
+          "phone": "+86 199 0000 2004",
+          "status": "已接",
+          "label": "来电",
+          "duration": "06:42"
+        }
+      },
+      {
+        "id": "recent-call-5",
+        "title": "+86 199 0000 7246",
+        "time": "2026-10-24 17:03",
+        "kind": "call",
+        "body": "疑似骚扰 · 广告推销 · 未接",
+        "outgoing": false,
+        "read": false,
+        "favorite": false,
+        "meta": {
+          "number": "+86 199 0000 7246",
+          "phone": "+86 199 0000 7246",
+          "status": "未接",
+          "label": "疑似骚扰 · 广告推销",
+          "duration": ""
+        }
+      },
+      {
+        "id": "recent-call-6",
+        "title": "Matthew",
+        "time": "2026-10-24 16:40",
+        "kind": "call",
+        "body": "去电 · 已拨 · 通话时长 23:08",
+        "outgoing": true,
+        "read": true,
+        "favorite": true,
+        "meta": {
+          "number": "+86 199 0000 9523",
+          "phone": "+86 199 0000 9523",
+          "status": "已拨",
+          "label": "去电",
+          "duration": "23:08"
+        }
+      },
+      {
+        "id": "recent-call-7",
+        "title": "顺丰快递 李",
+        "time": "2026-10-24 14:12",
+        "kind": "call",
+        "body": "来电 · 未接",
+        "outgoing": false,
+        "read": false,
+        "favorite": false,
+        "meta": {
+          "number": "+86 199 0000 3132",
+          "phone": "+86 199 0000 3132",
+          "status": "未接",
+          "label": "来电",
+          "duration": ""
+        }
+      },
+      {
+        "id": "recent-call-8",
+        "title": "+86 199 0000 6380",
+        "time": "2026-10-24 12:36",
+        "kind": "call",
+        "body": "疑似骚扰 · 贷款营销 · 未接",
+        "outgoing": false,
+        "read": false,
+        "favorite": false,
+        "meta": {
+          "number": "+86 199 0000 6380",
+          "phone": "+86 199 0000 6380",
+          "status": "未接",
+          "label": "疑似骚扰 · 贷款营销",
+          "duration": ""
+        }
+      },
+      {
+        "id": "recent-call-9",
+        "title": "爸爸",
+        "time": "2026-10-23 20:15",
+        "kind": "call",
+        "body": "来电 · 已接 · 通话时长 08:27",
+        "outgoing": false,
+        "read": true,
+        "favorite": true,
+        "meta": {
+          "number": "+86 199 0000 2914",
+          "phone": "+86 199 0000 2914",
+          "status": "已接",
+          "label": "来电",
+          "duration": "08:27"
+        }
+      },
+      {
+        "id": "recent-call-10",
+        "title": "中戏 郭老师",
+        "time": "2026-10-23 15:08",
+        "kind": "call",
+        "body": "去电 · 已拨 · 通话时长 03:56",
+        "outgoing": true,
+        "read": true,
+        "favorite": false,
+        "meta": {
+          "number": "+86 199 0000 2004",
+          "phone": "+86 199 0000 2004",
+          "status": "已拨",
+          "label": "去电",
+          "duration": "03:56"
+        }
+      },
+      {
+        "id": "recent-call-11",
+        "title": "+86 199 0000 4572",
+        "time": "2026-10-23 10:24",
+        "kind": "call",
+        "body": "陌生号码 · 未接",
+        "outgoing": false,
+        "read": false,
+        "favorite": false,
+        "meta": {
+          "number": "+86 199 0000 4572",
+          "phone": "+86 199 0000 4572",
+          "status": "未接",
+          "label": "陌生号码",
+          "duration": ""
+        }
+      },
+      {
+        "id": "recent-call-12",
+        "title": "经纪人 陈姐",
+        "time": "2026-10-22 18:32",
+        "kind": "call",
+        "body": "来电 · 已接 · 通话时长 04:21",
+        "outgoing": false,
+        "read": true,
+        "favorite": false,
+        "meta": {
+          "number": "+86 199 0000 7072",
+          "phone": "+86 199 0000 7072",
+          "status": "已接",
+          "label": "来电",
+          "duration": "04:21"
+        }
       }
     ],
     "contacts": [
@@ -356,6 +552,15 @@
         "sender": "测试用户",
         "kind": "text",
         "meta": {}
+      },
+      {
+        "id": "phone-owner-card",
+        "title": "Mingbo",
+        "body": "我的手机号码（作品虚构号码）。",
+        "meta": {
+          "self": "true",
+          "phone": "+86 199 0000 0705"
+        }
       }
     ],
     "photos": [
@@ -1364,6 +1569,116 @@
         "folder": "通讯录",
         "meta": {
           "contact": "true"
+        }
+      }
+    ],
+    "messages": [
+      {
+        "id": "service-sms-1",
+        "title": "顺丰速运",
+        "sender": "顺丰速运",
+        "time": "2026-10-24 14:13",
+        "body": "【顺丰速运】您的包裹 SF000026102501 正在派送，快递员李师傅刚刚联系过您，请留意来电。",
+        "read": true,
+        "meta": {
+          "category": "生活服务",
+          "recipient": "+86 199 0000 0705"
+        }
+      },
+      {
+        "id": "service-sms-2",
+        "title": "顺丰速运",
+        "sender": "顺丰速运",
+        "time": "2026-10-25 09:28",
+        "body": "【顺丰速运】您的包裹 SF000026102501 已放至门口快递柜，取件码 07-0528。快递员：李师傅。感谢您的信任，祝您生活愉快！",
+        "read": false,
+        "meta": {
+          "category": "生活服务",
+          "recipient": "+86 199 0000 0705"
+        }
+      },
+      {
+        "id": "service-sms-3",
+        "title": "美团外卖",
+        "sender": "美团外卖",
+        "time": "2026-10-24 18:02",
+        "body": "【美团外卖】您的晚餐订单已接单：番茄牛腩饭×1、冰柠檬茶×1。商家正在准备，预计18:40送达。",
+        "read": true,
+        "meta": {
+          "category": "生活服务",
+          "recipient": "+86 199 0000 0705"
+        }
+      },
+      {
+        "id": "service-sms-4",
+        "title": "美团外卖",
+        "sender": "美团外卖",
+        "time": "2026-10-24 18:31",
+        "body": "【美团外卖】骑手已取餐，正在送往您的地址。您备注的“不放香菜、饮料少冰”已转达商家。",
+        "read": true,
+        "meta": {
+          "category": "生活服务",
+          "recipient": "+86 199 0000 0705"
+        }
+      },
+      {
+        "id": "service-sms-5",
+        "title": "美团外卖",
+        "sender": "美团外卖",
+        "time": "2026-10-24 18:39",
+        "body": "【美团外卖】您的餐品已送达，放在前台外卖架左侧。请及时取餐，祝您用餐愉快！",
+        "read": true,
+        "meta": {
+          "category": "生活服务",
+          "recipient": "+86 199 0000 0705"
+        }
+      },
+      {
+        "id": "service-sms-6",
+        "title": "菜鸟驿站",
+        "sender": "菜鸟驿站",
+        "time": "2026-10-23 16:08",
+        "body": "【菜鸟驿站】您的快递已到达小区驿站，取件码 3-2-0715。营业时间09:00—21:00，请方便时领取。",
+        "read": true,
+        "meta": {
+          "category": "生活服务",
+          "recipient": "+86 199 0000 0705"
+        }
+      },
+      {
+        "id": "service-sms-7",
+        "title": "菜鸟驿站",
+        "sender": "菜鸟驿站",
+        "time": "2026-10-24 10:10",
+        "body": "【菜鸟驿站】温馨提醒：尾号0705的收件人，您还有1件包裹待领取，取件码3-2-0715。",
+        "read": true,
+        "meta": {
+          "category": "生活服务",
+          "recipient": "+86 199 0000 0705"
+        }
+      },
+      {
+        "id": "service-sms-8",
+        "title": "饿了么",
+        "sender": "饿了么",
+        "time": "2026-10-22 12:06",
+        "body": "【饿了么】您的订单已支付成功：鲜虾云吞面×1、热豆浆×1，预计12:35送达。",
+        "read": true,
+        "meta": {
+          "category": "生活服务",
+          "recipient": "+86 199 0000 0705"
+        }
+      },
+      {
+        "id": "service-sms-9",
+        "title": "饿了么",
+        "sender": "饿了么",
+        "time": "2026-10-22 12:33",
+        "body": "【饿了么】外卖已送达。餐品放在门口置物架，请趁热享用！",
+        "read": true,
+        "meta": {
+          "category": "生活服务",
+          "recipient": "+86 199 0000 0705"
         }
       }
     ]
