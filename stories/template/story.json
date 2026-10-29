@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 10,
+  "revision": 11,
   "phone": {
     "owner": "机主",
     "date": "2026-10-25",
@@ -855,16 +855,20 @@
         "id": "wechat-trip-20260811",
         "title": "迈向幸福",
         "sender": "Mingbo",
-        "body": "迈向幸福 🇹🇭",
+        "body": "迈向幸福",
         "kind": "post",
         "folder": "朋友圈",
         "time": "2026-08-11 18:28",
         "media": "asset:media/thailand-20260811-1.jpg",
         "meta": {
-          "authorId": "owner"
+          "authorId": "owner",
+          "likeContactIds": "[\"wechat-mom-profile\",\"wechat-dad-profile\",\"wechat-xuzhixia-profile\",\"wechat-matt-profile\",\"wechat-burger-profile\",\"wechat-linyuan-profile\",\"wechat-zhouyu-profile\"]"
         },
-        "likes": 0,
-        "comments": []
+        "likes": 7,
+        "comments": [
+          "Matt💙：依舊雨神。",
+          "Mingbo 回复 Matt💙：予神在此！"
+        ]
       },
       {
         "id": "wechat-trip-20260811-photo-2",
