@@ -12,8 +12,8 @@ test("published default matches full test preview, four dock apps and updated st
   expect({
     ...work.data,
     wechat: work.data.wechat.filter(
-      (i: { id: string }) =>
-        !["wechat-owner-profile", "wechat-matt-profile"].includes(i.id),
+      (i: { meta: Record<string, string> }) =>
+        i.meta.profile !== "true" && i.meta.contact !== "true",
     ),
   }).toEqual(preview.data);
   expect(
