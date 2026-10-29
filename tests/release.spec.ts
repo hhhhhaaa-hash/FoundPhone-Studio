@@ -273,7 +273,7 @@ test("exclusive memory has three ordered photos, exact timestamp, like order and
   const card = wx.locator('[data-post-id="wechat-memory-20260706"]');
   await expect(wx.locator(".wx-moment-post").first()).toHaveAttribute(
     "data-post-id",
-    post.id,
+    "wechat-trip-20260811",
   );
   await expect(card.locator(".wx-moment-caption")).toHaveText("独家记忆");
   await expect(card.locator("small")).toHaveText("2026年7月6日 15:20");

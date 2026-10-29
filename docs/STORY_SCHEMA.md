@@ -20,4 +20,6 @@
 
 媒体仅支持safeMedia允许的内嵌data URL格式。禁止HTML/JS脚本；富文本为安全结构化JSON。作品脚本是公开静态数据，谜题密码不属于安全保密机制。
 
+使用校验、测试和构建 CLI 时，`media` 与 `avatar` 也可填写 `asset:media/文件名.jpg`，素材放在脚本所在目录的 `media/` 下。仅支持 JPG、PNG、GIF、WebP，单张不超过10MB；路径不能越界，也不能引用远程地址或脚本。CLI 会在调用编译器前将其转换为原有安全 data URL，因此发布后的玩家不依赖额外的素材请求，原有内嵌媒体继续兼容。直接调用编译器的工具应先调用 `scripts/story-media.mjs` 的 `resolveStoryMedia`。
+
 默认空白模板：stories/blank/story.json。引擎回归样例位于tests/fixtures/story-example，不作为内置作品。自然语言原稿：tests/fixtures/story-example/STORY.md。只改故事数据就能改变手机内容。

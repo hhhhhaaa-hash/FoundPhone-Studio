@@ -1,5 +1,6 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { createServer } from "vite";
+import { resolveStoryMedia } from "./story-media.mjs";
 const [
   mode = "validate",
   file = process.env.STORY_FILE || "stories/template/story.json",
@@ -81,7 +82,7 @@ try {
       source.slice(0, match.index + match[0].indexOf(match[1])).split("\n")
         .length - 1;
   }
-  const raw = JSON.parse(json);
+  const raw = await resolveStoryMedia(JSON.parse(json), file);
   const { compileStory, storySchema } = await server.ssrLoadModule(
     "/src/story-engine/compiler.ts",
   );
@@ -104,7 +105,10 @@ try {
     await mkdir("public", { recursive: true });
     await writeFile("public/work.json", JSON.stringify(work, null, 2) + "\n");
     const blank = compileStory(
-      JSON.parse(await readFile("stories/blank/story.json", "utf8")),
+      await resolveStoryMedia(
+        JSON.parse(await readFile("stories/blank/story.json", "utf8")),
+        "stories/blank/story.json",
+      ),
     ).work;
     await writeFile(
       "public/blank-work.json",
@@ -112,7 +116,10 @@ try {
     );
     {
       const preview = compileStory(
-        JSON.parse(await readFile("stories/test-preview/story.json", "utf8")),
+        await resolveStoryMedia(
+          JSON.parse(await readFile("stories/test-preview/story.json", "utf8")),
+          "stories/test-preview/story.json",
+        ),
       ).work;
       await writeFile(
         "public/test-work.json",

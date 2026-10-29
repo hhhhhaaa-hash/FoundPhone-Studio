@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 9,
+  "revision": 10,
   "phone": {
     "owner": "机主",
     "date": "2026-10-25",
@@ -849,6 +849,76 @@
         "meta": {
           "momentId": "wechat-memory-20260706",
           "order": "3"
+        }
+      },
+      {
+        "id": "wechat-trip-20260811",
+        "title": "迈向幸福",
+        "sender": "Mingbo",
+        "body": "迈向幸福 🇹🇭",
+        "kind": "post",
+        "folder": "朋友圈",
+        "time": "2026-08-11 18:28",
+        "media": "asset:media/thailand-20260811-1.jpg",
+        "meta": {
+          "authorId": "owner"
+        },
+        "likes": 0,
+        "comments": []
+      },
+      {
+        "id": "wechat-trip-20260811-photo-2",
+        "title": "迈向幸福 · 2",
+        "kind": "image",
+        "folder": "朋友圈配图",
+        "media": "asset:media/thailand-20260811-2.jpg",
+        "meta": {
+          "momentId": "wechat-trip-20260811",
+          "order": "2"
+        }
+      },
+      {
+        "id": "wechat-trip-20260811-photo-3",
+        "title": "迈向幸福 · 3",
+        "kind": "image",
+        "folder": "朋友圈配图",
+        "media": "asset:media/thailand-20260811-3.jpg",
+        "meta": {
+          "momentId": "wechat-trip-20260811",
+          "order": "3"
+        }
+      },
+      {
+        "id": "wechat-trip-20260811-photo-4",
+        "title": "迈向幸福 · 4",
+        "kind": "image",
+        "folder": "朋友圈配图",
+        "media": "asset:media/thailand-20260811-4.jpg",
+        "meta": {
+          "momentId": "wechat-trip-20260811",
+          "order": "4"
+        }
+      },
+      {
+        "id": "wechat-trip-20260811-photo-5",
+        "title": "迈向幸福 · 5",
+        "kind": "image",
+        "folder": "朋友圈配图",
+        "media": "asset:media/thailand-20260811-5.jpg",
+        "meta": {
+          "momentId": "wechat-trip-20260811",
+          "order": "5"
+        }
+      },
+      {
+        "id": "wechat-trip-20260811-photo-6",
+        "title": "迈向幸福 · 6",
+        "kind": "image",
+        "folder": "朋友圈配图",
+        "media": "asset:media/thailand-20260811-6.jpg",
+        "meta": {
+          "momentId": "wechat-trip-20260811",
+          "order": "6"
         }
       }
     ]
