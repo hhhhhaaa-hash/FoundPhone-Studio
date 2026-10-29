@@ -16,4 +16,6 @@ WeChat, WhatsApp and Instagram now have independent components in AppSkins.tsx, 
 
 ## 0.4 appearance
 
+WeChat's optional personal profile is a content item in `content.wechat` with `folder: "我"` and `meta.profile: "true"`. Set `title` to the nickname, `meta.wechatId` to the WeChat ID, `avatar` to a safe embedded image, and `media` to a safe embedded Moments cover image. This configuration item is excluded from personal menu entries and conversations. Without it, the original owner name, placeholder avatar, and cover remain available. The profile does not change other Apps' owner names.
+
 AppArtwork.tsx has code-redrawn app artwork. Do not call these official files or claim pixel fidelity. AppIcon keeps user-provided image/text overrides first. ios18.css sets canonical device-point metrics with uniform zoom; avoid adding per-viewport internal dimensions again. Keep brand/app skins separate from host Studio styling. Player-only root headers may be visually clipped; detail navigation remains available. BRAND_NOTICE.txt ships with Studio and exported players.

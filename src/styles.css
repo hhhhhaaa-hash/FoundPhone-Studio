@@ -4071,6 +4071,32 @@ label {
 .wx-moment-cover span {
   font-size: 16px;
 }
+.wx-moment-cover.has-photo {
+  position: relative;
+  height: 260px;
+}
+.wx-moment-cover-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.wx-moment-owner {
+  position: absolute;
+  right: 16px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.wx-moment-owner strong {
+  text-shadow: 0 1px 4px #000c;
+}
+.wx-moment-owner .skin-avatar {
+  width: 60px;
+  height: 60px;
+  border: 2px solid white;
+}
 .wx-moment-post {
   display: flex;
   align-items: flex-start;

@@ -152,6 +152,11 @@ function Compose({
   );
 }
 export function WeChatSkin(p: SkinProps) {
+  const profile = p.items.find(
+    (i) => i.folder === "我" && i.meta.profile === "true",
+  );
+  const profileName = profile?.title || p.owner || "机主";
+  const momentsCover = safeMedia(profile?.media || "");
   const [tab, setTab] = useState("微信"),
     [query, setQuery] = useState(""),
     [moments, setMoments] = useState(false),
@@ -287,9 +292,27 @@ export function WeChatSkin(p: SkinProps) {
         </>
       ) : moments ? (
         <div className="wx-moments">
-          <div className="wx-moment-cover">
-            <Camera size={32} />
-            <span>朋友圈</span>
+          <div
+            className={"wx-moment-cover" + (momentsCover ? " has-photo" : "")}
+          >
+            {momentsCover ? (
+              <img
+                className="wx-moment-cover-photo"
+                src={momentsCover}
+                alt="朋友圈背景"
+              />
+            ) : (
+              <>
+                <Camera size={32} />
+                <span>朋友圈</span>
+              </>
+            )}
+            {profile && (
+              <div className="wx-moment-owner">
+                <strong>{profileName}</strong>
+                <Avatar name={profileName} src={profile.avatar} />
+              </div>
+            )}
           </div>
           {posts.map((i) => (
             <button
@@ -419,10 +442,10 @@ export function WeChatSkin(p: SkinProps) {
           ) : (
             <>
               <div className="wx-profile">
-                <Avatar name={p.owner || "机主"} />
+                <Avatar name={profileName} src={profile?.avatar} />
                 <div>
-                  <h2>{p.owner || "机主"}</h2>
-                  <small>微信号：未设置</small>
+                  <h2>{profileName}</h2>
+                  <small>微信号：{profile?.meta.wechatId || "未设置"}</small>
                   <button
                     className="wx-profile-status"
                     onClick={() => setUtility("状态")}
@@ -460,7 +483,7 @@ export function WeChatSkin(p: SkinProps) {
                 })}
               </div>
               {p.items
-                .filter((i) => i.folder === "我")
+                .filter((i) => i.folder === "我" && i !== profile)
                 .map((i) => (
                   <button
                     className="wx-discovery"

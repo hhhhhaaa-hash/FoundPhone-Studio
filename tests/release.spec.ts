@@ -9,7 +9,12 @@ test("published default matches full test preview, four dock apps and updated st
   expect(work.phone.passcode).toBe("980705");
   expect(work.phone.wallpaper).toBe("custom-photo");
   expect(work.apps).toEqual(preview.apps);
-  expect(work.data).toEqual(preview.data);
+  expect({
+    ...work.data,
+    wechat: work.data.wechat.filter(
+      (i: { id: string }) => i.id !== "wechat-owner-profile",
+    ),
+  }).toEqual(preview.data);
   expect(
     work.apps.filter((a: { installed: boolean }) => a.installed),
   ).toHaveLength(49);
@@ -97,4 +102,48 @@ test("published default matches full test preview, four dock apps and updated st
     ),
   ).toBe(true);
   expect(errors).toEqual([]);
+});
+
+test("WeChat personal profile and Moments use authored images without leaking into chats", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.goto("/");
+  await page.getByRole("button", { name: "轻触解锁", exact: true }).click();
+  for (const digit of "980705")
+    await page
+      .getByRole("button", { name: "密码键" + digit, exact: true })
+      .click();
+  await page.getByRole("button", { name: "打开微信", exact: true }).click();
+  const wechat = page.locator(".wechat-ui");
+  await expect(wechat.getByText("Mingbo", { exact: true })).toHaveCount(0);
+  await wechat.getByRole("button", { name: "我", exact: true }).click();
+  await expect(wechat.locator(".wx-profile h2")).toHaveText("Mingbo");
+  await expect(wechat.locator(".wx-profile small")).toHaveText(
+    "微信号：Rick0705",
+  );
+  const avatar = wechat.locator(".wx-profile img");
+  const avatarSource = await avatar.getAttribute("src");
+  await expect(avatar).toHaveAttribute("src", /^data:image\/jpeg;base64,/);
+  expect(
+    await avatar.evaluate(
+      (img: HTMLImageElement) => img.complete && img.naturalWidth > 0,
+    ),
+  ).toBe(true);
+  await wechat
+    .locator(".wx-profile-menu")
+    .getByRole("button", { name: /朋友圈/ })
+    .click();
+  const cover = wechat.getByAltText("朋友圈背景");
+  await expect(cover).toBeVisible();
+  expect(
+    await cover.evaluate(
+      (img: HTMLImageElement) => img.complete && img.naturalWidth > 0,
+    ),
+  ).toBe(true);
+  await expect(wechat.locator(".wx-moment-owner strong")).toHaveText("Mingbo");
+  await expect(wechat.locator(".wx-moment-owner img")).toHaveAttribute(
+    "src",
+    avatarSource || "",
+  );
 });
