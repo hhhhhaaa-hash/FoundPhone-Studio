@@ -12,7 +12,8 @@ test("published default matches full test preview, four dock apps and updated st
   expect({
     ...work.data,
     wechat: work.data.wechat.filter(
-      (i: { id: string }) => i.id !== "wechat-owner-profile",
+      (i: { id: string }) =>
+        !["wechat-owner-profile", "wechat-matt-profile"].includes(i.id),
     ),
   }).toEqual(preview.data);
   expect(
@@ -102,6 +103,69 @@ test("published default matches full test preview, four dock apps and updated st
     ),
   ).toBe(true);
   expect(errors).toEqual([]);
+});
+
+test("Matt is pinned, has a separate nickname and shares Mingbo's Moments cover", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.goto("/");
+  await page.getByRole("button", { name: "轻触解锁", exact: true }).click();
+  for (const digit of "980705")
+    await page
+      .getByRole("button", { name: "密码键" + digit, exact: true })
+      .click();
+  await page.getByRole("button", { name: "打开微信", exact: true }).click();
+  const wx = page.locator(".wechat-ui");
+  const pinned = wx.locator(".wx-chat-row").first();
+  await expect(pinned).toHaveAttribute("data-pinned", "true");
+  await expect(pinned.locator("strong")).toHaveText("Matt💙");
+  const avatarSource = await pinned.locator("img").getAttribute("src");
+  expect(
+    await pinned
+      .locator("img")
+      .evaluate((i: HTMLImageElement) => i.complete && i.naturalWidth > 0),
+  ).toBe(true);
+  await pinned.click();
+  await expect(wx.locator(".skin-message")).toHaveCount(0);
+  await wx.getByRole("button", { name: "聊天详情", exact: true }).click();
+  await wx
+    .getByRole("button", { name: "查看Matt💙的资料", exact: true })
+    .click();
+  await expect(wx.locator(".wx-contact-profile h2")).toHaveText("Matt💙");
+  await expect(
+    wx.getByText("昵称：Matthew Han", { exact: true }),
+  ).toBeVisible();
+  await expect(wx.locator(".wx-contact-profile img")).toHaveAttribute(
+    "src",
+    avatarSource || "",
+  );
+  await wx.getByRole("button", { name: /朋友圈/ }).click();
+  await expect(wx.locator(".wx-moment-owner strong")).toHaveText("Matthew Han");
+  const coverSource = await wx.getByAltText("朋友圈背景").getAttribute("src");
+  expect(
+    await wx
+      .getByAltText("朋友圈背景")
+      .evaluate((i: HTMLImageElement) => i.complete && i.naturalWidth > 0),
+  ).toBe(true);
+  await wx.getByRole("button", { name: "返回", exact: true }).click();
+  await wx.getByRole("button", { name: "发消息", exact: true }).click();
+  await wx.getByRole("button", { name: "返回", exact: true }).click();
+  await wx.getByRole("button", { name: "通讯录", exact: true }).click();
+  await wx.locator(".wx-contact").filter({ hasText: "Matt💙" }).click();
+  await expect(
+    wx.getByText("昵称：Matthew Han", { exact: true }),
+  ).toBeVisible();
+  await wx.getByRole("button", { name: "返回", exact: true }).click();
+  await wx.getByRole("button", { name: "我", exact: true }).click();
+  await wx
+    .locator(".wx-profile-menu")
+    .getByRole("button", { name: /朋友圈/ })
+    .click();
+  await expect(wx.getByAltText("朋友圈背景")).toHaveAttribute(
+    "src",
+    coverSource || "",
+  );
 });
 
 test("WeChat personal profile and Moments use authored images without leaking into chats", async ({

@@ -157,6 +157,20 @@ export function WeChatSkin(p: SkinProps) {
   );
   const profileName = profile?.title || p.owner || "机主";
   const momentsCover = safeMedia(profile?.media || "");
+  const contactProfiles = p.items.filter(
+    (i) => i.folder === "通讯录" && i.meta.contact === "true",
+  );
+  const messageItems = p.items.filter(
+    (i) => !["朋友圈", "我", "通讯录"].includes(i.folder),
+  );
+  const [contactId, setContactId] = useState("");
+  const [contactMoments, setContactMoments] = useState(false);
+  const activeContact = contactProfiles.find((i) => i.id === contactId);
+  const activeCover = safeMedia(
+    activeContact?.meta.momentsCover === "owner"
+      ? profile?.media || ""
+      : activeContact?.media || "",
+  );
   const [tab, setTab] = useState("微信"),
     [query, setQuery] = useState(""),
     [moments, setMoments] = useState(false),
@@ -169,14 +183,21 @@ export function WeChatSkin(p: SkinProps) {
     [],
   );
   const conversations = [
-    ...new Set(
-      p.items
-        .filter((i) => !["朋友圈", "我"].includes(i.folder))
-        .map((i) => i.title),
-    ),
-  ];
+    ...new Set([...contactProfiles, ...messageItems].map((i) => i.title)),
+  ].sort(
+    (a, b) =>
+      Number(
+        contactProfiles.find((i) => i.title === b)?.meta.pinned === "true",
+      ) -
+      Number(
+        contactProfiles.find((i) => i.title === a)?.meta.pinned === "true",
+      ),
+  );
   const contacts = [
-    ...new Set(p.items.map((i) => i.sender).filter((s) => s !== "我")),
+    ...new Set([
+      ...contactProfiles.map((i) => i.title),
+      ...messageItems.map((i) => i.sender).filter((s) => s && s !== "我"),
+    ]),
   ];
   const posts = p.items.filter(
     (i) => i.folder === "朋友圈" || i.kind === "post",
@@ -186,45 +207,56 @@ export function WeChatSkin(p: SkinProps) {
       className="wechat-ui independent-skin"
       data-tab={tab}
       data-thread={!!p.thread}
-      data-moments={moments}
-      data-utility={!!utility}
+      data-moments={moments || contactMoments}
+      data-utility={!!utility || !!activeContact}
     >
       <div className="app-nav wx-nav">
         <button
-          aria-label={utility || p.thread || moments ? "返回" : "收藏"}
+          aria-label={
+            activeContact || utility || p.thread || moments ? "返回" : "收藏"
+          }
           onClick={() =>
-            utility
-              ? setUtility("")
-              : p.thread
-                ? p.onThread("")
-                : moments
-                  ? setMoments(false)
-                  : setUtility("收藏")
+            activeContact
+              ? contactMoments
+                ? setContactMoments(false)
+                : setContactId("")
+              : utility
+                ? setUtility("")
+                : p.thread
+                  ? p.onThread("")
+                  : moments
+                    ? setMoments(false)
+                    : setUtility("收藏")
           }
         >
-          {utility || p.thread || moments ? (
+          {activeContact || utility || p.thread || moments ? (
             <ChevronLeft size={22} />
           ) : (
             <Star size={22} />
           )}
         </button>
         <strong>
-          {utility ||
+          {(activeContact ? (contactMoments ? "朋友圈" : "详细资料") : "") ||
+            utility ||
             p.thread ||
             (moments ? "朋友圈" : tab === "微信" ? p.name : tab)}
         </strong>
-        <button
-          aria-label={
-            p.creator ? "新增内容" : p.thread ? "聊天详情" : "微信菜单"
-          }
-          onClick={
-            p.creator
-              ? p.onAdd
-              : () => (p.thread ? setUtility("聊天信息") : setMenu(!menu))
-          }
-        >
-          {p.thread ? <MoreHorizontal size={22} /> : <CirclePlus size={22} />}
-        </button>
+        {!activeContact ? (
+          <button
+            aria-label={
+              p.creator ? "新增内容" : p.thread ? "聊天详情" : "微信菜单"
+            }
+            onClick={
+              p.creator
+                ? p.onAdd
+                : () => (p.thread ? setUtility("聊天信息") : setMenu(!menu))
+            }
+          >
+            {p.thread ? <MoreHorizontal size={22} /> : <CirclePlus size={22} />}
+          </button>
+        ) : (
+          <span />
+        )}
       </div>
       {menu && (
         <div className="wx-popup-menu" role="menu">
@@ -244,13 +276,113 @@ export function WeChatSkin(p: SkinProps) {
           ))}
         </div>
       )}
-      {utility ? (
+      {activeContact ? (
+        contactMoments ? (
+          <div className="wx-moments wx-contact-moments">
+            <div
+              className={"wx-moment-cover" + (activeCover ? " has-photo" : "")}
+            >
+              {activeCover ? (
+                <img
+                  className="wx-moment-cover-photo"
+                  src={activeCover}
+                  alt="朋友圈背景"
+                />
+              ) : (
+                <Camera size={32} />
+              )}
+              <div className="wx-moment-owner">
+                <strong>
+                  {activeContact.meta.nickname || activeContact.title}
+                </strong>
+                <Avatar name={activeContact.title} src={activeContact.avatar} />
+              </div>
+            </div>
+            {posts
+              .filter(
+                (i) =>
+                  i.meta.contactId === activeContact.id ||
+                  i.sender === activeContact.title,
+              )
+              .map((i) => (
+                <button
+                  key={i.id}
+                  className="wx-moment-post"
+                  onClick={() => p.onItem(i)}
+                >
+                  <Avatar
+                    name={activeContact.title}
+                    src={activeContact.avatar}
+                  />
+                  <div>
+                    <strong>{activeContact.title}</strong>
+                    <p>{i.body}</p>
+                    {i.media && <ItemMedia item={i} />}
+                    <small>{i.time}</small>
+                  </div>
+                </button>
+              ))}
+            {!posts.some(
+              (i) =>
+                i.meta.contactId === activeContact.id ||
+                i.sender === activeContact.title,
+            ) && <p className="skin-empty">暂无朋友圈动态</p>}
+          </div>
+        ) : (
+          <div className="skin-scroll wx-contact-profile">
+            <div className="wx-profile">
+              <Avatar name={activeContact.title} src={activeContact.avatar} />
+              <div>
+                <h2>{activeContact.title}</h2>
+                <small>
+                  昵称：{activeContact.meta.nickname || activeContact.title}
+                </small>
+                {activeContact.meta.wechatId && (
+                  <small>微信号：{activeContact.meta.wechatId}</small>
+                )}
+              </div>
+            </div>
+            <button
+              className="wx-discovery"
+              onClick={() => setContactMoments(true)}
+            >
+              <ImageIcon size={20} />
+              朋友圈<span>›</span>
+            </button>
+            <button
+              className="wx-contact-message"
+              onClick={() => {
+                setContactId("");
+                p.onThread(activeContact.title);
+              }}
+            >
+              发消息
+            </button>
+          </div>
+        )
+      ) : utility ? (
         <div className="skin-scroll wx-utility">
           {utility === "聊天信息" && (
             <div className="wx-members">
+              {contactProfiles
+                .filter((i) => i.title === p.thread)
+                .map((i) => (
+                  <button
+                    key={i.id}
+                    aria-label={"查看" + i.title + "的资料"}
+                    onClick={() => {
+                      setUtility("");
+                      setContactMoments(false);
+                      setContactId(i.id);
+                    }}
+                  >
+                    <Avatar name={i.title} src={i.avatar} />
+                    <small>{i.title}</small>
+                  </button>
+                ))}
               {[
                 ...new Set(
-                  p.items
+                  messageItems
                     .filter((i) => i.title === p.thread)
                     .map((i) => i.sender),
                 ),
@@ -283,7 +415,7 @@ export function WeChatSkin(p: SkinProps) {
       ) : p.thread ? (
         <>
           <MessageList
-            items={p.items.filter((i) => i.title === p.thread)}
+            items={messageItems.filter((i) => i.title === p.thread)}
             creator={p.creator}
             onItem={p.onItem}
             onRead={p.onRead}
@@ -355,16 +487,24 @@ export function WeChatSkin(p: SkinProps) {
                 .filter(
                   (t) =>
                     t.includes(query) ||
-                    p.items.some(
+                    contactProfiles.some(
+                      (i) => i.title === t && i.meta.nickname?.includes(query),
+                    ) ||
+                    messageItems.some(
                       (i) => i.title === t && i.body.includes(query),
                     ),
                 )
                 .map((t) => {
-                  const list = p.items.filter((i) => i.title === t),
-                    last = list.at(-1)!;
+                  const list = messageItems.filter((i) => i.title === t),
+                    last = list.at(-1),
+                    contact = contactProfiles.find((i) => i.title === t),
+                    pinned = contact?.meta.pinned === "true";
                   return (
                     <button
-                      className="wx-chat-row"
+                      className={
+                        "wx-chat-row" + (pinned ? " wx-chat-pinned" : "")
+                      }
+                      data-pinned={pinned || undefined}
                       key={t}
                       onClick={() => {
                         setReadThreads((v) => (v.includes(t) ? v : [...v, t]));
@@ -373,7 +513,10 @@ export function WeChatSkin(p: SkinProps) {
                       }}
                     >
                       <span className="wx-chat-avatar">
-                        <Avatar name={t} src={last.avatar} />
+                        <Avatar
+                          name={t}
+                          src={contact?.avatar || last?.avatar}
+                        />
                         {!readThreads.includes(t) &&
                           list.some((i) => !i.read) && (
                             <b className="wx-unread">
@@ -383,9 +526,9 @@ export function WeChatSkin(p: SkinProps) {
                       </span>
                       <div>
                         <strong>{t}</strong>
-                        <p>{last.body}</p>
+                        <p>{last?.body || ""}</p>
                       </div>
-                      <time>{last.time.slice(-5)}</time>
+                      <time>{last?.time.slice(-5) || ""}</time>
                     </button>
                   );
                 })}
@@ -399,6 +542,12 @@ export function WeChatSkin(p: SkinProps) {
                   key={c}
                   className="wx-contact"
                   onClick={() => {
+                    const contact = contactProfiles.find((i) => i.title === c);
+                    if (contact) {
+                      setContactMoments(false);
+                      setContactId(contact.id);
+                      return;
+                    }
                     const item = p.items.find((i) => i.sender === c);
                     if (item) {
                       p.onThread(item.title);
@@ -408,7 +557,10 @@ export function WeChatSkin(p: SkinProps) {
                 >
                   <Avatar
                     name={c}
-                    src={p.items.find((i) => i.sender === c)?.avatar}
+                    src={
+                      contactProfiles.find((i) => i.title === c)?.avatar ||
+                      messageItems.find((i) => i.sender === c)?.avatar
+                    }
                   />
                   {c}
                 </button>
@@ -504,7 +656,7 @@ export function WeChatSkin(p: SkinProps) {
           )}
         </div>
       )}
-      {!p.thread && !moments && !utility && (
+      {!activeContact && !p.thread && !moments && !utility && (
         <nav className="wx-bottom">
           {[
             { label: "微信", icon: MessageCircle },

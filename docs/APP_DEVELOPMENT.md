@@ -16,6 +16,8 @@ WeChat, WhatsApp and Instagram now have independent components in AppSkins.tsx, 
 
 ## 0.4 appearance
 
+WeChat contacts can be authored as items with `folder: "通讯录"` and `meta.contact: "true"`. Use a stable item ID, `title` for the remark, `meta.nickname` for the display name, `avatar` for the embedded photo, and `meta.pinned: "true"` to pin the empty or populated conversation. `meta.momentsCover: "owner"` reuses the owner's cover; otherwise `media` provides a separate cover. These configuration items never render as messages. Contacts open a profile from the address book or chat details, with message and Moments navigation. Match future conversation titles to the remark; link Moments posts with `meta.contactId` or the remark in `sender`.
+
 WeChat's optional personal profile is a content item in `content.wechat` with `folder: "我"` and `meta.profile: "true"`. Set `title` to the nickname, `meta.wechatId` to the WeChat ID, `avatar` to a safe embedded image, and `media` to a safe embedded Moments cover image. This configuration item is excluded from personal menu entries and conversations. Without it, the original owner name, placeholder avatar, and cover remain available. The profile does not change other Apps' owner names.
 
 AppArtwork.tsx has code-redrawn app artwork. Do not call these official files or claim pixel fidelity. AppIcon keeps user-provided image/text overrides first. ios18.css sets canonical device-point metrics with uniform zoom; avoid adding per-viewport internal dimensions again. Keep brand/app skins separate from host Studio styling. Player-only root headers may be visually clipped; detail navigation remains available. BRAND_NOTICE.txt ships with Studio and exported players.

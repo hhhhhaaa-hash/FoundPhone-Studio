@@ -4071,6 +4071,24 @@ label {
 .wx-moment-cover span {
   font-size: 16px;
 }
+.wx-chat-row.wx-chat-pinned {
+  background: #f3f3f3;
+}
+.wx-contact-message {
+  width: 100%;
+  margin-top: 12px;
+  padding: 16px;
+  background: white;
+  color: #576b95;
+  font-weight: 600;
+}
+.wx-members > button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+}
 .wx-moment-cover.has-photo {
   position: relative;
   height: 260px;
