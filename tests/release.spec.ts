@@ -11,6 +11,7 @@ test("published default matches full test preview, four dock apps and updated st
   expect(work.apps).toEqual(preview.apps);
   expect({
     ...work.data,
+    contacts: work.data.contacts.filter((i: { id: string }) => !i.id.startsWith("phone-person-")),
     douyin: work.data.douyin.filter(
       (i: { meta: Record<string, string> }) => i.meta.profile !== "true",
     ),
@@ -172,7 +173,7 @@ test("renamed friends stay linked to birthday likes and Douyin displays its publ
   );
 });
 
-test("July 5 birthday Moments shows its photo, seven friends and exact replies", async ({
+test("July 5 birthday Moments shows its photo, all authored friends and exact replies", async ({
   page,
   request,
 }) => {
@@ -183,7 +184,7 @@ test("July 5 birthday Moments shows its photo, seven friends and exact replies",
   );
   expect(post.time).toBe("2026-07-05 00:00");
   expect(post.body).toBe("🎂");
-  expect(post.likes).toBe(7);
+  expect(post.likes).toBe(49);
   await page.setViewportSize({ width: 393, height: 852 });
   await page.goto("/");
   await page.getByRole("button", { name: "轻触解锁", exact: true }).click();
@@ -201,6 +202,7 @@ test("July 5 birthday Moments shows its photo, seven friends and exact replies",
   await expect(card.locator("small")).toHaveText("2026年7月5日 00:00");
   const photo = card.locator(".wx-moment-photo img");
   await photo.scrollIntoViewIfNeeded();
+    await photo.evaluate((img: HTMLImageElement) => img.decode());
   await expect(photo).toHaveAttribute("src", post.media);
   expect(
     await photo.evaluate(
@@ -219,7 +221,8 @@ test("July 5 birthday Moments shows its photo, seven friends and exact replies",
     owner.media,
   );
   const likerIds = JSON.parse(post.meta.likeContactIds);
-  expect(likerIds).toHaveLength(7);
+  expect(likerIds).toHaveLength(49);
+  expect(new Set(likerIds)).toEqual(new Set(items.filter((i: { meta: Record<string,string> }) => i.meta.contact === "true").map((i: { id: string }) => i.id)));
   for (const id of likerIds) {
     const contact = items.find((i: { id: string }) => i.id === id);
     expect(contact.meta.contact).toBe("true");
@@ -285,6 +288,7 @@ test("exclusive memory has three ordered photos, exact timestamp, like order and
   for (let n = 0; n < 3; n++) {
     const photo = card.locator(".wx-moment-gallery img").nth(n);
     await photo.scrollIntoViewIfNeeded();
+    await photo.evaluate((img: HTMLImageElement) => img.decode());
     await expect(photo).toHaveAttribute("src", sources[n]);
     expect(
       await photo.evaluate(
@@ -292,9 +296,8 @@ test("exclusive memory has three ordered photos, exact timestamp, like order and
       ),
     ).toBe(true);
   }
-  await expect(card.getByLabel("点赞名单")).toHaveText(
-    "妈妈，Matt💙，🍔，爸爸，安子，大周，Dior 许",
-  );
+  await expect(card.getByLabel("点赞名单")).toContainText("妈妈，Matt💙，🍔，爸爸，安子，大周，Dior 许");
+  await expect(card.getByLabel("点赞名单")).toContainText("陆li");
   await expect(card.locator(".wx-moment-comment")).toHaveText([
     "妈妈：圆满完成！",
     "Mingbo 回复 妈妈：开心！",
