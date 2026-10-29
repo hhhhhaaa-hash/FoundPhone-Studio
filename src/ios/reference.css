@@ -536,6 +536,17 @@
 .phone-shell.ios18 textarea {
   font-family: inherit;
 }
+.ios18 .wallpaper-custom-photo {
+  background: #202124 url("../assets/personal-wallpaper.jpg") center/cover no-repeat;
+}
+.ios18 .wallpaper-custom-photo .wallpaper-orb {
+  display: none;
+}
+.ios18 .wallpaper-custom-photo:not(.in-app) .status-bar,
+.ios18 .wallpaper-custom-photo .app-name {
+  color: white;
+  text-shadow: 0 1px 3px #0009;
+}
 .ios18 .wallpaper-apple-wwdc26 {
   background: #201947
     url("https://developer.apple.com/wwdc26/wallpaper/downloads/wwdc26-wallpaper-iphone.png")

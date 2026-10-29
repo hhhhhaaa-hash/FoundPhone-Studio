@@ -6,6 +6,8 @@ test("published default matches full test preview, four dock apps and updated st
   const work = await (await request.get("/work.json")).json();
   const preview = await (await request.get("/test-work.json")).json();
   expect(work.id).toBe("ui-test-phone-v2");
+  expect(work.phone.passcode).toBe("980705");
+  expect(work.phone.wallpaper).toBe("custom-photo");
   expect(work.apps).toEqual(preview.apps);
   expect(work.data).toEqual(preview.data);
   expect(
@@ -26,6 +28,17 @@ test("published default matches full test preview, four dock apps and updated st
     .locator(".phone-screen")
     .screenshot({ path: "docs/images/lock.png" });
   await page.getByRole("button", { name: "轻触解锁" }).click();
+  await expect(page.locator(".passcode-dots i")).toHaveCount(6);
+  for (const digit of "000000")
+    await page
+      .getByRole("button", { name: "密码键" + digit, exact: true })
+      .click();
+  await expect(page.getByText("密码不正确", { exact: true })).toBeVisible();
+  await expect(page.locator(".lock-screen")).toHaveCount(1);
+  for (const digit of "980705")
+    await page
+      .getByRole("button", { name: "密码键" + digit, exact: true })
+      .click();
   await expect(page.locator(".lock-screen")).toHaveCount(0);
   await expect(page.locator(".interactive-home")).toHaveCSS("opacity", "1");
   await expect(page.locator(".dock [data-home-key]")).toHaveCount(4);
@@ -42,11 +55,9 @@ test("published default matches full test preview, four dock apps and updated st
     .getByRole("button", { name: "打开App Store", exact: true })
     .click();
   await page.getByPlaceholder("搜索全部App").fill("X");
-  const x = page
-    .locator(".runtime-library-row")
-    .filter({
-      has: page.locator(".library-app-title strong", { hasText: /^X$/ }),
-    });
+  const x = page.locator(".runtime-library-row").filter({
+    has: page.locator(".library-app-title strong", { hasText: /^X$/ }),
+  });
   await expect(x.locator("[data-original-icon=twitter] img")).toHaveAttribute(
     "src",
     /twitter\.svg$/,
@@ -75,6 +86,10 @@ test("published default matches full test preview, four dock apps and updated st
     .screenshot({ path: "docs/images/settings.png" });
   await page.reload();
   await page.getByRole("button", { name: "轻触解锁" }).click();
+  for (const digit of "980705")
+    await page
+      .getByRole("button", { name: "密码键" + digit, exact: true })
+      .click();
   await expect(page.locator(".dock [data-home-key]")).toHaveCount(4);
   expect(
     await page.evaluate(
