@@ -5,6 +5,9 @@ test("phone shares contacts and own card, separates missed calls, and service SM
 }) => {
   const work = await (await request.get("/work.json")).json();
   expect(work.data.phone).toHaveLength(12);
+  expect(work.data.contacts.every((i: { body: string }) => i.body === "")).toBe(
+    true,
+  );
   expect(
     work.data.phone.filter(
       (i: { meta: Record<string, string> }) => i.meta.status === "未接",
@@ -48,10 +51,13 @@ test("phone shares contacts and own card, separates missed calls, and service SM
   await expect(page.locator(".native-detail-group .native-blue")).toHaveText(
     mother.meta.phone,
   );
+  await expect(
+    page.locator(".native-detail-group").getByText("备注", { exact: true }),
+  ).toHaveCount(0);
   await page.getByRole("button", { name: "返回桌面", exact: true }).click();
   await page.getByRole("button", { name: "打开信息", exact: true }).click();
   const sms = page.locator(".native-messages");
-  await expect(sms.locator(".catalog-chat")).toHaveCount(5);
+  await expect(sms.locator(".catalog-chat")).toHaveCount(8);
   await sms.getByRole("button", { name: "未读", exact: true }).click();
   await expect(sms.locator(".catalog-chat")).toHaveCount(2);
   await sms.getByRole("button", { name: "全部", exact: true }).click();
@@ -63,6 +69,20 @@ test("phone shares contacts and own card, separates missed calls, and service SM
   await expect(sms.locator(".catalog-message").last()).toContainText(
     "取件码 07-0528",
   );
+  for (const [sender, text] of [
+    ["菜鸟驿站", "快递已放在家门口"],
+    ["淘宝闪购", "【淘宝闪购】"],
+    ["DIOR迪奥", "秋日会员礼遇"],
+    ["巴黎世家", "新季精选"],
+    ["LOUIS VUITTON", "秋日精选礼遇"],
+  ]) {
+    await sms.getByRole("button", { name: "返回", exact: true }).click();
+    await sms
+      .locator(".catalog-chat")
+      .filter({ has: page.getByText(sender, { exact: true }) })
+      .click();
+    await expect(sms.locator(".catalog-bubbles")).toContainText(text);
+  }
   await page
     .locator(".phone-screen")
     .screenshot({ path: "outputs/release/service-sms.png" });
@@ -96,7 +116,13 @@ test("published default matches full test preview, four dock apps and updated st
         i.meta.contact !== "true" &&
         !["朋友圈", "朋友圈配图"].includes(i.folder),
     ),
-  }).toEqual(preview.data);
+  }).toEqual({
+    ...preview.data,
+    contacts: preview.data.contacts.map((i: { body: string }) => ({
+      ...i,
+      body: "",
+    })),
+  });
   expect(
     work.apps.filter((a: { installed: boolean }) => a.installed),
   ).toHaveLength(49);

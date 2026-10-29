@@ -129,10 +129,12 @@ export function NativeDetail({
             <small>手机</small>
             <p className="native-blue">{item.meta.phone || "未设置号码"}</p>
           </div>
-          <div className="native-detail-group">
-            <small>备注</small>
-            <p>{item.body}</p>
-          </div>
+          {item.body && (
+            <div className="native-detail-group">
+              <small>备注</small>
+              <p>{item.body}</p>
+            </div>
+          )}
           {call && (
             <div className="native-detail-group">
               <p>作品内模拟 · {item.title}</p>
