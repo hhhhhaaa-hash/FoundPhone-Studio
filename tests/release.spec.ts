@@ -1,4 +1,58 @@
 import { test, expect } from "@playwright/test";
+test("Netease profile shares WeChat avatar and playlist has seventeen ordered songs", async ({
+  page,
+  request,
+}) => {
+  const work = await (await request.get("/work.json")).json();
+  const owner = work.data.wechat.find(
+    (i: { id: string }) => i.id === "wechat-owner-profile",
+  );
+  const expected = [
+    "和你有关这一生",
+    "相依为命",
+    "独家记忆",
+    "Wonderful Tonight",
+    "此生不换",
+    "天下无双",
+    "葡萄成熟时",
+    "老派约会之必要",
+    "爱久见人心",
+    "千千阙歌",
+    "永不失联的爱",
+    "Yellow",
+    "交叉线",
+    "淤青",
+    "星星都亮了",
+    "我是一只鱼",
+    "泪桥",
+  ];
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.goto("/");
+  await page.getByRole("button", { name: "轻触解锁", exact: true }).click();
+  for (const n of "980705")
+    await page.getByRole("button", { name: "密码键" + n, exact: true }).click();
+  await page
+    .getByRole("button", { name: "打开网易云音乐", exact: true })
+    .click();
+  const app = page.locator(".netease-ui");
+  await app
+    .locator(".netease-shelves button")
+    .filter({ hasText: "和你有关这一生" })
+    .click();
+  await expect(app.locator(".netease-profile h2")).toHaveText("我真的是章明伯");
+  await expect(app.locator(".netease-profile img")).toHaveAttribute(
+    "src",
+    owner.avatar,
+  );
+  await app
+    .locator(".netease-profile img")
+    .evaluate((el: HTMLImageElement) => el.decode());
+  await expect(app.locator("h3")).toHaveText("和你有关这一生");
+  await expect(app.locator(".netease-track strong")).toHaveText(expected);
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/netease-playlist.png" });
+});
 test("old saved desktop adopts removed apps without losing widgets", async ({
   page,
   request,

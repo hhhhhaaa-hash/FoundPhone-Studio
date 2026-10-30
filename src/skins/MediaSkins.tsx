@@ -149,7 +149,11 @@ export function SpotifySkin(p: Props) {
   );
 }
 export function NeteaseSkin(p: Props) {
-  const { tab, setTab, q, setQ, items } = useContent(p, "发现");
+  const profile = p.items.find((i) => meta(i, "profile") === "true");
+  const { tab, setTab, q, setQ, items } = useContent(
+    { ...p, items: p.items.filter((i) => meta(i, "profile") !== "true") },
+    "发现",
+  );
   const [folder, setFolder] = useState(""),
     [track, setTrack] = useTrack(p, items);
   const list = folder
@@ -184,8 +188,11 @@ export function NeteaseSkin(p: Props) {
         ) : (
           <>
             <div className="netease-profile">
-              <Avatar name={p.owner ?? "我"} />
-              <h2>{p.owner ?? "我的音乐"}</h2>
+              <Avatar
+                name={profile?.title || p.owner || "我"}
+                src={profile?.avatar}
+              />
+              <h2>{profile?.title || p.owner || "我的音乐"}</h2>
             </div>
             <h3>{folder || "我的歌单"}</h3>
           </>
@@ -200,9 +207,11 @@ export function NeteaseSkin(p: Props) {
               <span>{n + 1}</span>
               <div>
                 <strong>{i.title}</strong>
-                <small>
-                  {i.sender} · {meta(i, "album")}
-                </small>
+                {(i.sender || meta(i, "album")) && (
+                  <small>
+                    {[i.sender, meta(i, "album")].filter(Boolean).join(" · ")}
+                  </small>
+                )}
               </div>
             </button>
             <button
