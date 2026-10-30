@@ -1,6 +1,6 @@
 import { NativeComposer } from "./DeviceSystem";
 import { useSkinState } from "./skinState";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import {
   ChevronLeft,
   Plus,
@@ -100,35 +100,42 @@ function MessageList({
   return (
     <div className={`skin-messages ${whatsapp ? "wa-wallpaper" : ""}`}>
       <div className="skin-date">{items[0]?.time.slice(0, 10)}</div>
-      {items.map((i) => (
-        <div
-          key={i.id}
-          className={`skin-message ${i.outgoing ? "outgoing" : ""}`}
-        >
-          {!whatsapp && !i.outgoing && (
-            <Avatar name={i.sender} src={i.avatar} />
+      {items.map((i, n) => (
+        <Fragment key={i.id}>
+          {n > 0 && i.time.slice(0, 10) !== items[n - 1].time.slice(0, 10) && (
+            <div className="skin-date">{i.time.slice(0, 10)}</div>
           )}
-          <button
-            className="skin-bubble"
-            onClick={() => (creator ? onItem(i) : onRead(i.id))}
+          <div
+            data-message-id={i.id}
+            className={`skin-message ${i.outgoing ? "outgoing" : ""}`}
           >
-            {["image", "audio", "video"].includes(i.kind) ? (
-              <ItemMedia item={i} />
-            ) : i.kind === "transfer" ? (
-              <div className="skin-transfer">
-                ¥ {i.body}
-                <small>转账记录 · 虚构</small>
-              </div>
-            ) : (
-              i.body
+            {!whatsapp && !i.outgoing && (
+              <Avatar name={i.sender} src={i.avatar} />
             )}
-            <small className={whatsapp ? undefined : "wx-message-time"}>
-              {i.time.slice(-5)}{" "}
-              {whatsapp && i.outgoing && <CheckCheck size={11} />}
-            </small>
-          </button>
-          {!whatsapp && i.outgoing && <Avatar name={i.sender} src={i.avatar} />}
-        </div>
+            <button
+              className={`skin-bubble${!whatsapp && i.kind === "image" ? " skin-image-bubble" : ""}`}
+              onClick={() => (creator ? onItem(i) : onRead(i.id))}
+            >
+              {["image", "audio", "video"].includes(i.kind) ? (
+                <ItemMedia item={i} />
+              ) : i.kind === "transfer" ? (
+                <div className="skin-transfer">
+                  ¥ {i.body}
+                  <small>转账记录 · 虚构</small>
+                </div>
+              ) : (
+                i.body
+              )}
+              <small className={whatsapp ? undefined : "wx-message-time"}>
+                {i.time.slice(-5)}{" "}
+                {whatsapp && i.outgoing && <CheckCheck size={11} />}
+              </small>
+            </button>
+            {!whatsapp && i.outgoing && (
+              <Avatar name={i.sender} src={i.avatar} />
+            )}
+          </div>
+        </Fragment>
       ))}
     </div>
   );
@@ -287,7 +294,10 @@ export function WeChatSkin(p: SkinProps) {
   const contacts = [
     ...new Set([
       ...contactProfiles.map((i) => i.title),
-      ...messageItems.map((i) => i.sender).filter((s) => s && s !== "我"),
+      ...messageItems
+        .filter((i) => !i.outgoing)
+        .map((i) => i.sender)
+        .filter((s) => s && s !== "我"),
     ]),
   ];
   const posts = p.items
@@ -502,7 +512,18 @@ export function WeChatSkin(p: SkinProps) {
       ) : p.thread ? (
         <>
           <MessageList
-            items={messageItems.filter((i) => i.title === p.thread)}
+            items={messageItems
+              .filter((i) => i.title === p.thread)
+              .map((i) => ({
+                ...i,
+                avatar:
+                  i.avatar ||
+                  (i.outgoing
+                    ? profile?.avatar
+                    : contactProfiles.find((c) => c.title === i.title)
+                        ?.avatar) ||
+                  "",
+              }))}
             creator={p.creator}
             onItem={p.onItem}
             onRead={p.onRead}

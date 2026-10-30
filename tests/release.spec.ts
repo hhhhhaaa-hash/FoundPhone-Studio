@@ -114,6 +114,7 @@ test("published default matches full test preview, four dock apps and updated st
       (i: { meta: Record<string, string>; folder: string }) =>
         i.meta.profile !== "true" &&
         i.meta.contact !== "true" &&
+        !i.meta.conversationId?.startsWith("wechat-mingbo-matt") &&
         !["朋友圈", "朋友圈配图"].includes(i.folder),
     ),
   }).toEqual({
@@ -446,7 +447,36 @@ test("Matt is pinned, has a separate nickname and shares Mingbo's Moments cover"
       .evaluate((i: HTMLImageElement) => i.complete && i.naturalWidth > 0),
   ).toBe(true);
   await pinned.click();
-  await expect(wx.locator(".skin-message")).toHaveCount(0);
+  await expect(wx.locator(".skin-message")).toHaveCount(83);
+  await expect(wx.locator(".skin-message.outgoing")).toHaveCount(46);
+  await expect(wx.locator(".skin-message:not(.outgoing)")).toHaveCount(37);
+  await expect(wx.locator(".skin-date")).toHaveCount(14);
+  await expect(wx.locator(".skin-date").first()).toHaveText("2026-08-27");
+  await expect(wx.locator(".skin-date").last()).toHaveText("2026-09-14");
+  await expect(wx.locator(".skin-message").first()).toHaveClass(/outgoing/);
+  await expect(wx.locator(".skin-message").last()).toContainText("咋呢");
+  await expect(
+    wx.locator(".skin-message:not(.outgoing) .skin-avatar img").first(),
+  ).toHaveAttribute("src", avatarSource || "");
+  await expect(wx.getByText("通话时长02:48:52", { exact: false })).toHaveCount(
+    1,
+  );
+  const photos = wx.locator(".skin-bubble > img");
+  await expect(photos).toHaveCount(7);
+  const imageBubble = wx.locator(".skin-image-bubble").first();
+  await expect(imageBubble).toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
+  await expect(imageBubble).toHaveCSS("padding", "0px");
+  for (const photo of await photos.all()) {
+    await photo.scrollIntoViewIfNeeded();
+    await photo.evaluate((img: HTMLImageElement) => img.decode());
+    expect(
+      await photo.evaluate((img: HTMLImageElement) => img.naturalWidth > 0),
+    ).toBe(true);
+  }
+  await wx.locator(".skin-message").first().scrollIntoViewIfNeeded();
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/matt-dialogue.png" });
   await wx.getByRole("button", { name: "聊天详情", exact: true }).click();
   await wx
     .getByRole("button", { name: "查看Matt💙的资料", exact: true })

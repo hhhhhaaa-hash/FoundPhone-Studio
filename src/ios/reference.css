@@ -228,6 +228,20 @@
 .ios18 .wechat-ui .skin-bubble:before {
   top: 13px;
 }
+.ios18 .wechat-ui .skin-message .skin-bubble.skin-image-bubble {
+  background: transparent;
+  padding: 0;
+  border: 0;
+  min-height: 0;
+}
+.ios18 .wechat-ui .skin-message .skin-bubble.skin-image-bubble:before {
+  display: none;
+}
+.ios18 .wechat-ui .skin-image-bubble img {
+  display: block;
+  margin: 0;
+  border-radius: 4px;
+}
 .ios18 .wechat-ui .skin-compose {
   min-height: 53px;
   height: 53px;
@@ -537,7 +551,8 @@
   font-family: inherit;
 }
 .ios18 .wallpaper-custom-photo {
-  background: #202124 url("../assets/personal-wallpaper.jpg") center/cover no-repeat;
+  background: #202124 url("../assets/personal-wallpaper.jpg") center/cover
+    no-repeat;
 }
 .ios18 .wallpaper-custom-photo .wallpaper-orb {
   display: none;

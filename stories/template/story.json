@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 14,
+  "revision": 15,
   "phone": {
     "owner": "机主",
     "date": "2026-10-25",
@@ -1569,6 +1569,1018 @@
         "folder": "通讯录",
         "meta": {
           "contact": "true"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-001",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-08-27 16:20",
+        "body": "[照片] 球场",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        },
+        "kind": "image",
+        "media": "asset:media/matt-chat-1.jpg"
+      },
+      {
+        "id": "wechat-matt-chat-002",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-08-27 16:20",
+        "body": "练！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-003",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-08-27 16:20",
+        "body": "看看臉",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-004",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-08-27 16:20",
+        "body": "不给看",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-005",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-08-27 16:20",
+        "body": "想你了",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-006",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-08-27 16:20",
+        "body": "那速回",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-007",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-08-27 16:20",
+        "body": "好",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-008",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-08-28 23:11",
+        "body": "通话时长02:48:52",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt",
+          "duration": "02:48:52"
+        },
+        "kind": "call"
+      },
+      {
+        "id": "wechat-matt-chat-009",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-08-28 23:11",
+        "body": "早點睡",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-010",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-08-30 18:20",
+        "body": "吃火锅吗？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-011",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-08-30 18:20",
+        "body": "吃",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-012",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-08-30 18:20",
+        "body": "走！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-013",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-02 14:44",
+        "body": "章采兒，要喝什麼嗎？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-014",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-02 14:44",
+        "body": "山鸡哥，我想喝奶茶！\n隆延茶铺吧\n山谷黄杏 冰 三分糖",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-015",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-02 14:44",
+        "body": "👌",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-016",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-03 14:20",
+        "body": "想不想去雁西湖！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-017",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-03 14:20",
+        "body": "想，没去過",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-018",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-03 14:20",
+        "body": "那我们后天吧！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-019",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-03 14:20",
+        "body": "OK",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-020",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-03 14:20",
+        "body": "dating day～",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-021",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-03 14:20",
+        "body": "期待",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-022",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-05 09:16",
+        "body": "起了吗",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-023",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-05 09:16",
+        "body": "嘿，小瞧我\n正在煮咖啡呢",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-024",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-05 09:16",
+        "body": "[表情] 小狗嘘",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        },
+        "kind": "image",
+        "media": "asset:media/matt-chat-2.jpg"
+      },
+      {
+        "id": "wechat-matt-chat-025",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-05 09:16",
+        "body": "昨晚睡得好嗎",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-026",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-05 09:16",
+        "body": "我靠我跟你说！\n我昨天梦到我在演邪剑仙，就是仙剑奇侠传里面那个大反派\n你看过这个电视剧吗",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-027",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-05 09:16",
+        "body": "等我给你找图",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-028",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-05 09:16",
+        "body": "[图片] 邪剑仙",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        },
+        "kind": "image",
+        "media": "asset:media/matt-chat-3.jpg"
+      },
+      {
+        "id": "wechat-matt-chat-029",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-05 09:16",
+        "body": "就这个",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-030",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-05 09:16",
+        "body": "沒看過，但好像蠻有名",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-031",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-05 09:16",
+        "body": "蛮好看的，等有空我们可以再看一遍\n我就记得我在梦里用这个超长指甲挖gelato吃",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-032",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-05 09:16",
+        "body": "那很方便了哈哈\n你還想吃嗎，我們今天可以去買",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-033",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-05 09:16",
+        "body": "好呀，等会儿看看",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-034",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-05 11:37",
+        "body": "gogogo出发喽～",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-035",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-05 11:37",
+        "body": "好",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-036",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-06 19:21",
+        "body": "我弟說過兩天請你吃飯，問你想吃點什麼",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-037",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-06 19:21",
+        "body": "吃什么都行呀\n听你们的安排",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-038",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-06 19:21",
+        "body": "[表情] 小狗",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        },
+        "kind": "image",
+        "media": "asset:media/matt-chat-4.jpg"
+      },
+      {
+        "id": "wechat-matt-chat-039",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-06 19:21",
+        "body": "那讓他找個特色一點的餐廳",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-040",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-06 19:21",
+        "body": "好～",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-041",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-07 15:34",
+        "body": "哇，你有看到fans做的应援吗？\n好牛",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-042",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-07 15:34",
+        "body": "很感動⋯",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-043",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-07 15:34",
+        "body": "我们看看哪天去打卡一下！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-044",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-07 15:34",
+        "body": "好，我去看看路線",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-045",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-07 15:34",
+        "body": "靠你了小香港！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-046",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-08 11:11",
+        "body": "今天穿黑T",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-047",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-08 11:11",
+        "body": "👌",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-048",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-10 10:48",
+        "body": "記得塗防晒，很晒",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-049",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-10 10:48",
+        "body": "yes sir！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-050",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-11 13:28",
+        "body": "我都需要带点啥呢？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-051",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-11 13:28",
+        "body": "不用管，我都帶了\n你人帶了就行",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-052",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-11 13:28",
+        "body": "哎呀\n幸总～\n好霸道～\n好喜欢～",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-053",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-11 13:28",
+        "body": "[表情] 我完全爱上你了",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        },
+        "kind": "image",
+        "media": "asset:media/matt-chat-5.jpg"
+      },
+      {
+        "id": "wechat-matt-chat-054",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-11 13:28",
+        "body": "現在才完全愛上我嗎",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-055",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-11 13:28",
+        "body": "我爱你没有保留～\n我爱你就到最后～",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-056",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-11 13:28",
+        "body": "好了跟我說一聲\n樓下等你\n別著急",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-057",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-11 13:28",
+        "body": "kisskiss",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-058",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-11 13:50",
+        "body": "大少爷驾到统统闪开！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-059",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-11 13:50",
+        "body": "嚴肅接駕",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-060",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-11 23:11",
+        "body": "記得泡泡腳，今天走路太多怕你腿酸",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-061",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-11 23:11",
+        "body": "还好啦，这点运动量\n洒洒水～",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-062",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-11 23:11",
+        "body": "渾身上下就嘴最硬",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-063",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-11 23:11",
+        "body": "[表情] 喂。",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        },
+        "kind": "image",
+        "media": "asset:media/matt-chat-6.jpg"
+      },
+      {
+        "id": "wechat-matt-chat-064",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-11 23:11",
+        "body": "聽話",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-065",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-12 22:31",
+        "body": "你弟弟好i啊\n感受到了久违的玩弄i人的快乐",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-066",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-12 22:31",
+        "body": "他比較不太愛交際",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-067",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-12 22:31",
+        "body": "比逗你好玩点",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-068",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-12 22:31",
+        "body": "？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-069",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-12 22:31",
+        "body": "咋了嘛",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-070",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-12 22:31",
+        "body": "我現在就上去找你",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-071",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-12 22:31",
+        "body": "哥！！！\n明天还有见面会！！！\n哥我错了…\n你最好玩，不是，你最好了！！！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-072",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-12 22:31",
+        "body": "。",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-073",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-13 09:41",
+        "body": "咖啡送到我房间了，你等下记得来拿",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-074",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-13 09:41",
+        "body": "ok",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-075",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-14 07:13",
+        "body": "[表情] 困",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        },
+        "kind": "image",
+        "media": "asset:media/matt-chat-7.jpg"
+      },
+      {
+        "id": "wechat-matt-chat-076",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-14 07:13",
+        "body": "困…\n我走喽小香港",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-077",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-14 09:44",
+        "body": "好\n落地發個消息",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-078",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-14 10:49",
+        "body": "异地恋模式开启",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-079",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-14 10:49",
+        "body": "已經在想你了",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-080",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-14 10:49",
+        "body": "哇塞，我一走你嘴这么甜？？\n不管你是谁，请待在幸卓辉身上别下来",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-081",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-14 10:49",
+        "body": "⋯\n那你愛我還是ta",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-082",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-14 10:49",
+        "body": "？\n这也能吃醋啊？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-chat-083",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-14 10:49",
+        "body": "咋呢",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
         }
       }
     ],
