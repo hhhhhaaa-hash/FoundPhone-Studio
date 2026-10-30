@@ -1,6 +1,7 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { createServer } from "vite";
 import { resolveStoryMedia } from "./story-media.mjs";
+import { publishPhotoMedia } from "./publish-photo-media.mjs";
 const [
   mode = "validate",
   file = process.env.STORY_FILE || "stories/template/story.json",
@@ -103,7 +104,8 @@ try {
     );
   } else if (mode === "build") {
     await mkdir("public", { recursive: true });
-    await writeFile("public/work.json", JSON.stringify(work, null, 2) + "\n");
+    const published = await publishPhotoMedia(work, "public");
+    await writeFile("public/work.json", JSON.stringify(published, null, 2) + "\n");
     const blank = compileStory(
       await resolveStoryMedia(
         JSON.parse(await readFile("stories/blank/story.json", "utf8")),

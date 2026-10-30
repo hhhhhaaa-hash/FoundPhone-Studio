@@ -1,4 +1,56 @@
 import { test, expect } from "@playwright/test";
+test("photo library contains all 35 supplied photos in order and opens the album and full image", async ({
+  page,
+  request,
+}) => {
+  const work = await (await request.get("/work.json")).json();
+  const photos = work.data.photos.filter((i: { id: string }) =>
+    i.id.startsWith("album-20261030-"),
+  );
+  expect(photos).toHaveLength(35);
+  expect(
+    photos.map((i: { meta: Record<string, string> }) => Number(i.meta.order)),
+  ).toEqual(Array.from({ length: 35 }, (_, n) => n + 1));
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.goto("/");
+  await page.getByRole("button", { name: "轻触解锁", exact: true }).click();
+  for (const n of "980705")
+    await page.getByRole("button", { name: "密码键" + n, exact: true }).click();
+  await page.getByRole("button", { name: "打开相册", exact: true }).click();
+  const gallery = page.locator(".native-photos");
+  await expect(gallery.locator(".photo-mosaic img")).toHaveCount(35);
+  for (const photo of await gallery.locator(".photo-mosaic img").all()) {
+    await photo.scrollIntoViewIfNeeded();
+    await photo.evaluate((img: HTMLImageElement) => img.decode());
+    expect(
+      await photo.evaluate((img: HTMLImageElement) => img.naturalWidth > 0),
+    ).toBe(true);
+  }
+  await gallery.getByRole("button", { name: "相簿", exact: true }).click();
+  await gallery
+    .locator(".album-grid button")
+    .filter({ has: page.getByText("生活相册", { exact: true }) })
+    .click();
+  await expect(gallery.locator(".photo-mosaic button")).toHaveCount(35);
+  await gallery
+    .getByRole("button", { name: "查看照片 01", exact: true })
+    .click();
+  const full = page.locator(".native-photo-stage img");
+  await expect(full).toHaveAttribute("src", photos[0].media);
+  await full.evaluate((img: HTMLImageElement) => img.decode());
+  await expect(full).toBeVisible();
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/album-photo.png" });
+  await page.getByRole("button", { name: "返回", exact: true }).click();
+  await gallery
+    .locator(".photo-mosaic button")
+    .first()
+    .scrollIntoViewIfNeeded();
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/album-grid.png" });
+});
 test("phone shares contacts and own card, separates missed calls, and service SMS opens by sender", async ({
   page,
   request,
@@ -99,6 +151,9 @@ test("published default matches full test preview, four dock apps and updated st
   expect(work.apps).toEqual(preview.apps);
   expect({
     ...work.data,
+    photos: work.data.photos.filter(
+      (i: { id: string }) => !i.id.startsWith("album-20261030-"),
+    ),
     phone: preview.data.phone,
     messages: work.data.messages.filter(
       (i: { id: string }) => !i.id.startsWith("service-sms-"),

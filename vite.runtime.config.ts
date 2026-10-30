@@ -22,6 +22,22 @@ export default defineConfig(({ command }) => ({
         clientsClaim: true,
         globPatterns: ["**/*.{js,css,html,svg,json,txt,png,jpg}"],
         maximumFileSizeToCacheInBytes: 4000000,
+        globIgnores: ["**/story-media/**"],
+        runtimeCaching: [
+          {
+            urlPattern: ({ url, sameOrigin }) =>
+              sameOrigin &&
+              /\/story-media\/[a-f0-9]{64}\.(jpg|png|gif|webp)$/.test(
+                url.pathname,
+              ),
+            handler: "CacheFirst",
+            options: {
+              cacheName: "foundphone-gallery",
+              expiration: { maxEntries: 100, maxAgeSeconds: 30 * 24 * 60 * 60 },
+              cacheableResponse: { statuses: [200] },
+            },
+          },
+        ],
       },
     }),
   ],

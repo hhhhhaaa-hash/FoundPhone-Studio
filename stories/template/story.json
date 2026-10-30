@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 16,
+  "revision": 17,
   "phone": {
     "owner": "机主",
     "date": "2026-10-25",
@@ -571,6 +571,426 @@
         "sender": "测试用户",
         "kind": "text",
         "meta": {}
+      },
+      {
+        "id": "album-20261030-01",
+        "title": "照片 01",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-01.jpg",
+        "meta": {
+          "order": "1"
+        }
+      },
+      {
+        "id": "album-20261030-02",
+        "title": "照片 02",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-02.jpg",
+        "meta": {
+          "order": "2"
+        }
+      },
+      {
+        "id": "album-20261030-03",
+        "title": "照片 03",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-03.jpg",
+        "meta": {
+          "order": "3"
+        }
+      },
+      {
+        "id": "album-20261030-04",
+        "title": "照片 04",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-04.jpg",
+        "meta": {
+          "order": "4"
+        }
+      },
+      {
+        "id": "album-20261030-05",
+        "title": "照片 05",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-05.jpg",
+        "meta": {
+          "order": "5"
+        }
+      },
+      {
+        "id": "album-20261030-06",
+        "title": "照片 06",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-06.jpg",
+        "meta": {
+          "order": "6"
+        }
+      },
+      {
+        "id": "album-20261030-07",
+        "title": "照片 07",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-07.jpg",
+        "meta": {
+          "order": "7"
+        }
+      },
+      {
+        "id": "album-20261030-08",
+        "title": "照片 08",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-08.jpg",
+        "meta": {
+          "order": "8"
+        }
+      },
+      {
+        "id": "album-20261030-09",
+        "title": "照片 09",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-09.jpg",
+        "meta": {
+          "order": "9"
+        }
+      },
+      {
+        "id": "album-20261030-10",
+        "title": "照片 10",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-10.jpg",
+        "meta": {
+          "order": "10"
+        }
+      },
+      {
+        "id": "album-20261030-11",
+        "title": "照片 11",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-11.jpg",
+        "meta": {
+          "order": "11"
+        }
+      },
+      {
+        "id": "album-20261030-12",
+        "title": "照片 12",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-12.jpg",
+        "meta": {
+          "order": "12"
+        }
+      },
+      {
+        "id": "album-20261030-13",
+        "title": "照片 13",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-13.jpg",
+        "meta": {
+          "order": "13"
+        }
+      },
+      {
+        "id": "album-20261030-14",
+        "title": "照片 14",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-14.jpg",
+        "meta": {
+          "order": "14"
+        }
+      },
+      {
+        "id": "album-20261030-15",
+        "title": "照片 15",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-15.jpg",
+        "meta": {
+          "order": "15"
+        }
+      },
+      {
+        "id": "album-20261030-16",
+        "title": "照片 16",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-16.jpg",
+        "meta": {
+          "order": "16"
+        }
+      },
+      {
+        "id": "album-20261030-17",
+        "title": "照片 17",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-17.jpg",
+        "meta": {
+          "order": "17"
+        }
+      },
+      {
+        "id": "album-20261030-18",
+        "title": "照片 18",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-18.jpg",
+        "meta": {
+          "order": "18"
+        }
+      },
+      {
+        "id": "album-20261030-19",
+        "title": "照片 19",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-19.jpg",
+        "meta": {
+          "order": "19"
+        }
+      },
+      {
+        "id": "album-20261030-20",
+        "title": "照片 20",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-20.jpg",
+        "meta": {
+          "order": "20"
+        }
+      },
+      {
+        "id": "album-20261030-21",
+        "title": "照片 21",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-21.jpg",
+        "meta": {
+          "order": "21"
+        }
+      },
+      {
+        "id": "album-20261030-22",
+        "title": "照片 22",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-22.jpg",
+        "meta": {
+          "order": "22"
+        }
+      },
+      {
+        "id": "album-20261030-23",
+        "title": "照片 23",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-23.jpg",
+        "meta": {
+          "order": "23"
+        }
+      },
+      {
+        "id": "album-20261030-24",
+        "title": "照片 24",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-24.jpg",
+        "meta": {
+          "order": "24"
+        }
+      },
+      {
+        "id": "album-20261030-25",
+        "title": "照片 25",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-25.jpg",
+        "meta": {
+          "order": "25"
+        }
+      },
+      {
+        "id": "album-20261030-26",
+        "title": "照片 26",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-26.jpg",
+        "meta": {
+          "order": "26"
+        }
+      },
+      {
+        "id": "album-20261030-27",
+        "title": "照片 27",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-27.jpg",
+        "meta": {
+          "order": "27"
+        }
+      },
+      {
+        "id": "album-20261030-28",
+        "title": "照片 28",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-28.jpg",
+        "meta": {
+          "order": "28"
+        }
+      },
+      {
+        "id": "album-20261030-29",
+        "title": "照片 29",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-29.jpg",
+        "meta": {
+          "order": "29"
+        }
+      },
+      {
+        "id": "album-20261030-30",
+        "title": "照片 30",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-30.jpg",
+        "meta": {
+          "order": "30"
+        }
+      },
+      {
+        "id": "album-20261030-31",
+        "title": "照片 31",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-31.jpg",
+        "meta": {
+          "order": "31"
+        }
+      },
+      {
+        "id": "album-20261030-32",
+        "title": "照片 32",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-32.jpg",
+        "meta": {
+          "order": "32"
+        }
+      },
+      {
+        "id": "album-20261030-33",
+        "title": "照片 33",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-33.jpg",
+        "meta": {
+          "order": "33"
+        }
+      },
+      {
+        "id": "album-20261030-34",
+        "title": "照片 34",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-34.jpg",
+        "meta": {
+          "order": "34"
+        }
+      },
+      {
+        "id": "album-20261030-35",
+        "title": "照片 35",
+        "body": "",
+        "kind": "image",
+        "folder": "生活相册",
+        "sender": "Mingbo",
+        "media": "asset:media/album-20261030-35.jpg",
+        "meta": {
+          "order": "35"
+        }
       }
     ],
     "camera": [
