@@ -211,7 +211,7 @@ test("phone shares contacts and own card, separates missed calls, and service SM
     .screenshot({ path: "outputs/release/recent-calls.png" });
   await phone.getByRole("button", { name: "通讯录", exact: true }).click();
   const rows = phone.locator(".catalog-row");
-  await expect(rows).toHaveCount(17);
+  await expect(rows).toHaveCount(15);
   await expect(phone.locator(".call-row")).toHaveCount(0);
   await phone.locator(".contact-self").click();
   await expect(page.locator(".native-contact-hero h1")).toHaveText("Mingbo");
@@ -237,9 +237,9 @@ test("phone shares contacts and own card, separates missed calls, and service SM
   await page.getByRole("button", { name: "返回桌面", exact: true }).click();
   await page.getByRole("button", { name: "打开信息", exact: true }).click();
   const sms = page.locator(".native-messages");
-  await expect(sms.locator(".catalog-chat")).toHaveCount(8);
+  await expect(sms.locator(".catalog-chat")).toHaveCount(7);
   await sms.getByRole("button", { name: "未读", exact: true }).click();
-  await expect(sms.locator(".catalog-chat")).toHaveCount(2);
+  await expect(sms.locator(".catalog-chat")).toHaveCount(1);
   await sms.getByRole("button", { name: "全部", exact: true }).click();
   await sms
     .locator(".catalog-chat")
@@ -276,43 +276,46 @@ test("published default matches full test preview, four dock apps and updated st
   expect(work.id).toBe("ui-test-phone-v2");
   expect(work.phone.passcode).toBe("980705");
   expect(work.phone.wallpaper).toBe("custom-photo");
-  expect(work.apps).toEqual(preview.apps);
-  expect({
-    ...work.data,
-    photos: work.data.photos.filter(
-      (i: { id: string }) =>
-        !i.id.startsWith("album-20261030-") &&
-        !i.id.startsWith("heart-20261030-"),
-    ),
-    phone: preview.data.phone,
-    messages: work.data.messages.filter(
-      (i: { id: string }) => !i.id.startsWith("service-sms-"),
-    ),
-    contacts: work.data.contacts.filter(
-      (i: { id: string }) =>
-        !i.id.startsWith("phone-person-") && i.id !== "phone-owner-card",
-    ),
-    douyin: work.data.douyin.filter(
-      (i: { meta: Record<string, string> }) => i.meta.profile !== "true",
-    ),
-    wechat: work.data.wechat.filter(
-      (i: { meta: Record<string, string>; folder: string }) =>
-        i.meta.profile !== "true" &&
-        i.meta.contact !== "true" &&
-        !i.meta.conversationId?.startsWith("wechat-mingbo-matt") &&
-        !i.meta.conversationId?.startsWith("wechat-mingbo-huan") &&
-        !["朋友圈", "朋友圈配图"].includes(i.folder),
-    ),
-  }).toEqual({
-    ...preview.data,
-    contacts: preview.data.contacts.map((i: { body: string }) => ({
-      ...i,
-      body: "",
-    })),
-  });
+  const removed = [
+    "tiktok",
+    "telegram",
+    "discord",
+    "youtube",
+    "line",
+    "snapchat",
+    "facebook",
+    "messenger",
+    "reddit",
+    "netflix",
+    "pinterest",
+    "kakao",
+  ];
   expect(
     work.apps.filter((a: { installed: boolean }) => a.installed),
-  ).toHaveLength(49);
+  ).toHaveLength(37);
+  for (const id of removed) {
+    expect(work.apps.find((a: { id: string }) => a.id === id).installed).toBe(
+      false,
+    );
+    expect(work.data[id] || []).toEqual([]);
+  }
+  for (const id of ["photos", "wechat", "phone", "contacts", "messages"]) {
+    expect(
+      work.data[id].some(
+        (i: { id: string; title: string }) =>
+          i.id.startsWith("test-") || i.title.includes("测试"),
+      ),
+    ).toBe(false);
+  }
+  expect(work.data.photos).toHaveLength(44);
+  expect(
+    work.data.contacts.filter((i: { id: string }) =>
+      i.id.startsWith("phone-person-"),
+    ),
+  ).toHaveLength(15);
+  for (const id of ["notes", "calendar", "mail", "music", "douyin"]) {
+    if (id !== "douyin") expect(work.data[id]).toEqual(preview.data[id]);
+  }
   expect(work.nodes).toHaveLength(0);
   expect(
     work.apps.filter(
@@ -340,6 +343,8 @@ test("published default matches full test preview, four dock apps and updated st
       .getByRole("button", { name: "密码键" + digit, exact: true })
       .click();
   await expect(page.locator(".lock-screen")).toHaveCount(0);
+  for (const id of removed)
+    await expect(page.locator(`[data-home-key="${id}"]`)).toHaveCount(0);
   await expect(page.locator(".interactive-home")).toHaveCSS("opacity", "1");
   await expect(page.locator(".dock [data-home-key]")).toHaveCount(4);
   await expect(page.locator(".status-silent")).toBeVisible();
