@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 25,
+  "revision": 26,
   "phone": {
     "owner": "机主",
     "date": "2026-10-25",
@@ -1023,12 +1023,148 @@
     ],
     "weather": [
       {
-        "id": "test-item-weather",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "weather-city-beijing",
+        "title": "北京市",
+        "body": "参考2026年10月30日天气资料编辑的静态天气快照；温度与预报为展示用近似值。",
+        "time": "2026-10-30 20:00",
+        "meta": {
+          "temperature": "12",
+          "high": "20",
+          "low": "5",
+          "condition": "晴",
+          "locationLabel": "当前位置",
+          "currentLocation": "true",
+          "referenceDate": "2026-10-30",
+          "source": "https://rthk9.rthk.hk/weather/china_weather_e.htm",
+          "hourly": "[{\"time\":\"现在\",\"temperature\":\"12\"},{\"time\":\"21:00\",\"temperature\":\"11\"},{\"time\":\"22:00\",\"temperature\":\"10\"},{\"time\":\"23:00\",\"temperature\":\"9\"},{\"time\":\"00:00\",\"temperature\":\"8\"}]",
+          "daily": "[{\"label\":\"今天\",\"high\":\"20\",\"low\":\"5\"}]"
+        }
+      },
+      {
+        "id": "weather-city-hongkong",
+        "title": "中国香港",
+        "body": "参考2026年10月30日天气资料编辑的静态天气快照；温度与预报为展示用近似值。",
+        "time": "2026-10-30 20:00",
+        "meta": {
+          "temperature": "27",
+          "high": "29",
+          "low": "24",
+          "condition": "晴间多云",
+          "locationLabel": "已收藏城市",
+          "currentLocation": "false",
+          "referenceDate": "2026-10-30",
+          "source": "https://www.hko.gov.hk/en/wxinfo/currwx/current.htm",
+          "hourly": "[{\"time\":\"现在\",\"temperature\":\"27\"},{\"time\":\"21:00\",\"temperature\":\"26\"},{\"time\":\"22:00\",\"temperature\":\"25\"},{\"time\":\"23:00\",\"temperature\":\"24\"},{\"time\":\"00:00\",\"temperature\":\"24\"}]",
+          "daily": "[{\"label\":\"今天\",\"high\":\"29\",\"low\":\"24\"}]"
+        }
+      },
+      {
+        "id": "weather-city-macau",
+        "title": "中国澳门",
+        "body": "参考2026年10月30日天气资料编辑的静态天气快照；温度与预报为展示用近似值。",
+        "time": "2026-10-30 20:00",
+        "meta": {
+          "temperature": "27",
+          "high": "30",
+          "low": "24",
+          "condition": "晴间多云",
+          "locationLabel": "已收藏城市",
+          "currentLocation": "false",
+          "referenceDate": "2026-10-30",
+          "source": "https://rthk9.rthk.hk/weather/china_weather_e.htm",
+          "hourly": "[{\"time\":\"现在\",\"temperature\":\"27\"},{\"time\":\"21:00\",\"temperature\":\"26\"},{\"time\":\"22:00\",\"temperature\":\"25\"},{\"time\":\"23:00\",\"temperature\":\"24\"},{\"time\":\"00:00\",\"temperature\":\"24\"}]",
+          "daily": "[{\"label\":\"今天\",\"high\":\"30\",\"low\":\"24\"}]"
+        }
+      },
+      {
+        "id": "weather-city-guangzhou",
+        "title": "广州",
+        "body": "参考2026年10月30日天气资料编辑的静态天气快照；温度与预报为展示用近似值。",
+        "time": "2026-10-30 20:00",
+        "meta": {
+          "temperature": "28",
+          "high": "31",
+          "low": "21",
+          "condition": "晴",
+          "locationLabel": "已收藏城市",
+          "currentLocation": "false",
+          "referenceDate": "2026-10-30",
+          "source": "https://rthk9.rthk.hk/weather/china_weather_e.htm",
+          "hourly": "[{\"time\":\"现在\",\"temperature\":\"28\"},{\"time\":\"21:00\",\"temperature\":\"27\"},{\"time\":\"22:00\",\"temperature\":\"26\"},{\"time\":\"23:00\",\"temperature\":\"25\"},{\"time\":\"00:00\",\"temperature\":\"24\"}]",
+          "daily": "[{\"label\":\"今天\",\"high\":\"31\",\"low\":\"21\"}]"
+        }
+      },
+      {
+        "id": "weather-city-yongkang",
+        "title": "永康",
+        "body": "参考2026年10月30日天气资料编辑的静态天气快照；温度与预报为展示用近似值。",
+        "time": "2026-10-30 20:00",
+        "meta": {
+          "temperature": "20",
+          "high": "25",
+          "low": "17",
+          "condition": "多云",
+          "locationLabel": "已收藏城市",
+          "currentLocation": "false",
+          "referenceDate": "2026-10-30",
+          "source": "https://m.nmc.cn/publish/forecast/AZJ/yongkang.html",
+          "hourly": "[{\"time\":\"现在\",\"temperature\":\"20\"},{\"time\":\"21:00\",\"temperature\":\"19\"},{\"time\":\"22:00\",\"temperature\":\"18\"},{\"time\":\"23:00\",\"temperature\":\"17\"},{\"time\":\"00:00\",\"temperature\":\"17\"}]",
+          "daily": "[{\"label\":\"今天\",\"high\":\"25\",\"low\":\"17\"}]"
+        }
+      },
+      {
+        "id": "weather-city-bangkok",
+        "title": "曼谷",
+        "body": "参考2026年10月30日天气资料编辑的静态天气快照；温度与预报为展示用近似值。",
+        "time": "2026-10-30 20:00",
+        "meta": {
+          "temperature": "29",
+          "high": "34",
+          "low": "25",
+          "condition": "局部雷阵雨",
+          "locationLabel": "已收藏城市",
+          "currentLocation": "false",
+          "referenceDate": "2026-10-30",
+          "source": "https://www.tmd.go.th/en/weather/province/bangkok",
+          "hourly": "[{\"time\":\"现在\",\"temperature\":\"29\"},{\"time\":\"21:00\",\"temperature\":\"28\"},{\"time\":\"22:00\",\"temperature\":\"27\"},{\"time\":\"23:00\",\"temperature\":\"26\"},{\"time\":\"00:00\",\"temperature\":\"25\"}]",
+          "daily": "[{\"label\":\"今天\",\"high\":\"34\",\"low\":\"25\"}]"
+        }
+      },
+      {
+        "id": "weather-city-chiangmai",
+        "title": "清迈",
+        "body": "参考2026年10月30日天气资料编辑的静态天气快照；温度与预报为展示用近似值。",
+        "time": "2026-10-30 20:00",
+        "meta": {
+          "temperature": "27",
+          "high": "32",
+          "low": "23",
+          "condition": "多云",
+          "locationLabel": "已收藏城市",
+          "currentLocation": "false",
+          "referenceDate": "2026-10-30",
+          "source": "https://www.tmd.go.th/en/weather/province/chiang-mai",
+          "hourly": "[{\"time\":\"现在\",\"temperature\":\"27\"},{\"time\":\"21:00\",\"temperature\":\"26\"},{\"time\":\"22:00\",\"temperature\":\"25\"},{\"time\":\"23:00\",\"temperature\":\"24\"},{\"time\":\"00:00\",\"temperature\":\"23\"}]",
+          "daily": "[{\"label\":\"今天\",\"high\":\"32\",\"low\":\"23\"}]"
+        }
+      },
+      {
+        "id": "weather-city-zhongshan",
+        "title": "中山",
+        "body": "参考2026年10月30日天气资料编辑的静态天气快照；温度与预报为展示用近似值。",
+        "time": "2026-10-30 20:00",
+        "meta": {
+          "temperature": "28",
+          "high": "31",
+          "low": "22",
+          "condition": "晴间多云",
+          "locationLabel": "已收藏城市",
+          "currentLocation": "false",
+          "referenceDate": "2026-10-30",
+          "source": "https://rthk9.rthk.hk/weather/china_weather_e.htm",
+          "hourly": "[{\"time\":\"现在\",\"temperature\":\"28\"},{\"time\":\"21:00\",\"temperature\":\"27\"},{\"time\":\"22:00\",\"temperature\":\"26\"},{\"time\":\"23:00\",\"temperature\":\"25\"},{\"time\":\"00:00\",\"temperature\":\"24\"}]",
+          "daily": "[{\"label\":\"今天\",\"high\":\"31\",\"low\":\"22\"}]"
+        }
       }
     ],
     "wallet": [
@@ -4901,6 +5037,17 @@
         "read": true,
         "meta": {
           "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-group-xiubo99",
+        "title": "修伯99",
+        "body": "",
+        "folder": "群聊",
+        "meta": {
+          "group": "true",
+          "members": "wechat-burger-profile,wechat-matt-profile,wechat-owner-profile",
+          "memberNames": "汉堡,Matt,Mingbo"
         }
       }
     ],

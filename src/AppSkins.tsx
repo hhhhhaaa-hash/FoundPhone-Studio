@@ -303,8 +303,23 @@ export function WeChatSkin(p: SkinProps) {
     (i) => i.folder === "通讯录" && i.meta.contact === "true",
   );
   const messageItems = p.items.filter(
-    (i) => !["朋友圈", "朋友圈配图", "我", "通讯录"].includes(i.folder),
+    (i) =>
+      !["朋友圈", "朋友圈配图", "我", "通讯录"].includes(i.folder) &&
+      i.meta.group !== "true",
   );
+  const groups = p.items.filter((i) => i.meta.group === "true");
+  const groupMembers = (group: Item) =>
+    (group.meta.members || "")
+      .split(",")
+      .filter(Boolean)
+      .map((id, n) => ({
+        item: p.items.find((i) => i.id === id),
+        name:
+          (group.meta.memberNames || "").split(",")[n] ||
+          p.items.find((i) => i.id === id)?.title ||
+          id,
+      }));
+  const activeGroup = groups.find((i) => i.title === p.thread);
   const [contactId, setContactId] = useState("");
   const [contactMoments, setContactMoments] = useState(false);
   const activeContact = contactProfiles.find((i) => i.id === contactId);
@@ -325,7 +340,9 @@ export function WeChatSkin(p: SkinProps) {
     [],
   );
   const conversations = [
-    ...new Set([...contactProfiles, ...messageItems].map((i) => i.title)),
+    ...new Set(
+      [...contactProfiles, ...groups, ...messageItems].map((i) => i.title),
+    ),
   ].sort(
     (a, b) =>
       Number(
@@ -387,7 +404,9 @@ export function WeChatSkin(p: SkinProps) {
         <strong>
           {(activeContact ? (contactMoments ? "朋友圈" : "详细资料") : "") ||
             utility ||
-            p.thread ||
+            (activeGroup
+              ? `${p.thread} (${groupMembers(activeGroup).length})`
+              : p.thread) ||
             (moments ? "朋友圈" : tab === "微信" ? p.name : tab)}
         </strong>
         {!activeContact ? (
@@ -505,6 +524,13 @@ export function WeChatSkin(p: SkinProps) {
         <div className="skin-scroll wx-utility">
           {utility === "聊天信息" && (
             <div className="wx-members">
+              {activeGroup &&
+                groupMembers(activeGroup).map(({ item, name }) => (
+                  <div className="wx-group-member" key={item?.id || name}>
+                    <Avatar name={name} src={item?.avatar} />
+                    <small>{name}</small>
+                  </div>
+                ))}
               {contactProfiles
                 .filter((i) => i.title === p.thread)
                 .map((i) => (
@@ -686,10 +712,24 @@ export function WeChatSkin(p: SkinProps) {
                       }}
                     >
                       <span className="wx-chat-avatar">
-                        <Avatar
-                          name={t}
-                          src={contact?.avatar || last?.avatar}
-                        />
+                        {groups.some((g) => g.title === t) ? (
+                          <span className="wx-group-avatar">
+                            {groupMembers(
+                              groups.find((g) => g.title === t)!,
+                            ).map(({ item, name }) => (
+                              <Avatar
+                                key={item?.id || name}
+                                name={name}
+                                src={item?.avatar}
+                              />
+                            ))}
+                          </span>
+                        ) : (
+                          <Avatar
+                            name={t}
+                            src={contact?.avatar || last?.avatar}
+                          />
+                        )}
                         {!readThreads.includes(t) &&
                           list.some((i) => !i.read) && (
                             <b className="wx-unread">

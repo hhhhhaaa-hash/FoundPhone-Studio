@@ -1,4 +1,72 @@
 import { test, expect } from "@playwright/test";
+test("Xiubo group has exactly three members and weather lists eight cities", async ({
+  page,
+  request,
+}) => {
+  const work = await (await request.get("/work.json")).json();
+  const group = work.data.wechat.find(
+    (i: { id: string }) => i.id === "wechat-group-xiubo99",
+  );
+  expect(group.meta.members.split(",")).toHaveLength(3);
+  const cities = [
+    "北京市",
+    "中国香港",
+    "中国澳门",
+    "广州",
+    "永康",
+    "曼谷",
+    "清迈",
+    "中山",
+  ];
+  expect(work.data.weather.map((i: { title: string }) => i.title)).toEqual(
+    cities,
+  );
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.goto("/");
+  await page.getByRole("button", { name: "轻触解锁", exact: true }).click();
+  for (const n of "980705")
+    await page.getByRole("button", { name: "密码键" + n, exact: true }).click();
+  await page.getByRole("button", { name: "打开微信", exact: true }).click();
+  const wx = page.locator(".wechat-ui");
+  await wx.locator(".wx-chat-row").filter({ hasText: "修伯99" }).click();
+  await expect(wx.locator(".wx-nav > strong")).toHaveText("修伯99 (3)");
+  await expect(wx.locator(".skin-message")).toHaveCount(0);
+  await wx.getByRole("button", { name: "聊天详情", exact: true }).click();
+  await expect(wx.locator(".wx-group-member small")).toHaveText([
+    "汉堡",
+    "Matt",
+    "Mingbo",
+  ]);
+  await expect(wx.locator(".wx-group-member")).toHaveCount(3);
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/group-xiubo99.png" });
+  await page.getByRole("button", { name: "返回桌面", exact: true }).click();
+  await page.getByRole("button", { name: "打开天气", exact: true }).click();
+  const weather = page.locator(".calibrated-weather");
+  await expect(weather.locator("h1")).toHaveText("北京市");
+  await expect(weather.locator(".weather-native-current > small")).toHaveText(
+    "当前位置",
+  );
+  await weather.getByRole("button", { name: "城市列表", exact: true }).click();
+  await expect(weather.locator(".weather-city-row strong")).toHaveText(cities);
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/weather-cities.png" });
+  for (const city of cities) {
+    await weather
+      .locator(".weather-city-row")
+      .filter({ has: page.getByText(city, { exact: true }) })
+      .click();
+    await expect(weather.locator("h1")).toHaveText(city);
+    await expect(
+      weather.locator(".weather-native-current output"),
+    ).not.toHaveText("—°");
+    await weather
+      .getByRole("button", { name: "城市列表", exact: true })
+      .click();
+  }
+});
 test("delivery orders preserve fixed dates and open item details", async ({
   page,
   request,
