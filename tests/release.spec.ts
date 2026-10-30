@@ -1,4 +1,73 @@
 import { test, expect } from "@playwright/test";
+test("old saved desktop adopts removed apps without losing widgets", async ({
+  page,
+  request,
+}) => {
+  const work = await (await request.get("/work.json")).json();
+  const removed = [
+    "tiktok",
+    "telegram",
+    "discord",
+    "youtube",
+    "line",
+    "snapchat",
+    "facebook",
+    "messenger",
+    "reddit",
+    "netflix",
+    "pinterest",
+    "kakao",
+  ];
+  await page.addInitScript(
+    ({ work }) => {
+      const key = "foundphone-layout-v1:" + work.id;
+      if (!localStorage.getItem(key))
+        localStorage.setItem(
+          key,
+          JSON.stringify({
+            version: 1,
+            workId: work.id,
+            previewLayoutRevision: 1,
+            apps: work.apps.map(
+              (a: { installed: boolean; visible: boolean }) => ({
+                ...a,
+                installed: true,
+                visible: true,
+              }),
+            ),
+            widgets: [{ id: "widget-clock", type: "clock", size: "small" }],
+            order: ["widget-clock", "wechat", "telegram"],
+            cleared: [],
+            positions: {},
+          }),
+        );
+    },
+    { work },
+  );
+  await page.setViewportSize({ width: 393, height: 852 });
+  for (let attempt = 0; attempt < 2; attempt++) {
+    await page.goto("/");
+    await page.getByRole("button", { name: "轻触解锁", exact: true }).click();
+    for (const n of "980705")
+      await page
+        .getByRole("button", { name: "密码键" + n, exact: true })
+        .click();
+    for (const id of removed)
+      await expect(page.locator(`[data-home-key="${id}"]`)).toHaveCount(0);
+    await expect(page.locator('[data-home-key="widget-clock"]')).toHaveCount(1);
+    const saved = await page.evaluate(
+      (id) => JSON.parse(localStorage.getItem("foundphone-layout-v1:" + id)!),
+      work.id,
+    );
+    expect(
+      saved.apps.filter((a: { installed: boolean }) => a.installed),
+    ).toHaveLength(37);
+    expect(saved.widgets).toHaveLength(1);
+  }
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/migrated-desktop.png" });
+});
 test("Huan contact avatar and PDF dialogue preserve speakers, times and images", async ({
   page,
   request,

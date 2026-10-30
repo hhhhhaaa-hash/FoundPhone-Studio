@@ -14,6 +14,7 @@ export const layoutSchema = z
     version: z.literal(1),
     workId: z.string(),
     previewLayoutRevision: z.number().int().min(0).default(0),
+    authoredInstalled: z.record(z.string(), z.boolean()).default({}),
     apps: workSchema.shape.apps,
     widgets: z.array(widgetSchema).max(24),
     order: z.array(z.string().max(150)).max(500),
@@ -58,6 +59,9 @@ export function defaultLayout(input: Work): DeviceLayout {
     version: 1,
     workId: w.id,
     previewLayoutRevision: w.id === "ui-test-phone-v2" ? 1 : 0,
+    authoredInstalled: Object.fromEntries(
+      w.apps.map((a) => [a.id, a.installed]),
+    ),
     apps: structuredClone(w.apps)
       .sort((a, b) => (a.id === "appstore" ? -1 : b.id === "appstore" ? 1 : 0))
       .map((a) =>
@@ -81,6 +85,21 @@ export function validateLayout(raw: unknown, input: Work) {
     throw Error("App ID重复");
   if (new Set(layout.widgets.map((a) => a.id)).size !== layout.widgets.length)
     throw Error("小组件ID重复");
+  // Apply author changes once, while retaining later player installation choices.
+  for (const app of layout.apps) {
+    const authored = w.apps.find((a) => a.id === app.id)!;
+    const previous = layout.authoredInstalled[app.id];
+    if (
+      (previous === undefined && !authored.installed) ||
+      (previous !== undefined && previous !== authored.installed)
+    ) {
+      app.installed = authored.installed;
+      if (!app.installed) delete layout.positions[app.id];
+    }
+  }
+  layout.authoredInstalled = Object.fromEntries(
+    w.apps.map((a) => [a.id, a.installed]),
+  );
   if (layout.apps.filter((a) => a.installed && a.visible && a.dock).length > 4)
     throw Error("Dock最多4个App");
   if (layout.widgets.some((w) => known.has(w.id)))

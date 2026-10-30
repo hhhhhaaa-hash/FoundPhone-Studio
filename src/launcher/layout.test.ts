@@ -11,6 +11,37 @@ import {
 } from "./layout";
 const work = () => compileStory(blank).work;
 describe("device layout", () => {
+  it("removes author-uninstalled apps from legacy saved desktops without resetting widgets or order", () => {
+    const w = work(),
+      legacy = defaultLayout(w);
+    const app = legacy.apps.find((a) => a.id === "telegram")!;
+    app.installed = true;
+    app.visible = true;
+    legacy.widgets = [{ id: "widget-clock", type: "clock", size: "small" }];
+    legacy.order = ["widget-clock", "wechat", "telegram"];
+    const raw = JSON.parse(JSON.stringify(legacy));
+    delete raw.authoredInstalled;
+    const migrated = validateLayout(raw, w);
+    expect(migrated.apps.find((a) => a.id === "telegram")!.installed).toBe(
+      false,
+    );
+    expect(migrated.widgets).toEqual(legacy.widgets);
+    expect(migrated.order).toEqual(legacy.order);
+    migrated.apps.find((a) => a.id === "telegram")!.installed = true;
+    expect(
+      validateLayout(migrated, w).apps.find((a) => a.id === "telegram")!
+        .installed,
+    ).toBe(true);
+  });
+  it("applies changed author installation state to a previously saved layout", () => {
+    const w = work();
+    w.apps.find((a) => a.id === "telegram")!.installed = true;
+    const saved = defaultLayout(w);
+    w.apps.find((a) => a.id === "telegram")!.installed = false;
+    expect(
+      validateLayout(saved, w).apps.find((a) => a.id === "telegram")!.installed,
+    ).toBe(false);
+  });
   it("keeps all 47 apps and only defaults installed", () => {
     const l = defaultLayout(work());
     expect(l.apps).toHaveLength(49);
