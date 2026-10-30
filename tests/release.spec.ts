@@ -24,17 +24,21 @@ test("Huan contact avatar and PDF dialogue preserve speakers, times and images",
     await page.getByRole("button", { name: "密码键" + n, exact: true }).click();
   await page.getByRole("button", { name: "打开微信", exact: true }).click();
   const wx = page.locator(".wechat-ui");
+  const rowNames = await wx.locator(".wx-chat-row").allTextContents();
+  const huanIndex = rowNames.findIndex((t) => t.includes("嬛嬛"));
+  expect(huanIndex).toBeGreaterThan(-1);
+  expect(rowNames[huanIndex + 1]).toContain("🍔");
   await wx.locator(".wx-chat-row").filter({ hasText: "嬛嬛" }).click();
-  await expect(wx.locator(".skin-message")).toHaveCount(63);
+  await expect(wx.locator(".skin-message")).toHaveCount(97);
   await expect(
     wx.locator(".skin-message:not(.outgoing) .skin-avatar img").first(),
   ).toHaveAttribute("src", avatar);
-  await expect(wx.locator(".skin-date")).toHaveCount(6);
+  await expect(wx.locator(".skin-date")).toHaveCount(9);
   await expect(wx.locator(".skin-date").first()).toHaveText(
     "9月9日 星期三 23:08",
   );
   await expect(wx.locator(".skin-date").last()).toHaveText(
-    "9月20日 星期日 10:39",
+    "9月29日 星期二 10:16",
   );
   await expect(wx.locator(".wx-transfer-card")).toHaveCount(2);
   await expect(wx.locator(".wx-transfer-main strong")).toHaveText([
@@ -58,9 +62,9 @@ test("Huan contact avatar and PDF dialogue preserve speakers, times and images",
   await page
     .locator(".phone-screen")
     .screenshot({ path: "outputs/release/huan-transfer.png" });
-  await expect(wx.locator(".skin-message").last()).toContainText("臣妾告退。");
+  await expect(wx.locator(".skin-message").last()).toContainText("震撼首发");
   const images = wx.locator(".skin-bubble > img");
-  await expect(images).toHaveCount(4);
+  await expect(images).toHaveCount(6);
   for (const img of await images.all()) {
     await img.scrollIntoViewIfNeeded();
     await img.evaluate((el: HTMLImageElement) => el.decode());
