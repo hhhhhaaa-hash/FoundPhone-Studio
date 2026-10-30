@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 23,
+  "revision": 24,
   "phone": {
     "owner": "机主",
     "date": "2026-10-25",
@@ -1515,15 +1515,15 @@
       },
       {
         "id": "delivery-order-09",
-        "title": "山谷黄杏",
-        "body": "冰 · 三分糖 ×2",
-        "sender": "隆延茶铺",
+        "title": "鸡肉牛油果卷饼、冰美式",
+        "body": "鸡肉牛油果卷饼 ×1 · 冰美式 ×1",
+        "sender": "Wagas",
         "time": "2026-10-10 15:28",
         "folder": "订单",
         "meta": {
           "status": "已完成",
-          "price": "46",
-          "emoji": "🍑",
+          "price": "79",
+          "emoji": "🥗",
           "address": "常用收货地址",
           "orderNo": "2026101015280009"
         }
@@ -1590,15 +1590,15 @@
       },
       {
         "id": "delivery-order-14",
-        "title": "山谷黄杏",
-        "body": "冰 · 三分糖 ×1",
-        "sender": "隆延茶铺",
+        "title": "烤鸡藜麦沙拉",
+        "body": "烤鸡藜麦沙拉 ×1 · 酱汁分装",
+        "sender": "Wagas",
         "time": "2026-09-21 15:10",
         "folder": "订单",
         "meta": {
           "status": "已完成",
-          "price": "23",
-          "emoji": "🍑",
+          "price": "68",
+          "emoji": "🥗",
           "address": "常用收货地址",
           "orderNo": "2026092115100014"
         }
@@ -1780,6 +1780,18 @@
           "rating": "4.8",
           "duration": "约30分钟",
           "price": "58",
+          "address": "常用收货地址"
+        }
+      },
+      {
+        "id": "delivery-store-wagas",
+        "title": "Wagas",
+        "body": "轻食沙拉、卷饼与咖啡",
+        "folder": "商家",
+        "meta": {
+          "rating": "4.8",
+          "duration": "约30分钟",
+          "price": "68",
           "address": "常用收货地址"
         }
       }
