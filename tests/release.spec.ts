@@ -36,7 +36,28 @@ test("Huan contact avatar and PDF dialogue preserve speakers, times and images",
   await expect(wx.locator(".skin-date").last()).toHaveText(
     "9月20日 星期日 10:39",
   );
-  await expect(wx.locator(".skin-transfer")).toContainText("88888元");
+  await expect(wx.locator(".wx-transfer-card")).toHaveCount(2);
+  await expect(wx.locator(".wx-transfer-main strong")).toHaveText([
+    "¥88888.00",
+    "¥88888.00",
+  ]);
+  await expect(wx.locator(".wx-transfer-main span")).toHaveText([
+    "已被接收",
+    "已收款",
+  ]);
+  for (const card of await wx.locator(".wx-transfer-bubble").all()) {
+    await expect(card).toHaveCSS("background-color", "rgb(250, 208, 160)");
+    await expect(card).toHaveCSS("padding", "0px");
+    expect(
+      await card.evaluate(
+        (el) => getComputedStyle(el, ":before").backgroundColor,
+      ),
+    ).toBe("rgb(250, 208, 160)");
+  }
+  await wx.locator(".wx-transfer-card").first().scrollIntoViewIfNeeded();
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/huan-transfer.png" });
   await expect(wx.locator(".skin-message").last()).toContainText("臣妾告退。");
   const images = wx.locator(".skin-bubble > img");
   await expect(images).toHaveCount(4);
@@ -744,4 +765,3 @@ test("WeChat personal profile and Moments use authored images without leaking in
     avatarSource || "",
   );
 });
-

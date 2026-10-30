@@ -24,6 +24,8 @@ import {
   Smile,
   Grid,
   CheckCheck,
+  CircleCheck,
+  ArrowLeftRight,
   AtSign,
   Star,
   Music,
@@ -130,11 +132,36 @@ function MessageList({
               <Avatar name={i.sender} src={i.avatar} />
             )}
             <button
-              className={`skin-bubble${!whatsapp && i.kind === "image" ? " skin-image-bubble" : ""}`}
+              className={`skin-bubble${!whatsapp && i.kind === "image" ? " skin-image-bubble" : ""}${!whatsapp && i.kind === "transfer" ? " wx-transfer-bubble" : ""}`}
               onClick={() => (creator ? onItem(i) : onRead(i.id))}
             >
               {["image", "audio", "video"].includes(i.kind) ? (
                 <ItemMedia item={i} />
+              ) : i.kind === "transfer" && !whatsapp ? (
+                <div className="wx-transfer-card">
+                  <div className="wx-transfer-main">
+                    {["已收款", "已被接收"].includes(i.meta.transferStatus) ? (
+                      <CircleCheck aria-hidden="true" />
+                    ) : (
+                      <ArrowLeftRight aria-hidden="true" />
+                    )}
+                    <div>
+                      <strong>
+                        ¥
+                        {Number.isFinite(
+                          Number(i.body.replace(/[¥￥元,\s]/g, "")),
+                        )
+                          ? Number(i.body.replace(/[¥￥元,\s]/g, "")).toFixed(2)
+                          : i.body}
+                      </strong>
+                      <span>
+                        {i.meta.transferStatus ||
+                          (i.outgoing ? "已转账" : "待收款")}
+                      </span>
+                    </div>
+                  </div>
+                  <footer>转账</footer>
+                </div>
               ) : i.kind === "transfer" ? (
                 <div className="skin-transfer">
                   ¥ {i.body}
@@ -531,8 +558,30 @@ export function WeChatSkin(p: SkinProps) {
           <MessageList
             items={messageItems
               .filter((i) => i.title === p.thread)
-              .map((i) => ({
+              .map((i, n, threadItems) => ({
                 ...i,
+                kind:
+                  i.body === "（已收款）" &&
+                  threadItems[n - 1]?.kind === "transfer"
+                    ? ("transfer" as const)
+                    : i.kind,
+                body:
+                  i.body === "（已收款）" &&
+                  threadItems[n - 1]?.kind === "transfer"
+                    ? threadItems[n - 1].body
+                    : i.body,
+                meta: {
+                  ...i.meta,
+                  transferStatus:
+                    i.meta.transferStatus ||
+                    (i.kind === "transfer" &&
+                    threadItems[n + 1]?.body === "（已收款）"
+                      ? "已被接收"
+                      : i.body === "（已收款）" &&
+                          threadItems[n - 1]?.kind === "transfer"
+                        ? "已收款"
+                        : ""),
+                },
                 avatar:
                   i.avatar ||
                   (i.outgoing

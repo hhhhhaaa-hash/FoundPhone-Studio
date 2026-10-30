@@ -257,6 +257,55 @@
   margin: 0;
   border-radius: 4px;
 }
+.ios18 .wechat-ui .skin-message .skin-bubble.wx-transfer-bubble {
+  width: 245px;
+  padding: 0;
+  border: 0;
+  background: #fad0a0;
+  color: #fff;
+  overflow: visible;
+}
+.ios18 .wechat-ui .skin-bubble.wx-transfer-bubble:before {
+  background: #fad0a0;
+}
+.ios18 .wechat-ui .wx-transfer-card {
+  width: 100%;
+  border-radius: 4px;
+}
+.ios18 .wechat-ui .wx-transfer-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 17px 12px 14px;
+}
+.ios18 .wechat-ui .wx-transfer-main > svg {
+  width: 44px;
+  height: 44px;
+  stroke-width: 1.5;
+  flex: none;
+}
+.ios18 .wechat-ui .wx-transfer-main > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.ios18 .wechat-ui .wx-transfer-main strong {
+  font-size: 22px;
+  line-height: 27px;
+  font-weight: 600;
+}
+.ios18 .wechat-ui .wx-transfer-main span {
+  font-size: 15px;
+  line-height: 21px;
+}
+.ios18 .wechat-ui .wx-transfer-card footer {
+  border-top: 1px solid #ffffff20;
+  padding: 5px 12px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+}
 .ios18 .wechat-ui .skin-compose {
   min-height: 53px;
   height: 53px;
