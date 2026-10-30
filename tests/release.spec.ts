@@ -1,4 +1,61 @@
 import { test, expect } from "@playwright/test";
+test("Huan contact avatar and PDF dialogue preserve speakers, times and images", async ({
+  page,
+  request,
+}) => {
+  const work = await (await request.get("/work.json")).json();
+  const messages = work.data.wechat.filter((i: { id: string }) =>
+    i.id.startsWith("wechat-huan-chat-"),
+  );
+  expect(messages).toHaveLength(63);
+  expect(
+    messages.filter((i: { outgoing: boolean }) => i.outgoing),
+  ).toHaveLength(29);
+  expect(
+    messages.filter((i: { outgoing: boolean }) => !i.outgoing),
+  ).toHaveLength(34);
+  const avatar = work.data.wechat.find(
+    (i: { id: string }) => i.id === "wechat-friend-1",
+  ).avatar;
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.goto("/");
+  await page.getByRole("button", { name: "轻触解锁", exact: true }).click();
+  for (const n of "980705")
+    await page.getByRole("button", { name: "密码键" + n, exact: true }).click();
+  await page.getByRole("button", { name: "打开微信", exact: true }).click();
+  const wx = page.locator(".wechat-ui");
+  await wx.locator(".wx-chat-row").filter({ hasText: "嬛嬛" }).click();
+  await expect(wx.locator(".skin-message")).toHaveCount(63);
+  await expect(
+    wx.locator(".skin-message:not(.outgoing) .skin-avatar img").first(),
+  ).toHaveAttribute("src", avatar);
+  await expect(wx.locator(".skin-date")).toHaveCount(6);
+  await expect(wx.locator(".skin-date").first()).toHaveText(
+    "9月9日 星期三 23:08",
+  );
+  await expect(wx.locator(".skin-date").last()).toHaveText(
+    "9月20日 星期日 10:39",
+  );
+  await expect(wx.locator(".skin-transfer")).toContainText("88888元");
+  await expect(wx.locator(".skin-message").last()).toContainText("臣妾告退。");
+  const images = wx.locator(".skin-bubble > img");
+  await expect(images).toHaveCount(4);
+  for (const img of await images.all()) {
+    await img.scrollIntoViewIfNeeded();
+    await img.evaluate((el: HTMLImageElement) => el.decode());
+  }
+  await wx.locator(".skin-message").first().scrollIntoViewIfNeeded();
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/huan-dialogue.png" });
+  await wx.getByRole("button", { name: "返回", exact: true }).click();
+  await wx.getByRole("button", { name: "通讯录", exact: true }).click();
+  await wx.locator(".wx-contact").filter({ hasText: "嬛嬛" }).click();
+  await expect(wx.locator(".wx-contact-profile img")).toHaveAttribute(
+    "src",
+    avatar,
+  );
+});
 test("heart album hides photos until password and relocks when closed", async ({
   page,
 }) => {
@@ -218,6 +275,7 @@ test("published default matches full test preview, four dock apps and updated st
         i.meta.profile !== "true" &&
         i.meta.contact !== "true" &&
         !i.meta.conversationId?.startsWith("wechat-mingbo-matt") &&
+        !i.meta.conversationId?.startsWith("wechat-mingbo-huan") &&
         !["朋友圈", "朋友圈配图"].includes(i.folder),
     ),
   }).toEqual({
@@ -686,3 +744,4 @@ test("WeChat personal profile and Moments use authored images without leaking in
     avatarSource || "",
   );
 });
+
