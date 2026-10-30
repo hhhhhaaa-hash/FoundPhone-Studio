@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 24,
+  "revision": 25,
   "phone": {
     "owner": "机主",
     "date": "2026-10-25",
@@ -61,19 +61,14 @@
     "find",
     "calculator",
     "settings",
-    "qq",
     "weibo",
     "redbook",
-    "bilibili",
     "alipay",
     "taobao",
     "netease",
     "delivery",
-    "forum",
-    "whatsapp",
     "instagram",
     "twitter",
-    "spotify",
     "threads"
   ],
   "contacts": [
@@ -168,38 +163,7 @@
       "bio": ""
     }
   ],
-  "chats": [
-    {
-      "id": "test-chat-qq",
-      "app": "qq",
-      "title": "测试会话",
-      "participants": [
-        "owner"
-      ],
-      "messages": [
-        {
-          "id": "test-message-qq",
-          "body": "这是一条测试消息。",
-          "sender": "测试联系人"
-        }
-      ]
-    },
-    {
-      "id": "test-chat-whatsapp",
-      "app": "whatsapp",
-      "title": "测试会话",
-      "participants": [
-        "owner"
-      ],
-      "messages": [
-        {
-          "id": "test-message-whatsapp",
-          "body": "这是一条测试消息。",
-          "sender": "测试联系人"
-        }
-      ]
-    }
-  ],
+  "chats": [],
   "content": {
     "phone": [
       {
@@ -1164,16 +1128,6 @@
         }
       }
     ],
-    "bilibili": [
-      {
-        "id": "test-item-bilibili",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
     "alipay": [
       {
         "id": "test-item-alipay",
@@ -1796,16 +1750,6 @@
         }
       }
     ],
-    "forum": [
-      {
-        "id": "test-item-forum",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
     "instagram": [
       {
         "id": "test-item-instagram",
@@ -1819,16 +1763,6 @@
     "twitter": [
       {
         "id": "test-item-twitter",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
-    "spotify": [
-      {
-        "id": "test-item-spotify",
         "title": "测试内容",
         "body": "这是一条测试内容。",
         "sender": "测试用户",

@@ -109,6 +109,11 @@ test("old saved desktop adopts removed apps without losing widgets", async ({
     "netflix",
     "pinterest",
     "kakao",
+    "qq",
+    "bilibili",
+    "forum",
+    "whatsapp",
+    "spotify",
   ];
   await page.addInitScript(
     ({ work }) => {
@@ -153,7 +158,7 @@ test("old saved desktop adopts removed apps without losing widgets", async ({
     );
     expect(
       saved.apps.filter((a: { installed: boolean }) => a.installed),
-    ).toHaveLength(37);
+    ).toHaveLength(32);
     expect(saved.widgets).toHaveLength(1);
   }
   await page
@@ -450,10 +455,15 @@ test("published default matches full test preview, four dock apps and updated st
     "netflix",
     "pinterest",
     "kakao",
+    "qq",
+    "bilibili",
+    "forum",
+    "whatsapp",
+    "spotify",
   ];
   expect(
     work.apps.filter((a: { installed: boolean }) => a.installed),
-  ).toHaveLength(37);
+  ).toHaveLength(32);
   for (const id of removed) {
     expect(work.apps.find((a: { id: string }) => a.id === id).installed).toBe(
       false,
