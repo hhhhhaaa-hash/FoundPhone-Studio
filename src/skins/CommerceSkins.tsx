@@ -174,7 +174,7 @@ export function TaobaoSkin(p: Props) {
   );
 }
 export function DeliverySkin(p: Props) {
-  const { tab, setTab, q, setQ, items } = useContent(p, "商家");
+  const { tab, setTab, q, setQ, items } = useContent(p, "订单");
   const list = items.filter((i) =>
     tab === "订单" ? i.folder === "订单" : i.folder !== "订单",
   );
@@ -208,30 +208,46 @@ export function DeliverySkin(p: Props) {
               </button>
             ))
           : list.map((i) => (
-              <button
-                className="delivery-order"
-                key={i.id}
-                onClick={() => p.onItem(i)}
-              >
+              <article className="delivery-order" key={i.id}>
                 <header>
                   <Utensils size={18} />
-                  <strong>{i.sender}</strong>
+                  <button
+                    className="delivery-store-name"
+                    onClick={() => p.onItem(i)}
+                  >
+                    {i.sender} <span>›</span>
+                  </button>
                   <span>{meta(i, "status", "配送记录")}</span>
                 </header>
-                <section>
-                  <Media item={i} />
+                <button
+                  className="delivery-order-summary"
+                  onClick={() => p.onItem(i)}
+                  aria-label={`查看订单${i.sender} ${i.time}`}
+                >
+                  {meta(i, "emoji") ? (
+                    <span className="delivery-order-art" aria-hidden="true">
+                      {meta(i, "emoji")}
+                    </span>
+                  ) : (
+                    <Media item={i} />
+                  )}
                   <div>
                     <strong>{i.title}</strong>
                     <p>{i.body}</p>
-                    <small>{i.time}</small>
+                    <small>下单：{i.time}</small>
                   </div>
                   <b>¥ {meta(i, "price", "—")}</b>
-                </section>
+                </button>
                 <footer>
-                  <MapPin size={13} />
-                  {meta(i, "address")}
+                  <button onClick={() => p.onItem(i)}>更多</button>
+                  <button
+                    className="delivery-view-order"
+                    onClick={() => p.onItem(i)}
+                  >
+                    查看订单
+                  </button>
                 </footer>
-              </button>
+              </article>
             ))}
         <Empty items={list} />
       </div>

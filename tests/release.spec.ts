@@ -1,4 +1,42 @@
 import { test, expect } from "@playwright/test";
+test("delivery orders preserve fixed dates and open item details", async ({
+  page,
+  request,
+}) => {
+  const work = await (await request.get("/work.json")).json();
+  const orders = work.data.delivery.filter(
+    (i: { folder: string }) => i.folder === "订单",
+  );
+  expect(orders).toHaveLength(18);
+  expect(
+    orders.find((i: { sender: string }) => i.sender === "第一医药").time,
+  ).toBe("2026-10-13 23:37");
+  expect(
+    orders.find((i: { time: string }) => i.time === "2026-10-12 18:22").title,
+  ).toBe("麦辣鸡翅、双层吉士堡");
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.goto("/");
+  await page.getByRole("button", { name: "轻触解锁", exact: true }).click();
+  for (const n of "980705")
+    await page.getByRole("button", { name: "密码键" + n, exact: true }).click();
+  await page.getByRole("button", { name: "打开外卖", exact: true }).click();
+  const app = page.locator(".delivery-ui");
+  await expect(app.locator(".delivery-order")).toHaveCount(18);
+  await expect(app.getByText("测试内容", { exact: true })).toHaveCount(0);
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/delivery-orders.png" });
+  await app.getByPlaceholder("搜索商家或订单").fill("第一医药");
+  await expect(app.locator(".delivery-order")).toHaveCount(1);
+  await expect(app.locator(".delivery-order")).toContainText("避孕套、润滑液");
+  await expect(app.locator(".delivery-order")).toContainText(
+    "2026-10-13 23:37",
+  );
+  await app.getByRole("button", { name: "查看订单", exact: true }).click();
+  await expect(page.locator(".app-screen:not([inert])")).toContainText(
+    "避孕套、润滑液",
+  );
+});
 test("Netease profile shares WeChat avatar and playlist has seventeen ordered songs", async ({
   page,
   request,

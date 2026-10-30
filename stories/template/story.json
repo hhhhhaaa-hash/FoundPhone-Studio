@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 22,
+  "revision": 23,
   "phone": {
     "owner": "机主",
     "date": "2026-10-25",
@@ -1394,12 +1394,394 @@
     ],
     "delivery": [
       {
-        "id": "test-item-delivery",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "delivery-order-01",
+        "title": "冰美式（大杯）",
+        "body": "少冰 · 不加糖 ×1",
+        "sender": "星巴克",
+        "time": "2026-10-26 09:18",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "28",
+          "emoji": "☕",
+          "address": "常用收货地址",
+          "orderNo": "2026102609180001"
+        }
+      },
+      {
+        "id": "delivery-order-02",
+        "title": "山谷黄杏",
+        "body": "冰 · 三分糖 ×1",
+        "sender": "隆延茶铺",
+        "time": "2026-10-24 15:06",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "23",
+          "emoji": "🍑",
+          "address": "常用收货地址",
+          "orderNo": "2026102415060002"
+        }
+      },
+      {
+        "id": "delivery-order-03",
+        "title": "双层吉士堡、麦辣鸡翅",
+        "body": "双层吉士堡 ×1 · 麦辣鸡翅（2块）×1",
+        "sender": "麦当劳",
+        "time": "2026-10-22 19:12",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "35",
+          "emoji": "🍔",
+          "address": "常用收货地址",
+          "orderNo": "2026102219120003"
+        }
+      },
+      {
+        "id": "delivery-order-04",
+        "title": "招牌猪骨汤拉面",
+        "body": "拉面 ×1 · 溏心蛋 ×1",
+        "sender": "味千拉面",
+        "time": "2026-10-20 12:08",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "36",
+          "emoji": "🍜",
+          "address": "常用收货地址",
+          "orderNo": "2026102012080004"
+        }
+      },
+      {
+        "id": "delivery-order-05",
+        "title": "多肉葡萄",
+        "body": "少冰 · 少糖 ×1",
+        "sender": "喜茶",
+        "time": "2026-10-18 14:42",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "19",
+          "emoji": "🍇",
+          "address": "常用收货地址",
+          "orderNo": "2026101814420005"
+        }
+      },
+      {
+        "id": "delivery-order-06",
+        "title": "冰美式（大杯）",
+        "body": "少冰 · 不加糖 ×2",
+        "sender": "星巴克",
+        "time": "2026-10-16 08:56",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "56",
+          "emoji": "☕",
+          "address": "常用收货地址",
+          "orderNo": "2026101608560006"
+        }
+      },
+      {
+        "id": "delivery-order-07",
+        "title": "避孕套、润滑液",
+        "body": "避孕套（10只装）×1 · 水溶性润滑液（100ml）×1",
+        "sender": "第一医药",
+        "time": "2026-10-13 23:37",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "128",
+          "emoji": "💊",
+          "address": "常用收货地址",
+          "orderNo": "2026101323370007"
+        }
+      },
+      {
+        "id": "delivery-order-08",
+        "title": "麦辣鸡翅、双层吉士堡",
+        "body": "麦辣鸡翅（2块）×1 · 双层吉士堡 ×1",
+        "sender": "麦当劳",
+        "time": "2026-10-12 18:22",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "35",
+          "emoji": "🍔",
+          "address": "常用收货地址",
+          "orderNo": "2026101218220008"
+        }
+      },
+      {
+        "id": "delivery-order-09",
+        "title": "山谷黄杏",
+        "body": "冰 · 三分糖 ×2",
+        "sender": "隆延茶铺",
+        "time": "2026-10-10 15:28",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "46",
+          "emoji": "🍑",
+          "address": "常用收货地址",
+          "orderNo": "2026101015280009"
+        }
+      },
+      {
+        "id": "delivery-order-10",
+        "title": "草本酸汤肥牛面",
+        "body": "肥牛面 ×1 · 卤蛋 ×1",
+        "sender": "和府捞面",
+        "time": "2026-10-07 12:16",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "39",
+          "emoji": "🍜",
+          "address": "常用收货地址",
+          "orderNo": "2026100712160010"
+        }
+      },
+      {
+        "id": "delivery-order-11",
+        "title": "经典意式肉酱比萨",
+        "body": "9英寸 ×1 · 烤鸡翅（4只）×1",
+        "sender": "达美乐比萨",
+        "time": "2026-10-03 20:04",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "79",
+          "emoji": "🍕",
+          "address": "常用收货地址",
+          "orderNo": "2026100320040011"
+        }
+      },
+      {
+        "id": "delivery-order-12",
+        "title": "冰美式",
+        "body": "大杯 · 标准冰 ×1",
+        "sender": "瑞幸咖啡",
+        "time": "2026-09-29 09:32",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "9.9",
+          "emoji": "☕",
+          "address": "常用收货地址",
+          "orderNo": "2026092909320012"
+        }
+      },
+      {
+        "id": "delivery-order-13",
+        "title": "黄米凉糕、番茄浇汁莜面",
+        "body": "黄米凉糕 ×1 · 番茄浇汁莜面 ×1",
+        "sender": "西贝莜面村",
+        "time": "2026-09-25 18:46",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "58",
+          "emoji": "🥣",
+          "address": "常用收货地址",
+          "orderNo": "2026092518460013"
+        }
+      },
+      {
+        "id": "delivery-order-14",
+        "title": "山谷黄杏",
+        "body": "冰 · 三分糖 ×1",
+        "sender": "隆延茶铺",
+        "time": "2026-09-21 15:10",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "23",
+          "emoji": "🍑",
+          "address": "常用收货地址",
+          "orderNo": "2026092115100014"
+        }
+      },
+      {
+        "id": "delivery-order-15",
+        "title": "麦辣鸡腿堡套餐",
+        "body": "麦辣鸡腿堡 ×1 · 中薯条 ×1 · 零度可乐 ×1",
+        "sender": "麦当劳",
+        "time": "2026-09-18 19:36",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "33",
+          "emoji": "🍟",
+          "address": "常用收货地址",
+          "orderNo": "2026091819360015"
+        }
+      },
+      {
+        "id": "delivery-order-16",
+        "title": "冰美式、火腿芝士可颂",
+        "body": "冰美式（大杯）×2 · 可颂 ×1",
+        "sender": "星巴克",
+        "time": "2026-09-11 08:48",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "78",
+          "emoji": "🥐",
+          "address": "常用收货地址",
+          "orderNo": "2026091108480016"
+        }
+      },
+      {
+        "id": "delivery-order-17",
+        "title": "山谷黄杏",
+        "body": "冰 · 三分糖 ×2",
+        "sender": "隆延茶铺",
+        "time": "2026-09-06 17:52",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "46",
+          "emoji": "🍑",
+          "address": "常用收货地址",
+          "orderNo": "2026090617520017"
+        }
+      },
+      {
+        "id": "delivery-order-18",
+        "title": "山谷黄杏",
+        "body": "冰 · 三分糖 ×1",
+        "sender": "隆延茶铺",
+        "time": "2026-09-02 14:51",
+        "folder": "订单",
+        "meta": {
+          "status": "已完成",
+          "price": "23",
+          "emoji": "🍑",
+          "address": "常用收货地址",
+          "orderNo": "2026090214510018"
+        }
+      },
+      {
+        "id": "delivery-store-1",
+        "title": "星巴克",
+        "body": "冰美式（大杯）",
+        "folder": "商家",
+        "meta": {
+          "rating": "4.8",
+          "duration": "约30分钟",
+          "price": "28",
+          "address": "常用收货地址"
+        }
+      },
+      {
+        "id": "delivery-store-2",
+        "title": "隆延茶铺",
+        "body": "山谷黄杏",
+        "folder": "商家",
+        "meta": {
+          "rating": "4.8",
+          "duration": "约30分钟",
+          "price": "23",
+          "address": "常用收货地址"
+        }
+      },
+      {
+        "id": "delivery-store-3",
+        "title": "麦当劳",
+        "body": "双层吉士堡、麦辣鸡翅",
+        "folder": "商家",
+        "meta": {
+          "rating": "4.8",
+          "duration": "约30分钟",
+          "price": "35",
+          "address": "常用收货地址"
+        }
+      },
+      {
+        "id": "delivery-store-4",
+        "title": "味千拉面",
+        "body": "招牌猪骨汤拉面",
+        "folder": "商家",
+        "meta": {
+          "rating": "4.8",
+          "duration": "约30分钟",
+          "price": "36",
+          "address": "常用收货地址"
+        }
+      },
+      {
+        "id": "delivery-store-5",
+        "title": "喜茶",
+        "body": "多肉葡萄",
+        "folder": "商家",
+        "meta": {
+          "rating": "4.8",
+          "duration": "约30分钟",
+          "price": "19",
+          "address": "常用收货地址"
+        }
+      },
+      {
+        "id": "delivery-store-6",
+        "title": "第一医药",
+        "body": "避孕套、润滑液",
+        "folder": "商家",
+        "meta": {
+          "rating": "4.8",
+          "duration": "约30分钟",
+          "price": "128",
+          "address": "常用收货地址"
+        }
+      },
+      {
+        "id": "delivery-store-7",
+        "title": "和府捞面",
+        "body": "草本酸汤肥牛面",
+        "folder": "商家",
+        "meta": {
+          "rating": "4.8",
+          "duration": "约30分钟",
+          "price": "39",
+          "address": "常用收货地址"
+        }
+      },
+      {
+        "id": "delivery-store-8",
+        "title": "达美乐比萨",
+        "body": "经典意式肉酱比萨",
+        "folder": "商家",
+        "meta": {
+          "rating": "4.8",
+          "duration": "约30分钟",
+          "price": "79",
+          "address": "常用收货地址"
+        }
+      },
+      {
+        "id": "delivery-store-9",
+        "title": "瑞幸咖啡",
+        "body": "冰美式",
+        "folder": "商家",
+        "meta": {
+          "rating": "4.8",
+          "duration": "约30分钟",
+          "price": "9.9",
+          "address": "常用收货地址"
+        }
+      },
+      {
+        "id": "delivery-store-10",
+        "title": "西贝莜面村",
+        "body": "黄米凉糕、番茄浇汁莜面",
+        "folder": "商家",
+        "meta": {
+          "rating": "4.8",
+          "duration": "约30分钟",
+          "price": "58",
+          "address": "常用收货地址"
+        }
       }
     ],
     "forum": [

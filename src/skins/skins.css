@@ -3930,6 +3930,112 @@
   margin-top: 14px;
   padding-top: 9px;
 }
+.delivery-ui .delivery-order {
+  padding: 16px 13px;
+  border-radius: 14px;
+}
+.delivery-order .delivery-store-name {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  background: transparent;
+  color: #171717;
+}
+.delivery-store-name > span {
+  padding-left: 5px;
+  font-size: 21px;
+  font-weight: 400;
+}
+.delivery-order > header > svg {
+  color: #f28a24;
+  flex: none;
+}
+.delivery-order > header > span {
+  color: #888;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.delivery-order .delivery-order-summary {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  text-align: left;
+  background: transparent;
+  padding: 0;
+  color: #222;
+}
+.delivery-order-art {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #fff2df;
+  font-size: 32px;
+  flex: none;
+}
+.delivery-order-summary > img,
+.delivery-order-summary > .catalog-art {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  flex: none;
+  object-fit: cover;
+}
+.delivery-order-summary > div {
+  flex: 1;
+  min-width: 0;
+}
+.delivery-order-summary strong {
+  display: block;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.delivery-order-summary p {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #888;
+  margin: 4px 0;
+}
+.delivery-order-summary small {
+  display: block;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #888;
+}
+.delivery-order-summary > b {
+  font-size: 18px;
+  white-space: nowrap;
+  align-self: center;
+  font-weight: 600;
+}
+.delivery-order > footer {
+  border: 0;
+  justify-content: space-between;
+  padding-top: 0;
+  margin-top: 18px;
+}
+.delivery-order > footer > button {
+  background: transparent;
+  padding: 4px 0;
+  color: #999;
+  font-size: 12px;
+}
+.delivery-order > footer > .delivery-view-order {
+  border: 1px solid #e9853c;
+  border-radius: 20px;
+  padding: 6px 13px;
+  color: #e46d1e;
+  font-size: 13px;
+}
 .phone-shell .phone-screen:has(.catalog-skin) .status-bar {
   background: #fff;
   color: #171717;
