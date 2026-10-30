@@ -84,6 +84,15 @@ function ItemMedia({ item }: { item: Item }) {
     </div>
   );
 }
+function chatTimeLabel(time: string) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}:\d{2})/.exec(time);
+  if (!match) return time;
+  const [, year, month, day, clock] = match;
+  const weekday = new Date(
+    Date.UTC(Number(year), Number(month) - 1, Number(day)),
+  ).getUTCDay();
+  return `${Number(month)}月${Number(day)}日 星期${"日一二三四五六"[weekday]} ${clock}`;
+}
 function MessageList({
   items,
   creator,
@@ -99,11 +108,19 @@ function MessageList({
 }) {
   return (
     <div className={`skin-messages ${whatsapp ? "wa-wallpaper" : ""}`}>
-      <div className="skin-date">{items[0]?.time.slice(0, 10)}</div>
       {items.map((i, n) => (
         <Fragment key={i.id}>
-          {n > 0 && i.time.slice(0, 10) !== items[n - 1].time.slice(0, 10) && (
-            <div className="skin-date">{i.time.slice(0, 10)}</div>
+          {(n === 0 ||
+            (whatsapp
+              ? i.time.slice(0, 10) !== items[n - 1].time.slice(0, 10)
+              : i.time.slice(0, 16) !== items[n - 1].time.slice(0, 16))) && (
+            <div className="skin-date">
+              {whatsapp ? (
+                i.time.slice(0, 10)
+              ) : (
+                <span className="wx-time-label">{chatTimeLabel(i.time)}</span>
+              )}
+            </div>
           )}
           <div
             data-message-id={i.id}

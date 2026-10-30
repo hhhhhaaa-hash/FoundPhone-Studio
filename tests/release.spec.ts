@@ -447,13 +447,36 @@ test("Matt is pinned, has a separate nickname and shares Mingbo's Moments cover"
       .evaluate((i: HTMLImageElement) => i.complete && i.naturalWidth > 0),
   ).toBe(true);
   await pinned.click();
-  await expect(wx.locator(".skin-message")).toHaveCount(83);
-  await expect(wx.locator(".skin-message.outgoing")).toHaveCount(46);
-  await expect(wx.locator(".skin-message:not(.outgoing)")).toHaveCount(37);
-  await expect(wx.locator(".skin-date")).toHaveCount(14);
-  await expect(wx.locator(".skin-date").first()).toHaveText("2026-08-27");
-  await expect(wx.locator(".skin-date").last()).toHaveText("2026-09-14");
+  await expect(wx.locator(".skin-message")).toHaveCount(109);
+  await expect(wx.locator(".skin-message.outgoing")).toHaveCount(66);
+  await expect(wx.locator(".skin-message:not(.outgoing)")).toHaveCount(43);
+  await expect(wx.locator(".skin-date")).toHaveCount(19);
+  await expect(wx.locator(".skin-date").first()).toHaveText(
+    "8月27日 星期四 16:20",
+  );
+  await expect(wx.locator(".skin-date").last()).toHaveText(
+    "9月14日 星期一 10:49",
+  );
   await expect(wx.locator(".skin-message").first()).toHaveClass(/outgoing/);
+  await expect(
+    wx.locator(".wx-time-label").filter({ hasText: "9月11日 星期五 13:50" }),
+  ).toHaveCount(1);
+  await expect(
+    wx.locator('[data-message-id="wechat-matt-chat-014"] .skin-bubble'),
+  ).toContainText("山鸡哥，我想喝奶茶！");
+  await expect(
+    wx.locator('[data-message-id="wechat-matt-chat-014-line-2"] .skin-bubble'),
+  ).toContainText("隆延茶铺吧");
+  await expect(
+    wx.locator('[data-message-id="wechat-matt-chat-014-line-3"] .skin-bubble'),
+  ).toContainText("山谷黄杏 冰 三分糖");
+  expect(
+    await wx
+      .locator(".skin-bubble")
+      .evaluateAll((els) =>
+        els.every((el) => !el.childNodes[0]?.textContent?.includes("\n")),
+      ),
+  ).toBe(true);
   await expect(wx.locator(".skin-message").last()).toContainText("咋呢");
   await expect(
     wx.locator(".skin-message:not(.outgoing) .skin-avatar img").first(),

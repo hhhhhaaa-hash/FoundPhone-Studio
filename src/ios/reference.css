@@ -200,6 +200,21 @@
   background: #ededed;
   gap: 16px;
 }
+.ios18 .wechat-ui .skin-date {
+  margin: 8px 0 20px;
+  text-align: center;
+}
+.ios18 .wechat-ui .wx-time-label {
+  display: inline-block;
+  padding: 3px 7px;
+  border: 1px solid #dedbd8;
+  border-radius: 5px;
+  background: #faf9f8;
+  color: #777;
+  font-size: 12px;
+  line-height: 18px;
+  white-space: nowrap;
+}
 .ios18 .wechat-ui .skin-message {
   gap: 12px;
   align-items: flex-start;
