@@ -1,5 +1,7 @@
 # 剧情脚本 v1
 
+相册支持同一 `folder` 内记录设置 `meta.albumPassword`，作为相簿访问密码。锁定相簿隐藏封面和缩略图，其照片不进入普通图库或收藏；离开相簿、切换 App 或点击锁定按钮后重新上锁。此功能为公开静态作品中的界面访问锁，不提供素材加密。
+
 机器可读规范：schemas/story.schema.json。权威校验器：src/story-engine/compiler.ts，输出继续使用现有 Work formatVersion1，不更换运行时结构。
 
 |字段|用途|

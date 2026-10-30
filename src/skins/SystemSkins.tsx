@@ -211,31 +211,109 @@ function ContactList({ p, items }: { p: Props; items: Item[] }) {
 export function PhotosSkin(p: Props) {
   const { tab, setTab, q, setQ, items } = useContent(p, "图库");
   const [album, setAlbum] = useState("");
-  const list =
-    tab === "收藏"
-      ? items.filter((i) => i.favorite)
-      : album
-        ? items.filter((i) => (i.folder || "未分类") === album)
-        : items;
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [unlocked, setUnlocked] = useState<string[]>([]);
+  const passwords = new Map(
+    p.items
+      .filter((i) => meta(i, "albumPassword"))
+      .map((i) => [i.folder || "未分类", meta(i, "albumPassword")]),
+  );
+  const locked =
+    !!album && !p.creator && passwords.has(album) && !unlocked.includes(album);
+  const ordinary = items.filter(
+    (i) => p.creator || !passwords.has(i.folder || "未分类"),
+  );
+  const list = album
+    ? locked
+      ? []
+      : items.filter((i) => (i.folder || "未分类") === album)
+    : tab === "收藏"
+      ? ordinary.filter((i) => i.favorite)
+      : ordinary;
+  const closeAlbum = () => {
+    setAlbum("");
+    setUnlocked([]);
+    setPassword("");
+    setError("");
+    setQ("");
+  };
   return (
     <div className="catalog-skin native-photos">
-      <Header p={p} />
+      <Header p={{ ...p, onBack: () => (album ? closeAlbum() : p.onBack()) }}>
+        {album && !locked && passwords.has(album) && (
+          <button
+            aria-label="锁定相簿"
+            onClick={() => {
+              setUnlocked([]);
+              setPassword("");
+              setError("");
+            }}
+          >
+            <LockKeyhole size={20} />
+          </button>
+        )}
+      </Header>
       <div className="catalog-scroll">
         <h1>{album || tab}</h1>
         {tab === "相簿" && !album ? (
           <div className="album-grid">
-            {groupItems(items, "未分类").map((g) => (
-              <button key={g} onClick={() => setAlbum(g)}>
-                <Media
-                  item={items.find((i) => (i.folder || "未分类") === g)!}
-                />
+            {groupItems(p.items, "未分类").map((g) => (
+              <button
+                key={g}
+                onClick={() => {
+                  closeAlbum();
+                  setAlbum(g);
+                }}
+              >
+                {passwords.has(g) && !p.creator ? (
+                  <div
+                    className="catalog-art album-locked-cover"
+                    aria-label="已锁定"
+                  >
+                    <LockKeyhole size={36} />
+                  </div>
+                ) : (
+                  <Media
+                    item={p.items.find((i) => (i.folder || "未分类") === g)!}
+                  />
+                )}
                 <strong>{g}</strong>
                 <small>
-                  {items.filter((i) => (i.folder || "未分类") === g).length} 项
+                  {p.items.filter((i) => (i.folder || "未分类") === g).length}{" "}
+                  项
                 </small>
               </button>
             ))}
           </div>
+        ) : locked ? (
+          <form
+            className="locked-note album-password"
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (password === passwords.get(album)) {
+                setUnlocked((v) => [...v, album]);
+                setPassword("");
+                setError("");
+              } else setError("密码不正确");
+            }}
+          >
+            <LockKeyhole size={36} />
+            <h3>输入相簿密码</h3>
+            <input
+              type="password"
+              aria-label="相簿密码"
+              inputMode="numeric"
+              autoComplete="off"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setError("");
+              }}
+            />
+            <button type="submit">解锁相簿</button>
+            {error && <small role="alert">{error}</small>}
+          </form>
         ) : (
           <>
             <SearchBox value={q} set={setQ} />
@@ -254,14 +332,14 @@ export function PhotosSkin(p: Props) {
             <p className="media-count">{list.length} 个项目</p>
           </>
         )}
-        <Empty items={list} />
+        {!locked && <Empty items={list} />}
       </div>
       <Tabs
         tabs={["图库", "相簿", "收藏"]}
         value={tab}
         set={(t) => {
           setTab(t);
-          setAlbum("");
+          closeAlbum();
         }}
         icons={[<Image />, <Folder />, <Heart />]}
       />

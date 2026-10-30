@@ -1,4 +1,50 @@
 import { test, expect } from "@playwright/test";
+test("heart album hides photos until password and relocks when closed", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.goto("/");
+  await page.getByRole("button", { name: "轻触解锁", exact: true }).click();
+  for (const n of "980705")
+    await page.getByRole("button", { name: "密码键" + n, exact: true }).click();
+  await page.getByRole("button", { name: "打开相册", exact: true }).click();
+  const gallery = page.locator(".native-photos");
+  await expect(gallery.locator(".photo-mosaic img")).toHaveCount(35);
+  await gallery.getByRole("button", { name: "相簿", exact: true }).click();
+  const card = gallery
+    .locator(".album-grid button")
+    .filter({ has: page.getByText("💓", { exact: true }) });
+  await expect(card.locator("img")).toHaveCount(0);
+  await card.click();
+  await expect(gallery.locator(".photo-mosaic img")).toHaveCount(0);
+  await gallery.getByLabel("相簿密码").fill("0000");
+  await gallery.getByRole("button", { name: "解锁相簿", exact: true }).click();
+  await expect(gallery.getByRole("alert")).toHaveText("密码不正确");
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/heart-locked.png" });
+  await gallery.getByLabel("相簿密码").fill("1031");
+  await gallery.getByRole("button", { name: "解锁相簿", exact: true }).click();
+  await expect(gallery.locator(".photo-mosaic img")).toHaveCount(9);
+  for (const photo of await gallery.locator(".photo-mosaic img").all()) {
+    await photo.scrollIntoViewIfNeeded();
+    await photo.evaluate((img: HTMLImageElement) => img.decode());
+  }
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/heart-album.png" });
+  await gallery.getByRole("button", { name: "查看💓 01", exact: true }).click();
+  await page
+    .locator(".native-photo-stage img")
+    .evaluate((img: HTMLImageElement) => img.decode());
+  await page.getByRole("button", { name: "返回", exact: true }).click();
+  await gallery.getByRole("button", { name: "锁定相簿", exact: true }).click();
+  await expect(gallery.getByLabel("相簿密码")).toBeVisible();
+  await expect(gallery.locator(".photo-mosaic img")).toHaveCount(0);
+  await gallery.getByRole("button", { name: "返回", exact: true }).click();
+  await card.click();
+  await expect(gallery.getByLabel("相簿密码")).toBeVisible();
+});
 test("photo library contains all 35 supplied photos in order and opens the album and full image", async ({
   page,
   request,
@@ -152,7 +198,9 @@ test("published default matches full test preview, four dock apps and updated st
   expect({
     ...work.data,
     photos: work.data.photos.filter(
-      (i: { id: string }) => !i.id.startsWith("album-20261030-"),
+      (i: { id: string }) =>
+        !i.id.startsWith("album-20261030-") &&
+        !i.id.startsWith("heart-20261030-"),
     ),
     phone: preview.data.phone,
     messages: work.data.messages.filter(

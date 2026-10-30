@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 17,
+  "revision": 18,
   "phone": {
     "owner": "机主",
     "date": "2026-10-25",
@@ -990,6 +990,123 @@
         "media": "asset:media/album-20261030-35.jpg",
         "meta": {
           "order": "35"
+        }
+      },
+      {
+        "id": "heart-20261030-01",
+        "title": "💓 01",
+        "body": "",
+        "kind": "image",
+        "folder": "💓",
+        "sender": "Mingbo",
+        "media": "asset:media/heart-20261030-01.jpg",
+        "meta": {
+          "order": "1",
+          "albumPassword": "1031"
+        }
+      },
+      {
+        "id": "heart-20261030-02",
+        "title": "💓 02",
+        "body": "",
+        "kind": "image",
+        "folder": "💓",
+        "sender": "Mingbo",
+        "media": "asset:media/heart-20261030-02.jpg",
+        "meta": {
+          "order": "2",
+          "albumPassword": "1031"
+        }
+      },
+      {
+        "id": "heart-20261030-03",
+        "title": "💓 03",
+        "body": "",
+        "kind": "image",
+        "folder": "💓",
+        "sender": "Mingbo",
+        "media": "asset:media/heart-20261030-03.jpg",
+        "meta": {
+          "order": "3",
+          "albumPassword": "1031"
+        }
+      },
+      {
+        "id": "heart-20261030-04",
+        "title": "💓 04",
+        "body": "",
+        "kind": "image",
+        "folder": "💓",
+        "sender": "Mingbo",
+        "media": "asset:media/heart-20261030-04.jpg",
+        "meta": {
+          "order": "4",
+          "albumPassword": "1031"
+        }
+      },
+      {
+        "id": "heart-20261030-05",
+        "title": "💓 05",
+        "body": "",
+        "kind": "image",
+        "folder": "💓",
+        "sender": "Mingbo",
+        "media": "asset:media/heart-20261030-05.jpg",
+        "meta": {
+          "order": "5",
+          "albumPassword": "1031"
+        }
+      },
+      {
+        "id": "heart-20261030-06",
+        "title": "💓 06",
+        "body": "",
+        "kind": "image",
+        "folder": "💓",
+        "sender": "Mingbo",
+        "media": "asset:media/heart-20261030-06.jpg",
+        "meta": {
+          "order": "6",
+          "albumPassword": "1031"
+        }
+      },
+      {
+        "id": "heart-20261030-07",
+        "title": "💓 07",
+        "body": "",
+        "kind": "image",
+        "folder": "💓",
+        "sender": "Mingbo",
+        "media": "asset:media/heart-20261030-07.jpg",
+        "meta": {
+          "order": "7",
+          "albumPassword": "1031"
+        }
+      },
+      {
+        "id": "heart-20261030-08",
+        "title": "💓 08",
+        "body": "",
+        "kind": "image",
+        "folder": "💓",
+        "sender": "Mingbo",
+        "media": "asset:media/heart-20261030-08.jpg",
+        "meta": {
+          "order": "8",
+          "albumPassword": "1031"
+        }
+      },
+      {
+        "id": "heart-20261030-09",
+        "title": "💓 09",
+        "body": "",
+        "kind": "image",
+        "folder": "💓",
+        "sender": "Mingbo",
+        "media": "asset:media/heart-20261030-09.jpg",
+        "meta": {
+          "order": "9",
+          "albumPassword": "1031"
         }
       }
     ],
