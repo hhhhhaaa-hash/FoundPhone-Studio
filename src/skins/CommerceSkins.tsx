@@ -104,7 +104,7 @@ export function AlipaySkin(p: Props) {
   );
 }
 export function TaobaoSkin(p: Props) {
-  const { tab, setTab, q, setQ, items } = useContent(p, "商品");
+  const { tab, setTab, q, setQ, items } = useContent(p, "订单");
   const [status, setStatus] = useState("全部");
   const list = items
     .filter((i) =>
@@ -124,7 +124,13 @@ export function TaobaoSkin(p: Props) {
           <div className="taobao-products">
             {list.map((i) => (
               <button key={i.id} onClick={() => p.onItem(i)}>
-                <Media item={i} />
+                {meta(i, "emoji") ? (
+                  <span className="taobao-item-art" aria-hidden="true">
+                    {meta(i, "emoji")}
+                  </span>
+                ) : (
+                  <Media item={i} />
+                )}
                 <strong>{i.title}</strong>
                 <p>
                   ¥ <b>{meta(i, "price", "—")}</b>
@@ -158,7 +164,13 @@ export function TaobaoSkin(p: Props) {
                   <small>{meta(i, "status", "订单记录")}</small>
                 </div>
                 <section>
-                  <Media item={i} />
+                  {meta(i, "emoji") ? (
+                    <span className="taobao-item-art" aria-hidden="true">
+                      {meta(i, "emoji")}
+                    </span>
+                  ) : (
+                    <Media item={i} />
+                  )}
                   <span>
                     <strong>{i.title}</strong>
                     <p>
@@ -167,7 +179,9 @@ export function TaobaoSkin(p: Props) {
                     <b>¥ {meta(i, "price", "—")}</b>
                   </span>
                 </section>
-                <footer>{meta(i, "number", i.time)}</footer>
+                <footer>
+                  下单：{i.time} · {meta(i, "number")}
+                </footer>
               </button>
             ))}
           </>

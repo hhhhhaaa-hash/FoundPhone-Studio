@@ -1,4 +1,37 @@
 import { test, expect } from "@playwright/test";
+test("Taobao has premium orders with status filters and logistics", async ({
+  page,
+  request,
+}) => {
+  const work = await (await request.get("/work.json")).json();
+  expect(
+    work.data.taobao.filter((i: { folder: string }) => i.folder === "订单"),
+  ).toHaveLength(20);
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.goto("/");
+  await page.getByRole("button", { name: "轻触解锁", exact: true }).click();
+  for (const n of "980705")
+    await page.getByRole("button", { name: "密码键" + n, exact: true }).click();
+  await page.getByRole("button", { name: "打开淘宝", exact: true }).click();
+  const app = page.locator(".taobao-ui");
+  await expect(app.locator(".taobao-order")).toHaveCount(20);
+  await expect(app.locator(".taobao-order").first()).toContainText("99,800.00");
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/taobao-orders.png" });
+  await app.getByRole("button", { name: "待收货", exact: true }).click();
+  await expect(app.locator(".taobao-order")).toHaveCount(2);
+  await app
+    .locator(".catalog-tabs")
+    .getByRole("button", { name: "物流", exact: true })
+    .click();
+  await expect(app.locator(".taobao-order")).toHaveCount(8);
+  await expect(app.locator(".taobao-order").first()).toContainText("运输中");
+  await app.locator(".taobao-order").first().click();
+  await expect(page.locator(".app-screen:not([inert])")).toContainText(
+    "高性能笔记本电脑",
+  );
+});
 test("Alipay shows authored luxury and daily bills with readable details", async ({
   page,
   request,
