@@ -6,7 +6,28 @@ test("Taobao has premium orders with status filters and logistics", async ({
   const work = await (await request.get("/work.json")).json();
   expect(
     work.data.taobao.filter((i: { folder: string }) => i.folder === "订单"),
-  ).toHaveLength(20);
+  ).toHaveLength(23);
+  const newOrders = work.data.taobao.filter(
+    (i: { folder: string; id: string }) =>
+      i.folder === "订单" && !/^taobao-order-\d+$/.test(i.id),
+  );
+  expect(newOrders).toHaveLength(9);
+  for (const order of newOrders) {
+    const bill = work.data.alipay.find(
+      (i: { meta: Record<string, string> }) =>
+        i.meta.taobaoOrderId === order.id,
+    );
+    expect(bill.time).toBe(order.time);
+    expect(bill.meta.amount).toBe("-" + order.meta.price);
+    expect(bill.meta.goods).toBe(order.title);
+  }
+  expect(
+    work.data.taobao.some((i: { title: string }) =>
+      /专业摄影机身|笔记本电脑|机械腕表|平板电脑|划船机|旅行箱套组/.test(
+        i.title,
+      ),
+    ),
+  ).toBe(false);
   await page.setViewportSize({ width: 393, height: 852 });
   await page.goto("/");
   await page.getByRole("button", { name: "轻触解锁", exact: true }).click();
@@ -14,8 +35,10 @@ test("Taobao has premium orders with status filters and logistics", async ({
     await page.getByRole("button", { name: "密码键" + n, exact: true }).click();
   await page.getByRole("button", { name: "打开淘宝", exact: true }).click();
   const app = page.locator(".taobao-ui");
-  await expect(app.locator(".taobao-order")).toHaveCount(20);
-  await expect(app.locator(".taobao-order").first()).toContainText("99,800.00");
+  await expect(app.locator(".taobao-order")).toHaveCount(23);
+  await expect(app.locator(".taobao-order").first()).toContainText(
+    "Brunello Cucinelli 夹克外套",
+  );
   await page
     .locator(".phone-screen")
     .screenshot({ path: "outputs/release/taobao-orders.png" });
@@ -29,7 +52,7 @@ test("Taobao has premium orders with status filters and logistics", async ({
   await expect(app.locator(".taobao-order").first()).toContainText("运输中");
   await app.locator(".taobao-order").first().click();
   await expect(page.locator(".app-screen:not([inert])")).toContainText(
-    "高性能笔记本电脑",
+    "HEAD 网球拍",
   );
 });
 test("Alipay shows authored luxury and daily bills with readable details", async ({
@@ -37,7 +60,7 @@ test("Alipay shows authored luxury and daily bills with readable details", async
   request,
 }) => {
   const work = await (await request.get("/work.json")).json();
-  expect(work.data.alipay).toHaveLength(26);
+  expect(work.data.alipay).toHaveLength(35);
   expect(
     work.data.alipay.filter(
       (i: { meta: Record<string, string> }) => i.meta.category === "奢侈品",
@@ -50,18 +73,22 @@ test("Alipay shows authored luxury and daily bills with readable details", async
     await page.getByRole("button", { name: "密码键" + n, exact: true }).click();
   await page.getByRole("button", { name: "打开支付宝", exact: true }).click();
   const app = page.locator(".alipay-ui");
-  await expect(app.locator(".alipay-bill")).toHaveCount(20);
-  await expect(app.locator(".alipay-bill").first()).toContainText("DIOR迪奥");
-  await expect(app.locator(".alipay-bill").first()).toContainText(
-    "-128,800.00",
-  );
-  await expect(app.locator(".alipay-bill").nth(1)).toContainText(
-    "VALENTINO华伦天奴",
-  );
+  await expect(app.locator(".alipay-bill")).toHaveCount(29);
+  const dior = app
+    .locator(".alipay-bill")
+    .filter({ hasText: "DIOR迪奥" })
+    .first();
+  await expect(dior).toContainText("-128,800.00");
+  await expect(
+    app
+      .locator(".alipay-bill")
+      .filter({ hasText: "VALENTINO华伦天奴" })
+      .first(),
+  ).toContainText("VALENTINO华伦天奴");
   await page
     .locator(".phone-screen")
     .screenshot({ path: "outputs/release/alipay-bills.png" });
-  await app.locator(".alipay-bill").first().click();
+  await dior.click();
   await expect(page.locator(".app-screen:not([inert])")).toContainText(
     "皮具与成衣",
   );
@@ -1119,3 +1146,4 @@ test("WeChat personal profile and Moments use authored images without leaking in
     avatarSource || "",
   );
 });
+
