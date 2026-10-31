@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 33,
+  "revision": 34,
   "phone": {
     "owner": "机主",
     "date": "2026-10-25",
@@ -1271,10 +1271,10 @@
         "sender": "Brunello Cucinelli",
         "time": "2026-10-31 10:18",
         "folder": "账单",
-        "body": "商户：Brunello Cucinelli\n商品：Brunello Cucinelli 夹克外套\n规格：轻质夹克 · 深棕色 ×1\n付款金额：¥29800.00\n支付方式：银行卡\n交易状态：付款成功",
+        "body": "商户：Brunello Cucinelli\n商品：Brunello Cucinelli 夹克外套\n规格：轻质夹克 · 深棕色 ×1\n付款金额：¥44800.00\n支付方式：银行卡\n交易状态：付款成功",
         "meta": {
           "merchant": "Brunello Cucinelli",
-          "amount": "-29,800.00",
+          "amount": "-44,800.00",
           "status": "付款成功",
           "category": "服饰鞋履",
           "payment": "银行卡",
@@ -1342,10 +1342,10 @@
         "sender": "Ralph Lauren",
         "time": "2026-10-29 15:28",
         "folder": "账单",
-        "body": "商户：Ralph Lauren\n商品：拉夫劳伦短袖\n规格：纯棉短袖 · 藏蓝色 ×1\n付款金额：¥1580.00\n支付方式：银行卡\n交易状态：付款成功",
+        "body": "商户：Ralph Lauren\n商品：拉夫劳伦短袖\n规格：纯棉短袖 · 藏蓝色 ×1\n付款金额：¥1190.00\n支付方式：银行卡\n交易状态：付款成功",
         "meta": {
           "merchant": "Ralph Lauren",
-          "amount": "-1,580.00",
+          "amount": "-1,190.00",
           "status": "付款成功",
           "category": "服饰鞋履",
           "payment": "银行卡",
@@ -1395,10 +1395,10 @@
         "sender": "Brunello Cucinelli",
         "time": "2026-10-27 12:40",
         "folder": "账单",
-        "body": "商户：Brunello Cucinelli\n商品：Brunello Cucinelli 板鞋\n规格：绒面皮革 · 浅灰色 ×1\n付款金额：¥8900.00\n支付方式：银行卡\n交易状态：付款成功",
+        "body": "商户：Brunello Cucinelli\n商品：Brunello Cucinelli 板鞋\n规格：绒面皮革 · 浅灰色 ×1\n付款金额：¥10300.00\n支付方式：银行卡\n交易状态：付款成功",
         "meta": {
           "merchant": "Brunello Cucinelli",
-          "amount": "-8,900.00",
+          "amount": "-10,300.00",
           "status": "付款成功",
           "category": "服饰鞋履",
           "payment": "银行卡",
@@ -1413,10 +1413,10 @@
         "sender": "LOEWE",
         "time": "2026-10-26 17:38",
         "folder": "账单",
-        "body": "商户：LOEWE\n商品：Loewe 德训鞋\n规格：皮革拼接 · 白色 ×1\n付款金额：¥6900.00\n支付方式：银行卡\n交易状态：付款成功",
+        "body": "商户：LOEWE\n商品：Loewe 德训鞋\n规格：皮革拼接 · 白色 ×1\n付款金额：¥4877.00\n支付方式：银行卡\n交易状态：付款成功",
         "meta": {
           "merchant": "LOEWE",
-          "amount": "-6,900.00",
+          "amount": "-4,877.00",
           "status": "付款成功",
           "category": "服饰鞋履",
           "payment": "银行卡",
@@ -1448,10 +1448,10 @@
         "sender": "Brunello Cucinelli",
         "time": "2026-10-25 16:28",
         "folder": "账单",
-        "body": "商户：Brunello Cucinelli\n商品：Brunello Cucinelli 牛仔衬衫\n规格：浅蓝色 · 常规版型 ×1\n付款金额：¥11800.00\n支付方式：银行卡\n交易状态：付款成功",
+        "body": "商户：Brunello Cucinelli\n商品：Brunello Cucinelli 牛仔衬衫\n规格：浅蓝色 · 常规版型 ×1\n付款金额：¥10000.00\n支付方式：银行卡\n交易状态：付款成功",
         "meta": {
           "merchant": "Brunello Cucinelli",
-          "amount": "-11,800.00",
+          "amount": "-10,000.00",
           "status": "付款成功",
           "category": "服饰鞋履",
           "payment": "银行卡",
@@ -1867,7 +1867,7 @@
         "time": "2026-10-31 10:18",
         "folder": "订单",
         "meta": {
-          "price": "29,800.00",
+          "price": "44,800.00",
           "status": "待发货",
           "emoji": "🧥",
           "number": "TB-bc-jacket-202610",
@@ -1931,7 +1931,7 @@
         "time": "2026-10-29 15:28",
         "folder": "订单",
         "meta": {
-          "price": "1,580.00",
+          "price": "1,190.00",
           "status": "已完成",
           "emoji": "👕",
           "number": "TB-ralph-tee-202610",
@@ -1963,7 +1963,7 @@
         "time": "2026-10-27 12:40",
         "folder": "订单",
         "meta": {
-          "price": "8,900.00",
+          "price": "10,300.00",
           "status": "已完成",
           "emoji": "👟",
           "number": "TB-bc-sneakers-202610",
@@ -1979,7 +1979,7 @@
         "time": "2026-10-26 17:38",
         "folder": "订单",
         "meta": {
-          "price": "6,900.00",
+          "price": "4,877.00",
           "status": "已完成",
           "emoji": "👟",
           "number": "TB-loewe-trainers-202610",
@@ -2011,7 +2011,7 @@
         "time": "2026-10-25 16:28",
         "folder": "订单",
         "meta": {
-          "price": "11,800.00",
+          "price": "10,000.00",
           "status": "已完成",
           "emoji": "👔",
           "number": "TB-bc-denim-202610",
@@ -2235,7 +2235,7 @@
         "time": "2026-10-31 10:18",
         "folder": "商品",
         "meta": {
-          "price": "29,800.00",
+          "price": "44,800.00",
           "status": "待发货",
           "emoji": "🧥",
           "number": "TB-bc-jacket-202610",
@@ -2299,7 +2299,7 @@
         "time": "2026-10-29 15:28",
         "folder": "商品",
         "meta": {
-          "price": "1,580.00",
+          "price": "1,190.00",
           "status": "已完成",
           "emoji": "👕",
           "number": "TB-ralph-tee-202610",
@@ -2331,7 +2331,7 @@
         "time": "2026-10-27 12:40",
         "folder": "商品",
         "meta": {
-          "price": "8,900.00",
+          "price": "10,300.00",
           "status": "已完成",
           "emoji": "👟",
           "number": "TB-bc-sneakers-202610",
@@ -2347,7 +2347,7 @@
         "time": "2026-10-26 17:38",
         "folder": "商品",
         "meta": {
-          "price": "6,900.00",
+          "price": "4,877.00",
           "status": "已完成",
           "emoji": "👟",
           "number": "TB-loewe-trainers-202610",
@@ -2380,7 +2380,7 @@
         "time": "2026-10-29 15:28",
         "folder": "物流",
         "meta": {
-          "price": "1,580.00",
+          "price": "1,190.00",
           "status": "已完成",
           "emoji": "👕",
           "number": "TB-ralph-tee-202610",
@@ -2414,7 +2414,7 @@
         "time": "2026-10-27 12:40",
         "folder": "物流",
         "meta": {
-          "price": "8,900.00",
+          "price": "10,300.00",
           "status": "已完成",
           "emoji": "👟",
           "number": "TB-bc-sneakers-202610",
@@ -2431,7 +2431,7 @@
         "time": "2026-10-26 17:38",
         "folder": "物流",
         "meta": {
-          "price": "6,900.00",
+          "price": "4,877.00",
           "status": "已完成",
           "emoji": "👟",
           "number": "TB-loewe-trainers-202610",
@@ -2465,7 +2465,7 @@
         "time": "2026-10-25 16:28",
         "folder": "物流",
         "meta": {
-          "price": "11,800.00",
+          "price": "10,000.00",
           "status": "已完成",
           "emoji": "👔",
           "number": "TB-bc-denim-202610",
