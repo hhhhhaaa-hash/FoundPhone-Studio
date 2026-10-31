@@ -161,6 +161,18 @@ function MessageList({
               >
                 {["image", "audio", "video"].includes(i.kind) ? (
                   <ItemMedia item={i} />
+                ) : i.kind === "call" &&
+                  !whatsapp &&
+                  (i.meta.callType === "video" ||
+                    /^(视频通话|通话时长)/.test(i.body)) ? (
+                  <span className="wx-video-call">
+                    <Video size={22} strokeWidth={1.7} aria-hidden="true" />
+                    <span>
+                      通话时长{" "}
+                      {i.meta.duration ||
+                        i.body.replace(/^(视频通话|通话时长)\s*/, "")}
+                    </span>
+                  </span>
                 ) : i.kind === "transfer" && !whatsapp ? (
                   <div className="wx-transfer-card">
                     <div className="wx-transfer-main">
@@ -1406,3 +1418,4 @@ export function InstagramSkin(p: SkinProps) {
     </div>
   );
 }
+

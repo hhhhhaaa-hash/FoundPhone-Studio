@@ -1010,7 +1010,7 @@ test("Matt is pinned, has a separate nickname and shares Mingbo's Moments cover"
   await expect(wx.locator(".skin-date")).toHaveCount(35);
   await expect(
     wx.locator('[data-message-id="wechat-matt-more-018"]'),
-  ).toContainText("视频通话13:48");
+  ).toContainText("通话时长 13:48");
   await expect(wx.locator(".skin-message").last()).toContainText("………………..");
   await expect(wx.locator(".skin-date").first()).toHaveText(
     "8月27日 星期四 16:20",
@@ -1044,7 +1044,7 @@ test("Matt is pinned, has a separate nickname and shares Mingbo's Moments cover"
   await expect(
     wx.locator(".skin-message:not(.outgoing) .skin-avatar img").first(),
   ).toHaveAttribute("src", avatarSource || "");
-  await expect(wx.getByText("通话时长02:48:52", { exact: false })).toHaveCount(
+  await expect(wx.getByText("通话时长 02:48:52", { exact: false })).toHaveCount(
     1,
   );
   const photos = wx.locator(".skin-bubble > img");
@@ -1146,3 +1146,6 @@ test("WeChat personal profile and Moments use authored images without leaking in
     avatarSource || "",
   );
 });
+
+
+
