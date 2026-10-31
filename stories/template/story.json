@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 35,
+  "revision": 36,
   "phone": {
     "owner": "机主",
     "date": "2026-10-25",
@@ -3855,6 +3855,1194 @@
         }
       },
       {
+        "id": "wechat-huan-chat-001",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-09 23:08",
+        "body": "你说",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-002",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-09 23:08",
+        "body": "美国人尿急",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-003",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-09 23:08",
+        "body": "会变成什么",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-004",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-09 23:08",
+        "body": "？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-005",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-09 23:08",
+        "body": "有病啊",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-006",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-09 23:08",
+        "body": "变成尿急的美国人",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-007",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-09 23:08",
+        "body": "nono",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-008",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-09 23:08",
+        "body": "变成了",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-009",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-09 23:08",
+        "body": "姜",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-010",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-09 23:08",
+        "body": "[表情]",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        },
+        "kind": "image",
+        "media": "asset:media/huan-chat-1.jpg"
+      },
+      {
+        "id": "wechat-huan-chat-011",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-09 23:08",
+        "body": "？？？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-012",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-09 23:08",
+        "body": "[表情]",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        },
+        "kind": "image",
+        "media": "asset:media/huan-chat-2.jpg"
+      },
+      {
+        "id": "wechat-huan-chat-013",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-09 23:08",
+        "body": "你是真闲得慌",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-014",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-09 23:08",
+        "body": "哎呀",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-015",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-09 23:08",
+        "body": "想到周末要去看你就激动嘛",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-016",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-09 23:08",
+        "body": "我看你是想看我当众亲嘴",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-017",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-09 23:08",
+        "body": "有的吧有的吧",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-018",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-09 23:08",
+        "body": "没有的话我在后台按着你俩头给我亲",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-019",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-09 23:08",
+        "body": "？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-020",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-09 23:08",
+        "body": "[表情]",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        },
+        "kind": "image",
+        "media": "asset:media/huan-chat-3.jpg"
+      },
+      {
+        "id": "wechat-huan-chat-021",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-09 23:08",
+        "body": "已阅。",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-022",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-13 11:23",
+        "body": "已落地香港",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-023",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-13 11:23",
+        "body": "好哦",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-024",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-13 11:23",
+        "body": "你吃饭了吗",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-025",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-13 11:23",
+        "body": "还没呢",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-026",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-13 11:23",
+        "body": "我先去酒店",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-027",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-13 11:23",
+        "body": "那我让Matthew叫个外卖送过去",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-028",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-13 11:23",
+        "body": "你吃完过来不耽误",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-029",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-13 11:23",
+        "body": "哎呀真贴心我们小奔奔",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-030",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-13 11:23",
+        "body": "嘬住",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-031",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-13 11:23",
+        "body": "我去准备了",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-032",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-13 11:23",
+        "body": "期待哦～",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-033",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-13 17:38",
+        "body": "牛逼。",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-034",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-14 01:14",
+        "body": "[表情]",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        },
+        "kind": "image",
+        "media": "asset:media/huan-chat-4.jpg"
+      },
+      {
+        "id": "wechat-huan-chat-035",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-18 19:22",
+        "body": "打麻将三缺一",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-036",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-18 19:22",
+        "body": "我叫Oliver",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-037",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-18 19:22",
+        "body": "他为什么不来",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-038",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-18 19:22",
+        "body": "？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-039",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-18 19:22",
+        "body": "我哪知道",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-040",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-18 19:22",
+        "body": "你去问他啊",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-041",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-18 19:22",
+        "body": "因为Oliver是0",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-042",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-18 19:22",
+        "body": "。",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-043",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-18 19:22",
+        "body": "我要报警",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-044",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-20 10:39",
+        "body": "我要把发明调休的人祖坟挖了",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-045",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-20 10:39",
+        "body": "嘿嘿 我不上班",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-046",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-20 10:39",
+        "body": "？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-047",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-20 10:39",
+        "body": "你要死啊章明伯",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-048",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-20 10:39",
+        "body": "别急别急",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-049",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-20 10:39",
+        "body": "很快就上班了",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-050",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-20 10:39",
+        "body": "好想中个两千万的彩票",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-051",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-20 10:39",
+        "body": "我天天在家躺着全职看男同",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-052",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-20 10:39",
+        "body": "我给你两千万",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-053",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-20 10:39",
+        "body": "卧槽？？？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-054",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-20 10:39",
+        "body": "真的假的",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-055",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-20 10:39",
+        "body": "一千万要踏实",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-056",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-20 10:39",
+        "body": "二千万要努力",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-057",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-20 10:39",
+        "body": "？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-058",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-20 10:39",
+        "body": "我这就买飞机票去北京把你的头拧下来当网球打",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-059",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-20 10:39",
+        "body": "88888元",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        },
+        "kind": "transfer"
+      },
+      {
+        "id": "wechat-huan-chat-060",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-20 10:39",
+        "body": "（已收款）",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-061",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-20 10:39",
+        "body": "奔奔宝贝我最爱你了！！！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-062",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-20 10:39",
+        "body": "退下吧",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-chat-063",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-20 10:39",
+        "body": "臣妾告退。",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-001",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-24 18:40",
+        "body": "你今天穿的啥啊",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-002",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-24 18:40",
+        "body": "这T恤给我寄过来我让我家狗咬着玩",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-003",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-24 18:40",
+        "body": "。",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-004",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-24 18:40",
+        "body": "你这嘴根本过不了安检",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-005",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-24 18:40",
+        "body": "属于管制刀具",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-006",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-24 18:40",
+        "body": "我就是嘴巴毒了点",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-007",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-24 18:40",
+        "body": "是 我知道",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-008",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-24 18:40",
+        "body": "其实本性也是坏的",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-009",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-24 18:40",
+        "body": "[表情]",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        },
+        "kind": "image",
+        "media": "asset:media/huan-more-1.jpg"
+      },
+      {
+        "id": "wechat-huan-more-010",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-24 18:40",
+        "body": "？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-011",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-24 18:40",
+        "body": "我就不该接你的茬",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-012",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-24 18:40",
+        "body": "如果我说我这边有个pdd新用户",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-013",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-24 18:40",
+        "body": "你还是这个态度吗",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-014",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-24 18:40",
+        "body": "卧槽",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-015",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-24 18:40",
+        "body": "哥！！！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-016",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-24 18:40",
+        "body": "我错了哥！！！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-017",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-24 18:40",
+        "body": "[表情]",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        },
+        "kind": "image",
+        "media": "asset:media/huan-more-2.jpg"
+      },
+      {
+        "id": "wechat-huan-more-018",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-24 18:40",
+        "body": "呵呵。",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-019",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-25 19:28",
+        "body": "中秋快乐啊奔奔",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-020",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-25 19:28",
+        "body": "也祝奔奔夫中秋快乐",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-021",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-25 19:28",
+        "body": "也替他谢谢你",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-022",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-25 19:28",
+        "body": "帮我跟叔叔阿姨说句中秋快乐啊",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-023",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-25 19:28",
+        "body": "👌",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-024",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-25 19:28",
+        "body": "你接着忙吧",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-025",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-25 19:28",
+        "body": "我去吃大餐了",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-026",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-29 10:16",
+        "body": "两眼一睁又在工位了",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-027",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-29 10:16",
+        "body": "我不是应该在新疆内蒙巴厘岛马尔代夫意大利西班牙埃及冰岛吗",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-028",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-29 10:16",
+        "body": "我好崩溃",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-029",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-29 10:16",
+        "body": "上班不积极呢这位熹贵妃",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-030",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-29 10:16",
+        "body": "可是",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-031",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-29 10:16",
+        "body": "我是女孩",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-032",
+        "title": "嬛嬛",
+        "sender": "嬛嬛",
+        "outgoing": false,
+        "time": "2026-09-29 10:16",
+        "body": "我本来就没有积极",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-033",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-29 10:16",
+        "body": "？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-huan-more-034",
+        "title": "嬛嬛",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-29 10:16",
+        "body": "震撼首发",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-huan"
+        }
+      },
+      {
+        "id": "wechat-group-xiubo99",
+        "title": "修伯99",
+        "body": "",
+        "folder": "群聊",
+        "meta": {
+          "group": "true",
+          "members": "wechat-burger-profile,wechat-matt-profile,wechat-owner-profile",
+          "memberNames": "汉堡,Matt,Mingbo"
+        }
+      },
+      {
         "id": "wechat-matt-chat-001",
         "title": "Matt💙",
         "sender": "Mingbo",
@@ -5179,1194 +6367,6 @@
         }
       },
       {
-        "id": "wechat-huan-chat-001",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-09 23:08",
-        "body": "你说",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-002",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-09 23:08",
-        "body": "美国人尿急",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-003",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-09 23:08",
-        "body": "会变成什么",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-004",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-09 23:08",
-        "body": "？",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-005",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-09 23:08",
-        "body": "有病啊",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-006",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-09 23:08",
-        "body": "变成尿急的美国人",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-007",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-09 23:08",
-        "body": "nono",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-008",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-09 23:08",
-        "body": "变成了",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-009",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-09 23:08",
-        "body": "姜",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-010",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-09 23:08",
-        "body": "[表情]",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        },
-        "kind": "image",
-        "media": "asset:media/huan-chat-1.jpg"
-      },
-      {
-        "id": "wechat-huan-chat-011",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-09 23:08",
-        "body": "？？？",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-012",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-09 23:08",
-        "body": "[表情]",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        },
-        "kind": "image",
-        "media": "asset:media/huan-chat-2.jpg"
-      },
-      {
-        "id": "wechat-huan-chat-013",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-09 23:08",
-        "body": "你是真闲得慌",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-014",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-09 23:08",
-        "body": "哎呀",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-015",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-09 23:08",
-        "body": "想到周末要去看你就激动嘛",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-016",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-09 23:08",
-        "body": "我看你是想看我当众亲嘴",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-017",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-09 23:08",
-        "body": "有的吧有的吧",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-018",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-09 23:08",
-        "body": "没有的话我在后台按着你俩头给我亲",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-019",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-09 23:08",
-        "body": "？",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-020",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-09 23:08",
-        "body": "[表情]",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        },
-        "kind": "image",
-        "media": "asset:media/huan-chat-3.jpg"
-      },
-      {
-        "id": "wechat-huan-chat-021",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-09 23:08",
-        "body": "已阅。",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-022",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-13 11:23",
-        "body": "已落地香港",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-023",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-13 11:23",
-        "body": "好哦",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-024",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-13 11:23",
-        "body": "你吃饭了吗",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-025",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-13 11:23",
-        "body": "还没呢",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-026",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-13 11:23",
-        "body": "我先去酒店",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-027",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-13 11:23",
-        "body": "那我让Matthew叫个外卖送过去",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-028",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-13 11:23",
-        "body": "你吃完过来不耽误",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-029",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-13 11:23",
-        "body": "哎呀真贴心我们小奔奔",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-030",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-13 11:23",
-        "body": "嘬住",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-031",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-13 11:23",
-        "body": "我去准备了",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-032",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-13 11:23",
-        "body": "期待哦～",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-033",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-13 17:38",
-        "body": "牛逼。",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-034",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-14 01:14",
-        "body": "[表情]",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        },
-        "kind": "image",
-        "media": "asset:media/huan-chat-4.jpg"
-      },
-      {
-        "id": "wechat-huan-chat-035",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-18 19:22",
-        "body": "打麻将三缺一",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-036",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-18 19:22",
-        "body": "我叫Oliver",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-037",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-18 19:22",
-        "body": "他为什么不来",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-038",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-18 19:22",
-        "body": "？",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-039",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-18 19:22",
-        "body": "我哪知道",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-040",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-18 19:22",
-        "body": "你去问他啊",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-041",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-18 19:22",
-        "body": "因为Oliver是0",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-042",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-18 19:22",
-        "body": "。",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-043",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-18 19:22",
-        "body": "我要报警",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-044",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-20 10:39",
-        "body": "我要把发明调休的人祖坟挖了",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-045",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-20 10:39",
-        "body": "嘿嘿 我不上班",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-046",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-20 10:39",
-        "body": "？",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-047",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-20 10:39",
-        "body": "你要死啊章明伯",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-048",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-20 10:39",
-        "body": "别急别急",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-049",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-20 10:39",
-        "body": "很快就上班了",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-050",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-20 10:39",
-        "body": "好想中个两千万的彩票",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-051",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-20 10:39",
-        "body": "我天天在家躺着全职看男同",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-052",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-20 10:39",
-        "body": "我给你两千万",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-053",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-20 10:39",
-        "body": "卧槽？？？",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-054",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-20 10:39",
-        "body": "真的假的",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-055",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-20 10:39",
-        "body": "一千万要踏实",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-056",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-20 10:39",
-        "body": "二千万要努力",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-057",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-20 10:39",
-        "body": "？",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-058",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-20 10:39",
-        "body": "我这就买飞机票去北京把你的头拧下来当网球打",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-059",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-20 10:39",
-        "body": "88888元",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        },
-        "kind": "transfer"
-      },
-      {
-        "id": "wechat-huan-chat-060",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-20 10:39",
-        "body": "（已收款）",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-061",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-20 10:39",
-        "body": "奔奔宝贝我最爱你了！！！",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-062",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-20 10:39",
-        "body": "退下吧",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-chat-063",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-20 10:39",
-        "body": "臣妾告退。",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-001",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-24 18:40",
-        "body": "你今天穿的啥啊",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-002",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-24 18:40",
-        "body": "这T恤给我寄过来我让我家狗咬着玩",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-003",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-24 18:40",
-        "body": "。",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-004",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-24 18:40",
-        "body": "你这嘴根本过不了安检",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-005",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-24 18:40",
-        "body": "属于管制刀具",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-006",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-24 18:40",
-        "body": "我就是嘴巴毒了点",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-007",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-24 18:40",
-        "body": "是 我知道",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-008",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-24 18:40",
-        "body": "其实本性也是坏的",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-009",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-24 18:40",
-        "body": "[表情]",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        },
-        "kind": "image",
-        "media": "asset:media/huan-more-1.jpg"
-      },
-      {
-        "id": "wechat-huan-more-010",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-24 18:40",
-        "body": "？",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-011",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-24 18:40",
-        "body": "我就不该接你的茬",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-012",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-24 18:40",
-        "body": "如果我说我这边有个pdd新用户",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-013",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-24 18:40",
-        "body": "你还是这个态度吗",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-014",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-24 18:40",
-        "body": "卧槽",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-015",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-24 18:40",
-        "body": "哥！！！",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-016",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-24 18:40",
-        "body": "我错了哥！！！",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-017",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-24 18:40",
-        "body": "[表情]",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        },
-        "kind": "image",
-        "media": "asset:media/huan-more-2.jpg"
-      },
-      {
-        "id": "wechat-huan-more-018",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-24 18:40",
-        "body": "呵呵。",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-019",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-25 19:28",
-        "body": "中秋快乐啊奔奔",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-020",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-25 19:28",
-        "body": "也祝奔奔夫中秋快乐",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-021",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-25 19:28",
-        "body": "也替他谢谢你",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-022",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-25 19:28",
-        "body": "帮我跟叔叔阿姨说句中秋快乐啊",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-023",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-25 19:28",
-        "body": "👌",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-024",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-25 19:28",
-        "body": "你接着忙吧",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-025",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-25 19:28",
-        "body": "我去吃大餐了",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-026",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-29 10:16",
-        "body": "两眼一睁又在工位了",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-027",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-29 10:16",
-        "body": "我不是应该在新疆内蒙巴厘岛马尔代夫意大利西班牙埃及冰岛吗",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-028",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-29 10:16",
-        "body": "我好崩溃",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-029",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-29 10:16",
-        "body": "上班不积极呢这位熹贵妃",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-030",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-29 10:16",
-        "body": "可是",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-031",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-29 10:16",
-        "body": "我是女孩",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-032",
-        "title": "嬛嬛",
-        "sender": "嬛嬛",
-        "outgoing": false,
-        "time": "2026-09-29 10:16",
-        "body": "我本来就没有积极",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-033",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-29 10:16",
-        "body": "？",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-huan-more-034",
-        "title": "嬛嬛",
-        "sender": "Mingbo",
-        "outgoing": true,
-        "time": "2026-09-29 10:16",
-        "body": "震撼首发",
-        "read": true,
-        "meta": {
-          "conversationId": "wechat-mingbo-huan"
-        }
-      },
-      {
-        "id": "wechat-group-xiubo99",
-        "title": "修伯99",
-        "body": "",
-        "folder": "群聊",
-        "meta": {
-          "group": "true",
-          "members": "wechat-burger-profile,wechat-matt-profile,wechat-owner-profile",
-          "memberNames": "汉堡,Matt,Mingbo"
-        }
-      },
-      {
         "id": "wechat-matt-more-001",
         "title": "Matt💙",
         "sender": "Mingbo",
@@ -7182,6 +7182,253 @@
         }
       },
       {
+        "id": "wechat-matt-latest-001",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-20 12:25",
+        "body": "哥！哄孩子这个任务就交给你了哈！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-002",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-20 12:25",
+        "body": "👌",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-003",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-24 13:29",
+        "body": "事情處理得怎麼樣？還需要幫忙嗎？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-004",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-24 13:29",
+        "body": "冇问题。",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt",
+          "voiceTranscript": "true",
+          "voiceDuration": "2"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-005",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-24 13:29",
+        "body": "哥，我这句粤语学得怎么样？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt",
+          "voiceTranscript": "true",
+          "voiceDuration": "5"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-006",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-24 13:29",
+        "body": "不錯。",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-007",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-24 13:29",
+        "body": "我不在你自己小心點",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-008",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-24 13:29",
+        "body": "知道啦，哥你还真把我当小孩啦？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-009",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-24 13:29",
+        "body": "本來就是小孩",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-010",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-24 13:29",
+        "body": "哼哼，那我也只是哥哥的小孩。",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-011",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-24 13:29",
+        "body": "嗯",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-012",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-26 18:19",
+        "body": "哥哥，我好久没回家了，国庆我要回去一趟。",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-013",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-26 18:19",
+        "body": "行",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-014",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-26 18:19",
+        "body": "什麼時候回北京？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-015",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-26 18:19",
+        "body": "还不确定呢🥺",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-016",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-26 18:19",
+        "body": "想你了哥哥",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-017",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-26 18:19",
+        "body": "這麼多天了才想我",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-018",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-26 18:19",
+        "body": "怎么可能？！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-019",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-09-26 18:19",
+        "body": "每一天我都在想你！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-020",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-09-26 18:19",
+        "body": "视频通话2:56:20",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt",
+          "duration": "2:56:20",
+          "callType": "video"
+        },
+        "kind": "call"
+      },
+      {
         "id": "wechat-matt-oct-001",
         "title": "Matt💙",
         "sender": "Matt💙",
@@ -7776,6 +8023,542 @@
         "outgoing": false,
         "time": "2026-10-07 14:11",
         "body": "那就好",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-021",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-07 22:32",
+        "body": "我忙完过两天就回去了昂",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-022",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-10-07 22:32",
+        "body": "嗯",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-023",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-07 22:32",
+        "body": "真的！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-024",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-07 22:32",
+        "body": "我也很想你🥺🥺",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-025",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-07 22:32",
+        "body": "哥哥。",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt",
+          "voiceTranscript": "true",
+          "voiceDuration": "1"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-026",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-10-07 22:32",
+        "body": "视频通话2:32:53",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt",
+          "duration": "2:32:53",
+          "callType": "video"
+        },
+        "kind": "call"
+      },
+      {
+        "id": "wechat-matt-latest-027",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-11 22:46",
+        "body": "直播的时候吓死我了哥，我差点就把新歌唱出来了……",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-028",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-10-11 22:46",
+        "body": "下次真得堵住你的嘴了",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-029",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-11 22:46",
+        "body": "怎么堵，用什么堵啊？哥哥。",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt",
+          "voiceTranscript": "true",
+          "voiceDuration": "7"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-030",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-11 22:46",
+        "body": "😗😗",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-031",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-10-11 22:46",
+        "body": "不想睡覺的話我現在打車過來",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt",
+          "voiceTranscript": "true",
+          "voiceDuration": "6"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-032",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-11 22:46",
+        "body": "哎呀呀呀呀呀呀呀你别了！我昨晚都累死了，你放过我吧哥哥。",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt",
+          "voiceTranscript": "true",
+          "voiceDuration": "10"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-033",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-10-11 22:46",
+        "body": "睡覺",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-034",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-11 22:46",
+        "body": "遵命！哥哥！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt",
+          "voiceTranscript": "true",
+          "voiceDuration": "2"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-035",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-11 22:46",
+        "body": "[表情]",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        },
+        "kind": "image",
+        "media": "asset:media/matt-latest-cat.jpg"
+      },
+      {
+        "id": "wechat-matt-latest-036",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-10-12 21:02",
+        "body": "到家了嗎",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-037",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-12 21:02",
+        "body": "到啦",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-038",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-10-12 21:02",
+        "body": "好",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-039",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-10-12 21:02",
+        "body": "早點休息 別熬夜",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-040",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-12 21:02",
+        "body": "！！！！！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-041",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-10-12 21:02",
+        "body": "？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-042",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-12 21:02",
+        "body": "幸卓辉！你是不是其实会打台球？！你骗我不会打是不？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-043",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-12 21:02",
+        "body": "说话！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-044",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-12 21:02",
+        "body": "我就知道！遇到不想回答的问题就不说话了！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-045",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-12 21:02",
+        "body": "你耍赖皮，惩罚收回！",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-046",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-10-12 21:02",
+        "body": "怎麼就賴皮了",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-047",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-10-12 21:02",
+        "body": "我也沒說我不會",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-048",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-12 21:02",
+        "body": "你你你你你你你你",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-049",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-10-12 21:02",
+        "body": "不要懲罰",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-050",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-10-12 21:02",
+        "body": "我給你獎勵",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-051",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-12 21:02",
+        "body": "真的吗？真的吗？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-052",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-12 21:02",
+        "body": "奖励什么呀🤓🤓",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-053",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-10-12 21:02",
+        "body": "獎勵你明天在車上不用自己動",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-054",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-12 21:02",
+        "body": "？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-055",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-12 21:02",
+        "body": "？？？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-056",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-12 21:02",
+        "body": "？？？？？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-057",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-15 23:00",
+        "body": "哥，明明才分开没多久，我怎么又想你了呢？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt",
+          "voiceTranscript": "true",
+          "voiceDuration": "8"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-058",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-10-15 23:00",
+        "body": "视频通话1:00:09",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt",
+          "duration": "1:00:09",
+          "callType": "video"
+        },
+        "kind": "call"
+      },
+      {
+        "id": "wechat-matt-latest-059",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-15 23:00",
+        "body": "？",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-060",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-15 23:00",
+        "body": "你怎么突然就挂了",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-061",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-10-15 23:00",
+        "body": "你該睡覺了",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-062",
+        "title": "Matt💙",
+        "sender": "Matt💙",
+        "outgoing": false,
+        "time": "2026-10-15 23:00",
+        "body": "別熬夜",
+        "read": true,
+        "meta": {
+          "conversationId": "wechat-mingbo-matt"
+        }
+      },
+      {
+        "id": "wechat-matt-latest-063",
+        "title": "Matt💙",
+        "sender": "Mingbo",
+        "outgoing": true,
+        "time": "2026-10-15 23:00",
+        "body": "………………..",
         "read": true,
         "meta": {
           "conversationId": "wechat-mingbo-matt"

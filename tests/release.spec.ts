@@ -992,7 +992,7 @@ test("Matt is pinned, has a separate nickname and shares Mingbo's Moments cover"
       .evaluate((i: HTMLImageElement) => i.complete && i.naturalWidth > 0),
   ).toBe(true);
   await pinned.click();
-  await expect(wx.locator(".skin-message")).toHaveCount(225);
+  await expect(wx.locator(".skin-message")).toHaveCount(288);
   const voice = wx.locator('[data-message-id="wechat-matt-oct-034"]');
   await expect(
     voice.getByRole("button", { name: "语音消息6秒", exact: true }),
@@ -1005,18 +1005,18 @@ test("Matt is pinned, has a separate nickname and shares Mingbo's Moments cover"
   await page
     .locator(".phone-screen")
     .screenshot({ path: "outputs/release/matt-voice.png" });
-  await expect(wx.locator(".skin-message.outgoing")).toHaveCount(136);
-  await expect(wx.locator(".skin-message:not(.outgoing)")).toHaveCount(89);
-  await expect(wx.locator(".skin-date")).toHaveCount(28);
+  await expect(wx.locator(".skin-message.outgoing")).toHaveCount(172);
+  await expect(wx.locator(".skin-message:not(.outgoing)")).toHaveCount(116);
+  await expect(wx.locator(".skin-date")).toHaveCount(35);
   await expect(
     wx.locator('[data-message-id="wechat-matt-more-018"]'),
   ).toContainText("视频通话13:48");
-  await expect(wx.locator(".skin-message").last()).toContainText("那就好");
+  await expect(wx.locator(".skin-message").last()).toContainText("………………..");
   await expect(wx.locator(".skin-date").first()).toHaveText(
     "8月27日 星期四 16:20",
   );
   await expect(wx.locator(".skin-date").last()).toHaveText(
-    "10月7日 星期三 14:11",
+    "10月15日 星期四 23:00",
   );
   await expect(wx.locator(".skin-message").first()).toHaveClass(/outgoing/);
   await expect(
@@ -1048,7 +1048,7 @@ test("Matt is pinned, has a separate nickname and shares Mingbo's Moments cover"
     1,
   );
   const photos = wx.locator(".skin-bubble > img");
-  await expect(photos).toHaveCount(16);
+  await expect(photos).toHaveCount(17);
   const imageBubble = wx.locator(".skin-image-bubble").first();
   await expect(imageBubble).toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
   await expect(imageBubble).toHaveCSS("padding", "0px");
@@ -1146,4 +1146,3 @@ test("WeChat personal profile and Moments use authored images without leaking in
     avatarSource || "",
   );
 });
-
