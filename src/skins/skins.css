@@ -3610,6 +3610,34 @@
   font-size: 8px;
   color: #aab9c4;
 }
+.alipay-bank-card {
+  min-height: 142px;
+  border: 1px solid #bdc9d9;
+  background: linear-gradient(120deg, #e6edf4, #aebccc);
+  color: #263448;
+  border-radius: 13px;
+}
+.alipay-bank-card[data-tier="gold"] {
+  background: linear-gradient(120deg, #f0dbab, #bb974c);
+  border-color: #c7a357;
+  color: #4a3517;
+}
+.alipay-bank-card[data-tier="black"] {
+  background: linear-gradient(120deg, #42454a, #181a1f);
+  border-color: #50545b;
+  color: #e3cc9b;
+}
+.alipay-bank-card p {
+  color: inherit;
+  font-size: 17px;
+  letter-spacing: 1px;
+  margin: 20px 0 14px;
+}
+.alipay-bank-card small {
+  color: inherit;
+  opacity: 0.7;
+  font-size: 10px;
+}
 .taobao-ui {
   --app-accent: #e98c3b;
   background: #f4f4f4;

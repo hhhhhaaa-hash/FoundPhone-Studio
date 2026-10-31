@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 28,
+  "revision": 29,
   "phone": {
     "owner": "机主",
     "date": "2026-10-25",
@@ -1271,10 +1271,10 @@
         "sender": "DIOR迪奥",
         "time": "2026-10-29 16:42",
         "folder": "账单",
-        "body": "商户：DIOR迪奥\n商品：皮具与成衣\n付款金额：¥42800.00\n支付方式：银行卡\n交易状态：付款成功",
+        "body": "商户：DIOR迪奥\n商品：皮具与成衣\n付款金额：¥128800.00\n支付方式：银行卡\n交易状态：付款成功",
         "meta": {
           "merchant": "DIOR迪奥",
-          "amount": "-42,800.00",
+          "amount": "-128,800.00",
           "status": "付款成功",
           "category": "奢侈品",
           "payment": "银行卡",
@@ -1288,10 +1288,10 @@
         "sender": "VALENTINO华伦天奴",
         "time": "2026-10-27 13:18",
         "folder": "账单",
-        "body": "商户：VALENTINO华伦天奴\n商品：鞋履与配饰\n付款金额：¥19800.00\n支付方式：银行卡\n交易状态：付款成功",
+        "body": "商户：VALENTINO华伦天奴\n商品：鞋履与配饰\n付款金额：¥69800.00\n支付方式：银行卡\n交易状态：付款成功",
         "meta": {
           "merchant": "VALENTINO华伦天奴",
-          "amount": "-19,800.00",
+          "amount": "-69,800.00",
           "status": "付款成功",
           "category": "奢侈品",
           "payment": "银行卡",
@@ -1339,10 +1339,10 @@
         "sender": "LOUIS VUITTON",
         "time": "2026-10-22 18:36",
         "folder": "账单",
-        "body": "商户：LOUIS VUITTON\n商品：旅行皮具\n付款金额：¥25600.00\n支付方式：银行卡\n交易状态：付款成功",
+        "body": "商户：LOUIS VUITTON\n商品：旅行皮具\n付款金额：¥108600.00\n支付方式：银行卡\n交易状态：付款成功",
         "meta": {
           "merchant": "LOUIS VUITTON",
-          "amount": "-25,600.00",
+          "amount": "-108,600.00",
           "status": "付款成功",
           "category": "奢侈品",
           "payment": "银行卡",
@@ -1390,10 +1390,10 @@
         "sender": "PRADA普拉达",
         "time": "2026-10-16 17:24",
         "folder": "账单",
-        "body": "商户：PRADA普拉达\n商品：尼龙包与配件\n付款金额：¥13800.00\n支付方式：银行卡\n交易状态：付款成功",
+        "body": "商户：PRADA普拉达\n商品：尼龙包与配件\n付款金额：¥58800.00\n支付方式：银行卡\n交易状态：付款成功",
         "meta": {
           "merchant": "PRADA普拉达",
-          "amount": "-13,800.00",
+          "amount": "-58,800.00",
           "status": "付款成功",
           "category": "奢侈品",
           "payment": "银行卡",
@@ -1458,10 +1458,10 @@
         "sender": "SAINT LAURENT",
         "time": "2026-10-08 15:50",
         "folder": "账单",
-        "body": "商户：SAINT LAURENT\n商品：皮具与腰带\n付款金额：¥17900.00\n支付方式：银行卡\n交易状态：付款成功",
+        "body": "商户：SAINT LAURENT\n商品：皮具与腰带\n付款金额：¥77900.00\n支付方式：银行卡\n交易状态：付款成功",
         "meta": {
           "merchant": "SAINT LAURENT",
-          "amount": "-17,900.00",
+          "amount": "-77,900.00",
           "status": "付款成功",
           "category": "奢侈品",
           "payment": "银行卡",
@@ -1526,10 +1526,10 @@
         "sender": "BOTTEGA VENETA",
         "time": "2026-09-26 16:08",
         "folder": "账单",
-        "body": "商户：BOTTEGA VENETA\n商品：编织皮具\n付款金额：¥26800.00\n支付方式：银行卡\n交易状态：付款成功",
+        "body": "商户：BOTTEGA VENETA\n商品：编织皮具\n付款金额：¥96800.00\n支付方式：银行卡\n交易状态：付款成功",
         "meta": {
           "merchant": "BOTTEGA VENETA",
-          "amount": "-26,800.00",
+          "amount": "-96,800.00",
           "status": "付款成功",
           "category": "奢侈品",
           "payment": "银行卡",
@@ -1577,10 +1577,10 @@
         "sender": "DIOR迪奥",
         "time": "2026-09-12 14:26",
         "folder": "账单",
-        "body": "商户：DIOR迪奥\n商品：运动鞋与配饰\n付款金额：¥8600.00\n支付方式：银行卡\n交易状态：付款成功",
+        "body": "商户：DIOR迪奥\n商品：运动鞋与配饰\n付款金额：¥38600.00\n支付方式：银行卡\n交易状态：付款成功",
         "meta": {
           "merchant": "DIOR迪奥",
-          "amount": "-8,600.00",
+          "amount": "-38,600.00",
           "status": "付款成功",
           "category": "奢侈品",
           "payment": "银行卡",
@@ -1594,15 +1594,105 @@
         "sender": "VALENTINO华伦天奴",
         "time": "2026-09-05 17:12",
         "folder": "账单",
-        "body": "商户：VALENTINO华伦天奴\n商品：成衣与鞋履\n付款金额：¥12600.00\n支付方式：银行卡\n交易状态：付款成功",
+        "body": "商户：VALENTINO华伦天奴\n商品：成衣与鞋履\n付款金额：¥82600.00\n支付方式：银行卡\n交易状态：付款成功",
         "meta": {
           "merchant": "VALENTINO华伦天奴",
-          "amount": "-12,600.00",
+          "amount": "-82,600.00",
           "status": "付款成功",
           "category": "奢侈品",
           "payment": "银行卡",
           "goods": "成衣与鞋履",
           "orderNo": "2026090517120020"
+        }
+      },
+      {
+        "id": "alipay-card-8886",
+        "title": "招商银行 · 私人银行钻石信用卡",
+        "sender": "招商银行",
+        "folder": "卡包",
+        "body": "私人银行钻石信用卡\n卡号：•••• •••• •••• 8886\n卡片状态：正常\n权益：贵宾休息室、礼宾服务与专属客服",
+        "meta": {
+          "bank": "招商银行",
+          "tier": "私人银行钻石信用卡",
+          "last4": "8886",
+          "category": "银行卡",
+          "status": "正常",
+          "fictional": "true"
+        }
+      },
+      {
+        "id": "alipay-card-6688",
+        "title": "工商银行 · 黑金信用卡",
+        "sender": "工商银行",
+        "folder": "卡包",
+        "body": "黑金信用卡\n卡号：•••• •••• •••• 6688\n卡片状态：正常\n权益：贵宾休息室、礼宾服务与专属客服",
+        "meta": {
+          "bank": "工商银行",
+          "tier": "黑金信用卡",
+          "last4": "6688",
+          "category": "银行卡",
+          "status": "正常",
+          "fictional": "true"
+        }
+      },
+      {
+        "id": "alipay-card-8899",
+        "title": "建设银行 · 钻石信用卡",
+        "sender": "建设银行",
+        "folder": "卡包",
+        "body": "钻石信用卡\n卡号：•••• •••• •••• 8899\n卡片状态：正常\n权益：贵宾休息室、礼宾服务与专属客服",
+        "meta": {
+          "bank": "建设银行",
+          "tier": "钻石信用卡",
+          "last4": "8899",
+          "category": "银行卡",
+          "status": "正常",
+          "fictional": "true"
+        }
+      },
+      {
+        "id": "alipay-card-9978",
+        "title": "交通银行 · 白金信用卡",
+        "sender": "交通银行",
+        "folder": "卡包",
+        "body": "白金信用卡\n卡号：•••• •••• •••• 9978\n卡片状态：正常\n权益：贵宾休息室、礼宾服务与专属客服",
+        "meta": {
+          "bank": "交通银行",
+          "tier": "白金信用卡",
+          "last4": "9978",
+          "category": "银行卡",
+          "status": "正常",
+          "fictional": "true"
+        }
+      },
+      {
+        "id": "alipay-card-8866",
+        "title": "中国银行 · 白金信用卡",
+        "sender": "中国银行",
+        "folder": "卡包",
+        "body": "白金信用卡\n卡号：•••• •••• •••• 8866\n卡片状态：正常\n权益：贵宾休息室、礼宾服务与专属客服",
+        "meta": {
+          "bank": "中国银行",
+          "tier": "白金信用卡",
+          "last4": "8866",
+          "category": "银行卡",
+          "status": "正常",
+          "fictional": "true"
+        }
+      },
+      {
+        "id": "alipay-card-6608",
+        "title": "招商银行 · 金葵花金卡",
+        "sender": "招商银行",
+        "folder": "卡包",
+        "body": "金葵花金卡\n卡号：•••• •••• •••• 6608\n卡片状态：正常\n权益：贵宾休息室、礼宾服务与专属客服",
+        "meta": {
+          "bank": "招商银行",
+          "tier": "金葵花金卡",
+          "last4": "6608",
+          "category": "银行卡",
+          "status": "正常",
+          "fictional": "true"
         }
       }
     ],

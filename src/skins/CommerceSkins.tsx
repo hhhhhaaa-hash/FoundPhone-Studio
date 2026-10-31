@@ -48,15 +48,28 @@ export function AlipaySkin(p: Props) {
         {list.map((i) =>
           tab === "卡包" ? (
             <button
-              className="alipay-ticket"
+              className={`alipay-ticket${meta(i, "bank") ? " alipay-bank-card" : ""}`}
+              data-tier={
+                meta(i, "tier").includes("金葵花")
+                  ? "gold"
+                  : meta(i, "tier").includes("黑金")
+                    ? "black"
+                    : "platinum"
+              }
               key={i.id}
               onClick={() => p.onItem(i)}
             >
-              <Ticket size={23} />
+              {meta(i, "bank") ? <Wallet size={26} /> : <Ticket size={23} />}
               <div>
                 <strong>{i.title}</strong>
-                <p>{i.body}</p>
-                <small>{i.time}</small>
+                <p>
+                  {meta(i, "bank")
+                    ? `••••  ••••  ••••  ${meta(i, "last4")}`
+                    : i.body}
+                </p>
+                <small>
+                  {meta(i, "bank") ? "银行卡 · " + meta(i, "status") : i.time}
+                </small>
               </div>
             </button>
           ) : (

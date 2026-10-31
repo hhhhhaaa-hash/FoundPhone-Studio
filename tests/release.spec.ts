@@ -4,7 +4,7 @@ test("Alipay shows authored luxury and daily bills with readable details", async
   request,
 }) => {
   const work = await (await request.get("/work.json")).json();
-  expect(work.data.alipay).toHaveLength(20);
+  expect(work.data.alipay).toHaveLength(26);
   expect(
     work.data.alipay.filter(
       (i: { meta: Record<string, string> }) => i.meta.category === "奢侈品",
@@ -19,7 +19,9 @@ test("Alipay shows authored luxury and daily bills with readable details", async
   const app = page.locator(".alipay-ui");
   await expect(app.locator(".alipay-bill")).toHaveCount(20);
   await expect(app.locator(".alipay-bill").first()).toContainText("DIOR迪奥");
-  await expect(app.locator(".alipay-bill").first()).toContainText("-42,800.00");
+  await expect(app.locator(".alipay-bill").first()).toContainText(
+    "-128,800.00",
+  );
   await expect(app.locator(".alipay-bill").nth(1)).toContainText(
     "VALENTINO华伦天奴",
   );
@@ -33,6 +35,24 @@ test("Alipay shows authored luxury and daily bills with readable details", async
   await expect(page.locator(".app-screen:not([inert])")).toContainText(
     "银行卡",
   );
+  await page.getByRole("button", { name: "返回", exact: true }).click();
+  await app
+    .locator(".catalog-tabs")
+    .getByRole("button", { name: "卡包", exact: true })
+    .click();
+  await expect(app.locator(".alipay-bank-card")).toHaveCount(6);
+  await expect(app.locator('.alipay-bank-card[data-tier="gold"]')).toHaveCount(
+    1,
+  );
+  await expect(app.locator('.alipay-bank-card[data-tier="black"]')).toHaveCount(
+    1,
+  );
+  await expect(app.locator(".alipay-bank-card").first()).toContainText(
+    "••••  ••••  ••••  8886",
+  );
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/alipay-cards.png" });
 });
 test("Xiubo group has exactly three members and weather lists eight cities", async ({
   page,
