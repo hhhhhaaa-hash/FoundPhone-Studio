@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 27,
+  "revision": 28,
   "phone": {
     "owner": "机主",
     "date": "2026-10-25",
@@ -1266,12 +1266,344 @@
     ],
     "alipay": [
       {
-        "id": "test-item-alipay",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "alipay-bill-01",
+        "title": "DIOR迪奥 - 消费",
+        "sender": "DIOR迪奥",
+        "time": "2026-10-29 16:42",
+        "folder": "账单",
+        "body": "商户：DIOR迪奥\n商品：皮具与成衣\n付款金额：¥42800.00\n支付方式：银行卡\n交易状态：付款成功",
+        "meta": {
+          "merchant": "DIOR迪奥",
+          "amount": "-42,800.00",
+          "status": "付款成功",
+          "category": "奢侈品",
+          "payment": "银行卡",
+          "goods": "皮具与成衣",
+          "orderNo": "2026102916420001"
+        }
+      },
+      {
+        "id": "alipay-bill-02",
+        "title": "VALENTINO华伦天奴 - 消费",
+        "sender": "VALENTINO华伦天奴",
+        "time": "2026-10-27 13:18",
+        "folder": "账单",
+        "body": "商户：VALENTINO华伦天奴\n商品：鞋履与配饰\n付款金额：¥19800.00\n支付方式：银行卡\n交易状态：付款成功",
+        "meta": {
+          "merchant": "VALENTINO华伦天奴",
+          "amount": "-19,800.00",
+          "status": "付款成功",
+          "category": "奢侈品",
+          "payment": "银行卡",
+          "goods": "鞋履与配饰",
+          "orderNo": "2026102713180002"
+        }
+      },
+      {
+        "id": "alipay-bill-03",
+        "title": "星巴克 - 消费",
+        "sender": "星巴克",
+        "time": "2026-10-26 09:18",
+        "folder": "账单",
+        "body": "商户：星巴克\n商品：冰美式\n付款金额：¥28.00\n支付方式：支付宝余额\n交易状态：付款成功",
+        "meta": {
+          "merchant": "星巴克",
+          "amount": "-28.00",
+          "status": "付款成功",
+          "category": "餐饮美食",
+          "payment": "支付宝余额",
+          "goods": "冰美式",
+          "orderNo": "2026102609180003"
+        }
+      },
+      {
+        "id": "alipay-bill-04",
+        "title": "隆延茶铺 - 消费",
+        "sender": "隆延茶铺",
+        "time": "2026-10-24 15:06",
+        "folder": "账单",
+        "body": "商户：隆延茶铺\n商品：山谷黄杏\n付款金额：¥23.00\n支付方式：支付宝余额\n交易状态：付款成功",
+        "meta": {
+          "merchant": "隆延茶铺",
+          "amount": "-23.00",
+          "status": "付款成功",
+          "category": "餐饮美食",
+          "payment": "支付宝余额",
+          "goods": "山谷黄杏",
+          "orderNo": "2026102415060004"
+        }
+      },
+      {
+        "id": "alipay-bill-05",
+        "title": "LOUIS VUITTON - 消费",
+        "sender": "LOUIS VUITTON",
+        "time": "2026-10-22 18:36",
+        "folder": "账单",
+        "body": "商户：LOUIS VUITTON\n商品：旅行皮具\n付款金额：¥25600.00\n支付方式：银行卡\n交易状态：付款成功",
+        "meta": {
+          "merchant": "LOUIS VUITTON",
+          "amount": "-25,600.00",
+          "status": "付款成功",
+          "category": "奢侈品",
+          "payment": "银行卡",
+          "goods": "旅行皮具",
+          "orderNo": "2026102218360005"
+        }
+      },
+      {
+        "id": "alipay-bill-06",
+        "title": "味千拉面 - 消费",
+        "sender": "味千拉面",
+        "time": "2026-10-20 12:08",
+        "folder": "账单",
+        "body": "商户：味千拉面\n商品：招牌拉面套餐\n付款金额：¥36.00\n支付方式：支付宝余额\n交易状态：付款成功",
+        "meta": {
+          "merchant": "味千拉面",
+          "amount": "-36.00",
+          "status": "付款成功",
+          "category": "餐饮美食",
+          "payment": "支付宝余额",
+          "goods": "招牌拉面套餐",
+          "orderNo": "2026102012080006"
+        }
+      },
+      {
+        "id": "alipay-bill-07",
+        "title": "喜茶 - 消费",
+        "sender": "喜茶",
+        "time": "2026-10-18 14:42",
+        "folder": "账单",
+        "body": "商户：喜茶\n商品：多肉葡萄\n付款金额：¥19.00\n支付方式：支付宝余额\n交易状态：付款成功",
+        "meta": {
+          "merchant": "喜茶",
+          "amount": "-19.00",
+          "status": "付款成功",
+          "category": "餐饮美食",
+          "payment": "支付宝余额",
+          "goods": "多肉葡萄",
+          "orderNo": "2026101814420007"
+        }
+      },
+      {
+        "id": "alipay-bill-08",
+        "title": "PRADA普拉达 - 消费",
+        "sender": "PRADA普拉达",
+        "time": "2026-10-16 17:24",
+        "folder": "账单",
+        "body": "商户：PRADA普拉达\n商品：尼龙包与配件\n付款金额：¥13800.00\n支付方式：银行卡\n交易状态：付款成功",
+        "meta": {
+          "merchant": "PRADA普拉达",
+          "amount": "-13,800.00",
+          "status": "付款成功",
+          "category": "奢侈品",
+          "payment": "银行卡",
+          "goods": "尼龙包与配件",
+          "orderNo": "2026101617240008"
+        }
+      },
+      {
+        "id": "alipay-bill-09",
+        "title": "滴滴出行 - 消费",
+        "sender": "滴滴出行",
+        "time": "2026-10-14 21:09",
+        "folder": "账单",
+        "body": "商户：滴滴出行\n商品：快车行程\n付款金额：¥68.50\n支付方式：支付宝余额\n交易状态：付款成功",
+        "meta": {
+          "merchant": "滴滴出行",
+          "amount": "-68.50",
+          "status": "付款成功",
+          "category": "交通出行",
+          "payment": "支付宝余额",
+          "goods": "快车行程",
+          "orderNo": "2026101421090009"
+        }
+      },
+      {
+        "id": "alipay-bill-10",
+        "title": "麦当劳 - 消费",
+        "sender": "麦当劳",
+        "time": "2026-10-12 18:22",
+        "folder": "账单",
+        "body": "商户：麦当劳\n商品：麦辣鸡翅、双层吉士堡\n付款金额：¥35.00\n支付方式：支付宝余额\n交易状态：付款成功",
+        "meta": {
+          "merchant": "麦当劳",
+          "amount": "-35.00",
+          "status": "付款成功",
+          "category": "餐饮美食",
+          "payment": "支付宝余额",
+          "goods": "麦辣鸡翅、双层吉士堡",
+          "orderNo": "2026101218220010"
+        }
+      },
+      {
+        "id": "alipay-bill-11",
+        "title": "Wagas - 消费",
+        "sender": "Wagas",
+        "time": "2026-10-10 15:28",
+        "folder": "账单",
+        "body": "商户：Wagas\n商品：鸡肉牛油果卷饼、冰美式\n付款金额：¥79.00\n支付方式：支付宝余额\n交易状态：付款成功",
+        "meta": {
+          "merchant": "Wagas",
+          "amount": "-79.00",
+          "status": "付款成功",
+          "category": "餐饮美食",
+          "payment": "支付宝余额",
+          "goods": "鸡肉牛油果卷饼、冰美式",
+          "orderNo": "2026101015280011"
+        }
+      },
+      {
+        "id": "alipay-bill-12",
+        "title": "SAINT LAURENT - 消费",
+        "sender": "SAINT LAURENT",
+        "time": "2026-10-08 15:50",
+        "folder": "账单",
+        "body": "商户：SAINT LAURENT\n商品：皮具与腰带\n付款金额：¥17900.00\n支付方式：银行卡\n交易状态：付款成功",
+        "meta": {
+          "merchant": "SAINT LAURENT",
+          "amount": "-17,900.00",
+          "status": "付款成功",
+          "category": "奢侈品",
+          "payment": "银行卡",
+          "goods": "皮具与腰带",
+          "orderNo": "2026100815500012"
+        }
+      },
+      {
+        "id": "alipay-bill-13",
+        "title": "盒马鲜生 - 消费",
+        "sender": "盒马鲜生",
+        "time": "2026-10-06 11:26",
+        "folder": "账单",
+        "body": "商户：盒马鲜生\n商品：水果、酸奶与日用品\n付款金额：¥286.80\n支付方式：支付宝余额\n交易状态：付款成功",
+        "meta": {
+          "merchant": "盒马鲜生",
+          "amount": "-286.80",
+          "status": "付款成功",
+          "category": "生活日用",
+          "payment": "支付宝余额",
+          "goods": "水果、酸奶与日用品",
+          "orderNo": "2026100611260013"
+        }
+      },
+      {
+        "id": "alipay-bill-14",
+        "title": "达美乐比萨 - 消费",
+        "sender": "达美乐比萨",
+        "time": "2026-10-03 20:04",
+        "folder": "账单",
+        "body": "商户：达美乐比萨\n商品：比萨与烤鸡翅\n付款金额：¥79.00\n支付方式：支付宝余额\n交易状态：付款成功",
+        "meta": {
+          "merchant": "达美乐比萨",
+          "amount": "-79.00",
+          "status": "付款成功",
+          "category": "餐饮美食",
+          "payment": "支付宝余额",
+          "goods": "比萨与烤鸡翅",
+          "orderNo": "2026100320040014"
+        }
+      },
+      {
+        "id": "alipay-bill-15",
+        "title": "瑞幸咖啡 - 消费",
+        "sender": "瑞幸咖啡",
+        "time": "2026-09-29 09:32",
+        "folder": "账单",
+        "body": "商户：瑞幸咖啡\n商品：冰美式\n付款金额：¥9.90\n支付方式：支付宝余额\n交易状态：付款成功",
+        "meta": {
+          "merchant": "瑞幸咖啡",
+          "amount": "-9.90",
+          "status": "付款成功",
+          "category": "餐饮美食",
+          "payment": "支付宝余额",
+          "goods": "冰美式",
+          "orderNo": "2026092909320015"
+        }
+      },
+      {
+        "id": "alipay-bill-16",
+        "title": "BOTTEGA VENETA - 消费",
+        "sender": "BOTTEGA VENETA",
+        "time": "2026-09-26 16:08",
+        "folder": "账单",
+        "body": "商户：BOTTEGA VENETA\n商品：编织皮具\n付款金额：¥26800.00\n支付方式：银行卡\n交易状态：付款成功",
+        "meta": {
+          "merchant": "BOTTEGA VENETA",
+          "amount": "-26,800.00",
+          "status": "付款成功",
+          "category": "奢侈品",
+          "payment": "银行卡",
+          "goods": "编织皮具",
+          "orderNo": "2026092616080016"
+        }
+      },
+      {
+        "id": "alipay-bill-17",
+        "title": "Wagas - 消费",
+        "sender": "Wagas",
+        "time": "2026-09-21 15:10",
+        "folder": "账单",
+        "body": "商户：Wagas\n商品：烤鸡藜麦沙拉\n付款金额：¥68.00\n支付方式：支付宝余额\n交易状态：付款成功",
+        "meta": {
+          "merchant": "Wagas",
+          "amount": "-68.00",
+          "status": "付款成功",
+          "category": "餐饮美食",
+          "payment": "支付宝余额",
+          "goods": "烤鸡藜麦沙拉",
+          "orderNo": "2026092115100017"
+        }
+      },
+      {
+        "id": "alipay-bill-18",
+        "title": "麦当劳 - 消费",
+        "sender": "麦当劳",
+        "time": "2026-09-18 19:36",
+        "folder": "账单",
+        "body": "商户：麦当劳\n商品：麦辣鸡腿堡套餐\n付款金额：¥33.00\n支付方式：支付宝余额\n交易状态：付款成功",
+        "meta": {
+          "merchant": "麦当劳",
+          "amount": "-33.00",
+          "status": "付款成功",
+          "category": "餐饮美食",
+          "payment": "支付宝余额",
+          "goods": "麦辣鸡腿堡套餐",
+          "orderNo": "2026091819360018"
+        }
+      },
+      {
+        "id": "alipay-bill-19",
+        "title": "DIOR迪奥 - 消费",
+        "sender": "DIOR迪奥",
+        "time": "2026-09-12 14:26",
+        "folder": "账单",
+        "body": "商户：DIOR迪奥\n商品：运动鞋与配饰\n付款金额：¥8600.00\n支付方式：银行卡\n交易状态：付款成功",
+        "meta": {
+          "merchant": "DIOR迪奥",
+          "amount": "-8,600.00",
+          "status": "付款成功",
+          "category": "奢侈品",
+          "payment": "银行卡",
+          "goods": "运动鞋与配饰",
+          "orderNo": "2026091214260019"
+        }
+      },
+      {
+        "id": "alipay-bill-20",
+        "title": "VALENTINO华伦天奴 - 消费",
+        "sender": "VALENTINO华伦天奴",
+        "time": "2026-09-05 17:12",
+        "folder": "账单",
+        "body": "商户：VALENTINO华伦天奴\n商品：成衣与鞋履\n付款金额：¥12600.00\n支付方式：银行卡\n交易状态：付款成功",
+        "meta": {
+          "merchant": "VALENTINO华伦天奴",
+          "amount": "-12,600.00",
+          "status": "付款成功",
+          "category": "奢侈品",
+          "payment": "银行卡",
+          "goods": "成衣与鞋履",
+          "orderNo": "2026090517120020"
+        }
       }
     ],
     "taobao": [

@@ -1,4 +1,39 @@
 import { test, expect } from "@playwright/test";
+test("Alipay shows authored luxury and daily bills with readable details", async ({
+  page,
+  request,
+}) => {
+  const work = await (await request.get("/work.json")).json();
+  expect(work.data.alipay).toHaveLength(20);
+  expect(
+    work.data.alipay.filter(
+      (i: { meta: Record<string, string> }) => i.meta.category === "奢侈品",
+    ),
+  ).toHaveLength(8);
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.goto("/");
+  await page.getByRole("button", { name: "轻触解锁", exact: true }).click();
+  for (const n of "980705")
+    await page.getByRole("button", { name: "密码键" + n, exact: true }).click();
+  await page.getByRole("button", { name: "打开支付宝", exact: true }).click();
+  const app = page.locator(".alipay-ui");
+  await expect(app.locator(".alipay-bill")).toHaveCount(20);
+  await expect(app.locator(".alipay-bill").first()).toContainText("DIOR迪奥");
+  await expect(app.locator(".alipay-bill").first()).toContainText("-42,800.00");
+  await expect(app.locator(".alipay-bill").nth(1)).toContainText(
+    "VALENTINO华伦天奴",
+  );
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/alipay-bills.png" });
+  await app.locator(".alipay-bill").first().click();
+  await expect(page.locator(".app-screen:not([inert])")).toContainText(
+    "皮具与成衣",
+  );
+  await expect(page.locator(".app-screen:not([inert])")).toContainText(
+    "银行卡",
+  );
+});
 test("Xiubo group has exactly three members and weather lists eight cities", async ({
   page,
   request,
@@ -911,7 +946,9 @@ test("Matt is pinned, has a separate nickname and shares Mingbo's Moments cover"
         els.every((el) => !el.childNodes[0]?.textContent?.includes("\n")),
       ),
   ).toBe(true);
-  await expect(wx.locator('[data-message-id="wechat-matt-chat-083"]')).toContainText("咋呢");
+  await expect(
+    wx.locator('[data-message-id="wechat-matt-chat-083"]'),
+  ).toContainText("咋呢");
   await expect(
     wx.locator(".skin-message:not(.outgoing) .skin-avatar img").first(),
   ).toHaveAttribute("src", avatarSource || "");
