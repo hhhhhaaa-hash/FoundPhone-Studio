@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 34,
+  "revision": 35,
   "phone": {
     "owner": "机主",
     "date": "2026-10-25",
@@ -1013,12 +1013,17 @@
     ],
     "maps": [
       {
-        "id": "test-item-maps",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "maps-beijing-century-uu",
+        "title": "北京市世纪优优有限公司",
+        "sender": "北京市",
+        "folder": "地点",
+        "body": "北京市世纪优优有限公司\n城市：北京市",
+        "meta": {
+          "city": "北京市",
+          "category": "公司",
+          "x": "52",
+          "y": "35"
+        }
       }
     ],
     "weather": [
@@ -1169,12 +1174,84 @@
     ],
     "wallet": [
       {
-        "id": "test-item-wallet",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "wallet-beijing-transit",
+        "title": "北京市交通卡",
+        "folder": "卡片",
+        "sender": "北京市政交通一卡通",
+        "body": "北京市交通卡\n余额：¥178.00\n充值银行卡：招商银行 · 尾号 8886",
+        "meta": {
+          "number": "交通联合 · 北京",
+          "amount": "余额 ¥178.00",
+          "category": "交通卡",
+          "linkedCardId": "alipay-card-8886"
+        }
+      },
+      {
+        "id": "wallet-hk-octopus",
+        "title": "八達通 Octopus",
+        "folder": "卡片",
+        "sender": "中国香港",
+        "body": "香港八达通卡\n适用于香港公共交通及日常消费\n充值银行卡：中国银行 · 尾号 8866",
+        "meta": {
+          "number": "中国香港 · 八达通",
+          "amount": "HKD",
+          "category": "交通卡",
+          "linkedCardId": "alipay-card-8866"
+        }
+      },
+      {
+        "id": "wallet-bank-8886",
+        "title": "招商银行 · 私人银行钻石信用卡",
+        "sender": "招商银行",
+        "folder": "卡片",
+        "body": "私人银行钻石信用卡\n卡号：•••• •••• •••• 8886\n卡片状态：正常\n权益：贵宾休息室、礼宾服务与专属客服",
+        "meta": {
+          "bank": "招商银行",
+          "tier": "私人银行钻石信用卡",
+          "last4": "8886",
+          "category": "银行卡",
+          "status": "正常",
+          "fictional": "true",
+          "number": "•••• •••• •••• 8886",
+          "amount": "私人银行钻石信用卡",
+          "sourceCardId": "alipay-card-8886"
+        }
+      },
+      {
+        "id": "wallet-bank-6688",
+        "title": "工商银行 · 黑金信用卡",
+        "sender": "工商银行",
+        "folder": "卡片",
+        "body": "黑金信用卡\n卡号：•••• •••• •••• 6688\n卡片状态：正常\n权益：贵宾休息室、礼宾服务与专属客服",
+        "meta": {
+          "bank": "工商银行",
+          "tier": "黑金信用卡",
+          "last4": "6688",
+          "category": "银行卡",
+          "status": "正常",
+          "fictional": "true",
+          "number": "•••• •••• •••• 6688",
+          "amount": "黑金信用卡",
+          "sourceCardId": "alipay-card-6688"
+        }
+      },
+      {
+        "id": "wallet-bank-8866",
+        "title": "中国银行 · 白金信用卡",
+        "sender": "中国银行",
+        "folder": "卡片",
+        "body": "白金信用卡\n卡号：•••• •••• •••• 8866\n卡片状态：正常\n权益：贵宾休息室、礼宾服务与专属客服",
+        "meta": {
+          "bank": "中国银行",
+          "tier": "白金信用卡",
+          "last4": "8866",
+          "category": "银行卡",
+          "status": "正常",
+          "fictional": "true",
+          "number": "•••• •••• •••• 8866",
+          "amount": "白金信用卡",
+          "sourceCardId": "alipay-card-8866"
+        }
       }
     ],
     "health": [
@@ -1189,12 +1266,43 @@
     ],
     "find": [
       {
-        "id": "test-item-find",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "find-airpods-pro",
+        "title": "你尔朵隆吗",
+        "folder": "设备",
+        "sender": "AirPods Pro",
+        "body": "设备名称：你尔朵隆吗\n型号：AirPods Pro\n位置：北京市 · 在你身边",
+        "meta": {
+          "model": "AirPods Pro",
+          "status": "在你身边",
+          "x": "45",
+          "y": "32"
+        }
+      },
+      {
+        "id": "find-ipad-pro",
+        "title": "iPad Pro",
+        "folder": "设备",
+        "sender": "iPad Pro",
+        "body": "iPad Pro\n位置：北京市",
+        "meta": {
+          "model": "iPad Pro",
+          "status": "北京市",
+          "x": "58",
+          "y": "43"
+        }
+      },
+      {
+        "id": "find-macbook-pro",
+        "title": "MacBook Pro",
+        "folder": "设备",
+        "sender": "MacBook Pro",
+        "body": "MacBook Pro\n位置：北京市",
+        "meta": {
+          "model": "MacBook Pro",
+          "status": "北京市",
+          "x": "65",
+          "y": "30"
+        }
       }
     ],
     "calculator": [
