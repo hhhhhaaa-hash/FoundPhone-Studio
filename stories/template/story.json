@@ -3,7 +3,7 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 30,
+  "revision": 31,
   "phone": {
     "owner": "机主",
     "date": "2026-10-25",
@@ -6697,11 +6697,12 @@
         "sender": "Matt💙",
         "outgoing": false,
         "time": "2026-10-06 23:12",
-        "body": "（语音转文字）明伯，等你回来看看我虚不虚。",
+        "body": "等你回来看看我虚不虚。",
         "read": true,
         "meta": {
           "conversationId": "wechat-mingbo-matt",
-          "voiceTranscript": "true"
+          "voiceTranscript": "true",
+          "voiceDuration": "6"
         }
       },
       {

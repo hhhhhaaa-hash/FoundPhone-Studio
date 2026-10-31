@@ -257,6 +257,34 @@
 .ios18 .wechat-ui .skin-message.outgoing .skin-bubble {
   background: #95ec69;
 }
+.ios18 .wechat-ui .wx-voice-message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  max-width: 245px;
+}
+.ios18 .wechat-ui .wx-voice-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 112px;
+  min-height: 43px;
+  padding: 9px 13px;
+}
+.ios18 .wechat-ui .wx-voice-bar span {
+  font-size: 17px;
+}
+.ios18 .wechat-ui .wx-voice-transcript {
+  background: #fff;
+  color: #111;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 17px;
+  line-height: 1.5;
+  text-align: left;
+}
 .ios18 .wechat-ui .skin-bubble:before {
   top: 13px;
 }

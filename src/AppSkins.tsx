@@ -131,50 +131,79 @@ function MessageList({
             {!whatsapp && !i.outgoing && (
               <Avatar name={i.sender} src={i.avatar} />
             )}
-            <button
-              className={`skin-bubble${!whatsapp && i.kind === "image" ? " skin-image-bubble" : ""}${!whatsapp && i.kind === "transfer" ? " wx-transfer-bubble" : ""}`}
-              onClick={() => (creator ? onItem(i) : onRead(i.id))}
-            >
-              {["image", "audio", "video"].includes(i.kind) ? (
-                <ItemMedia item={i} />
-              ) : i.kind === "transfer" && !whatsapp ? (
-                <div className="wx-transfer-card">
-                  <div className="wx-transfer-main">
-                    {["已收款", "已被接收"].includes(i.meta.transferStatus) ? (
-                      <CircleCheck aria-hidden="true" />
-                    ) : (
-                      <ArrowLeftRight aria-hidden="true" />
-                    )}
-                    <div>
-                      <strong>
-                        ¥
-                        {Number.isFinite(
-                          Number(i.body.replace(/[¥￥元,\s]/g, "")),
-                        )
-                          ? Number(i.body.replace(/[¥￥元,\s]/g, "")).toFixed(2)
-                          : i.body}
-                      </strong>
-                      <span>
-                        {i.meta.transferStatus ||
-                          (i.outgoing ? "已转账" : "待收款")}
-                      </span>
+            {!whatsapp && i.meta.voiceTranscript === "true" ? (
+              <div className="wx-voice-message">
+                <button
+                  className="skin-bubble wx-voice-bar"
+                  aria-label={`语音消息${i.meta.voiceDuration || "6"}秒`}
+                  onClick={() => (creator ? onItem(i) : onRead(i.id))}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 10l2 2-2 2M11 7a9 9 0 010 10M16 3a15 15 0 010 18" />
+                  </svg>
+                  <span>{i.meta.voiceDuration || "6"}″</span>
+                </button>
+                <div className="wx-voice-transcript">{i.body}</div>
+              </div>
+            ) : (
+              <button
+                className={`skin-bubble${!whatsapp && i.kind === "image" ? " skin-image-bubble" : ""}${!whatsapp && i.kind === "transfer" ? " wx-transfer-bubble" : ""}`}
+                onClick={() => (creator ? onItem(i) : onRead(i.id))}
+              >
+                {["image", "audio", "video"].includes(i.kind) ? (
+                  <ItemMedia item={i} />
+                ) : i.kind === "transfer" && !whatsapp ? (
+                  <div className="wx-transfer-card">
+                    <div className="wx-transfer-main">
+                      {["已收款", "已被接收"].includes(
+                        i.meta.transferStatus,
+                      ) ? (
+                        <CircleCheck aria-hidden="true" />
+                      ) : (
+                        <ArrowLeftRight aria-hidden="true" />
+                      )}
+                      <div>
+                        <strong>
+                          ¥
+                          {Number.isFinite(
+                            Number(i.body.replace(/[¥￥元,\s]/g, "")),
+                          )
+                            ? Number(i.body.replace(/[¥￥元,\s]/g, "")).toFixed(
+                                2,
+                              )
+                            : i.body}
+                        </strong>
+                        <span>
+                          {i.meta.transferStatus ||
+                            (i.outgoing ? "已转账" : "待收款")}
+                        </span>
+                      </div>
                     </div>
+                    <footer>转账</footer>
                   </div>
-                  <footer>转账</footer>
-                </div>
-              ) : i.kind === "transfer" ? (
-                <div className="skin-transfer">
-                  ¥ {i.body}
-                  <small>转账记录 · 虚构</small>
-                </div>
-              ) : (
-                i.body
-              )}
-              <small className={whatsapp ? undefined : "wx-message-time"}>
-                {i.time.slice(-5)}{" "}
-                {whatsapp && i.outgoing && <CheckCheck size={11} />}
-              </small>
-            </button>
+                ) : i.kind === "transfer" ? (
+                  <div className="skin-transfer">
+                    ¥ {i.body}
+                    <small>转账记录 · 虚构</small>
+                  </div>
+                ) : (
+                  i.body
+                )}
+                <small className={whatsapp ? undefined : "wx-message-time"}>
+                  {i.time.slice(-5)}{" "}
+                  {whatsapp && i.outgoing && <CheckCheck size={11} />}
+                </small>
+              </button>
+            )}
             {!whatsapp && i.outgoing && (
               <Avatar name={i.sender} src={i.avatar} />
             )}

@@ -933,6 +933,18 @@ test("Matt is pinned, has a separate nickname and shares Mingbo's Moments cover"
   ).toBe(true);
   await pinned.click();
   await expect(wx.locator(".skin-message")).toHaveCount(225);
+  const voice = wx.locator('[data-message-id="wechat-matt-oct-034"]');
+  await expect(
+    voice.getByRole("button", { name: "语音消息6秒", exact: true }),
+  ).toBeVisible();
+  await expect(voice.locator(".wx-voice-bar")).toContainText("6″");
+  await expect(voice.locator(".wx-voice-transcript")).toHaveText(
+    "等你回来看看我虚不虚。",
+  );
+  await voice.scrollIntoViewIfNeeded();
+  await page
+    .locator(".phone-screen")
+    .screenshot({ path: "outputs/release/matt-voice.png" });
   await expect(wx.locator(".skin-message.outgoing")).toHaveCount(136);
   await expect(wx.locator(".skin-message:not(.outgoing)")).toHaveCount(89);
   await expect(wx.locator(".skin-date")).toHaveCount(28);
