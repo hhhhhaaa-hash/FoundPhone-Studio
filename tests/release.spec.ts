@@ -877,15 +877,19 @@ test("Matt is pinned, has a separate nickname and shares Mingbo's Moments cover"
       .evaluate((i: HTMLImageElement) => i.complete && i.naturalWidth > 0),
   ).toBe(true);
   await pinned.click();
-  await expect(wx.locator(".skin-message")).toHaveCount(109);
-  await expect(wx.locator(".skin-message.outgoing")).toHaveCount(66);
-  await expect(wx.locator(".skin-message:not(.outgoing)")).toHaveCount(43);
-  await expect(wx.locator(".skin-date")).toHaveCount(19);
+  await expect(wx.locator(".skin-message")).toHaveCount(176);
+  await expect(wx.locator(".skin-message.outgoing")).toHaveCount(106);
+  await expect(wx.locator(".skin-message:not(.outgoing)")).toHaveCount(70);
+  await expect(wx.locator(".skin-date")).toHaveCount(23);
+  await expect(
+    wx.locator('[data-message-id="wechat-matt-more-018"]'),
+  ).toContainText("视频通话13:48");
+  await expect(wx.locator(".skin-message").last()).toContainText("好吧");
   await expect(wx.locator(".skin-date").first()).toHaveText(
     "8月27日 星期四 16:20",
   );
   await expect(wx.locator(".skin-date").last()).toHaveText(
-    "9月14日 星期一 10:49",
+    "9月18日 星期五 14:55",
   );
   await expect(wx.locator(".skin-message").first()).toHaveClass(/outgoing/);
   await expect(
@@ -907,7 +911,7 @@ test("Matt is pinned, has a separate nickname and shares Mingbo's Moments cover"
         els.every((el) => !el.childNodes[0]?.textContent?.includes("\n")),
       ),
   ).toBe(true);
-  await expect(wx.locator(".skin-message").last()).toContainText("咋呢");
+  await expect(wx.locator('[data-message-id="wechat-matt-chat-083"]')).toContainText("咋呢");
   await expect(
     wx.locator(".skin-message:not(.outgoing) .skin-avatar img").first(),
   ).toHaveAttribute("src", avatarSource || "");
@@ -915,7 +919,7 @@ test("Matt is pinned, has a separate nickname and shares Mingbo's Moments cover"
     1,
   );
   const photos = wx.locator(".skin-bubble > img");
-  await expect(photos).toHaveCount(7);
+  await expect(photos).toHaveCount(11);
   const imageBubble = wx.locator(".skin-image-bubble").first();
   await expect(imageBubble).toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
   await expect(imageBubble).toHaveCSS("padding", "0px");
