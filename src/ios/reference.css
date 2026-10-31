@@ -264,6 +264,9 @@
   gap: 6px;
   max-width: 245px;
 }
+.ios18 .wechat-ui .skin-message.outgoing .wx-voice-message {
+  align-items: flex-end;
+}
 .ios18 .wechat-ui .wx-voice-bar {
   display: flex;
   align-items: center;
@@ -876,3 +879,4 @@
   background: #fafafa;
   color: #ffadb7;
 }
+
