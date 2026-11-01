@@ -379,23 +379,27 @@ test("Huan contact avatar and PDF dialogue preserve speakers, times and images",
   expect(rowNames[huanIndex + 1]).toContain("修伯99");
   expect(rowNames[huanIndex + 2]).toContain("🍔");
   await wx.locator(".wx-chat-row").filter({ hasText: "嬛嬛" }).click();
-  await expect(wx.locator(".skin-message")).toHaveCount(97);
+  await expect(wx.locator(".skin-message")).toHaveCount(160);
   await expect(
     wx.locator(".skin-message:not(.outgoing) .skin-avatar img").first(),
   ).toHaveAttribute("src", avatar);
-  await expect(wx.locator(".skin-date")).toHaveCount(9);
+  await expect(wx.locator(".skin-date")).toHaveCount(16);
   await expect(wx.locator(".skin-date").first()).toHaveText(
     "9月9日 星期三 23:08",
   );
   await expect(wx.locator(".skin-date").last()).toHaveText(
-    "9月29日 星期二 10:16",
+    "10月27日 星期二 00:17",
   );
-  await expect(wx.locator(".wx-transfer-card")).toHaveCount(2);
+  await expect(wx.locator(".wx-transfer-card")).toHaveCount(4);
   await expect(wx.locator(".wx-transfer-main strong")).toHaveText([
     "¥88888.00",
     "¥88888.00",
+    "¥50.00",
+    "¥50.00",
   ]);
   await expect(wx.locator(".wx-transfer-main span")).toHaveText([
+    "已被接收",
+    "已收款",
     "已被接收",
     "已收款",
   ]);
@@ -412,9 +416,9 @@ test("Huan contact avatar and PDF dialogue preserve speakers, times and images",
   await page
     .locator(".phone-screen")
     .screenshot({ path: "outputs/release/huan-transfer.png" });
-  await expect(wx.locator(".skin-message").last()).toContainText("震撼首发");
+  await expect(wx.locator(".skin-message").last()).toContainText("奔奔宝宝抱抱");
   const images = wx.locator(".skin-bubble > img");
-  await expect(images).toHaveCount(6);
+  await expect(images).toHaveCount(11);
   for (const img of await images.all()) {
     await img.scrollIntoViewIfNeeded();
     await img.evaluate((el: HTMLImageElement) => el.decode());
