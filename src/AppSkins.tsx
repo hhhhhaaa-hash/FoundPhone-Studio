@@ -393,6 +393,14 @@ export function WeChatSkin(p: SkinProps) {
         contactProfiles.find((i) => i.title === a)?.meta.pinned === "true",
       ),
   );
+  for (const group of groups) {
+    const before = group.meta.beforeConversation;
+    if (!before || before === group.title) continue;
+    const from = conversations.indexOf(group.title);
+    if (from < 0 || !conversations.includes(before)) continue;
+    conversations.splice(from, 1);
+    conversations.splice(conversations.indexOf(before), 0, group.title);
+  }
   const contacts = [
     ...new Set([
       ...contactProfiles.map((i) => i.title),
@@ -1418,4 +1426,3 @@ export function InstagramSkin(p: SkinProps) {
     </div>
   );
 }
-
