@@ -513,7 +513,7 @@ export function NotesSkin(p: Props) {
   );
 }
 export function CalendarSkin(p: Props) {
-  const [month, setMonth] = useState(8),
+  const [month, setMonth] = useState(10),
     [year, setYear] = useState(2026),
     [day, setDay] = useState(1);
   const prefix = `${year}-${String(month + 1).padStart(2, "0")}`;
@@ -1041,3 +1041,4 @@ export function FindSkin(p: Props) {
     </div>
   );
 }
+

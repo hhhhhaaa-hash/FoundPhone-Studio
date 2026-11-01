@@ -3,10 +3,10 @@
   "id": "ui-test-phone-v2",
   "title": "捡手机",
   "description": "仅用于界面测试，不含剧情",
-  "revision": 37,
+  "revision": 38,
   "phone": {
     "owner": "机主",
-    "date": "2026-10-25",
+    "date": "2026-11-01",
     "time": "09:41",
     "battery": 94,
     "network": "5G",
@@ -951,24 +951,91 @@
         "meta": {}
       }
     ],
-    "calendar": [
-      {
-        "id": "test-item-calendar",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
-      }
-    ],
+    "calendar": [],
     "mail": [
       {
-        "id": "test-item-mail",
-        "title": "测试内容",
-        "body": "这是一条测试内容。",
-        "sender": "测试用户",
-        "kind": "text",
-        "meta": {}
+        "id": "mail-dior-ad",
+        "time": "2026-10-29 10:00",
+        "sender": "DIOR迪奥",
+        "title": "DIOR｜秋冬新作与私人鉴赏邀约",
+        "body": "为秋冬衣橱添一份优雅。探索 DIOR 成衣、皮具及配饰系列，以细节呈现个人风格。\n\n如需了解系列与预约店内鉴赏，可联系您的精品店顾问。\nDIOR迪奥",
+        "folder": "收件箱",
+        "read": true,
+        "meta": {
+          "category": "品牌资讯"
+        }
+      },
+      {
+        "id": "mail-prada-ad",
+        "time": "2026-10-25 12:18",
+        "sender": "PRADA普拉达",
+        "title": "PRADA｜探索秋冬成衣与皮具精选",
+        "body": "PRADA 为您带来秋冬成衣、鞋履与皮具精选，以简洁轮廓和材质细节开启新季灵感。\n\n欢迎联系精品店顾问，了解产品与到店预约。\nPRADA普拉达",
+        "folder": "收件箱",
+        "read": true,
+        "meta": {
+          "category": "品牌资讯"
+        }
+      },
+      {
+        "id": "mail-netease-song",
+        "time": "2026-10-23 14:26",
+        "sender": "世纪优优",
+        "title": "网易云音乐《和你有关这一生》｜歌曲推广安排",
+        "body": "明伯，你好：\n\n网易云音乐《和你有关这一生》歌曲推广工作已进入准备阶段，请确认以下事项：\n\n1. 核对歌曲名称、艺人介绍与宣传文案。\n2. 配合录制歌曲推荐口播及推广短视频。\n3. 与宣传团队确认平台上线节奏及社交账号转发安排。\n\n最终物料与发布时间待团队统一确认，请先预留相关配合时间。\n世纪优优 · 宣传组",
+        "folder": "收件箱",
+        "read": true,
+        "meta": {
+          "category": "工作"
+        }
+      },
+      {
+        "id": "mail-whoo",
+        "time": "2026-10-22 10:18",
+        "sender": "世纪优优",
+        "title": "Whoo 系列护肤品｜商务拍摄行程单",
+        "body": "明伯，你好：\n\nWhoo 系列护肤品商务拍摄行程单已整理，请查收本次执行安排。\n\n拍摄内容：系列护肤品平面及短视频物料。\n准备事项：提前确认产品资料、拍摄脚本、妆发与服装方案。\n请与团队核对到场、妆发、拍摄及采访的分段时间；具体地点与最终执行时间以项目群确认版本为准。\n\n收到后请回复确认，若有档期冲突请及时告知。\n世纪优优 · 商务执行组",
+        "folder": "收件箱",
+        "read": true,
+        "meta": {
+          "category": "工作"
+        }
+      },
+      {
+        "id": "mail-cartier-ad",
+        "time": "2026-10-18 09:30",
+        "sender": "Cartier卡地亚",
+        "title": "Cartier｜珠宝与腕表作品鉴赏",
+        "body": "探索 Cartier 珠宝与腕表作品，感受经典设计与工艺细节。\n\n如需安排专属鉴赏，可联系您的精品店顾问预约到店。\nCartier卡地亚",
+        "folder": "收件箱",
+        "read": true,
+        "meta": {
+          "category": "品牌资讯"
+        }
+      },
+      {
+        "id": "mail-yin-hotel",
+        "time": "2026-10-10 16:35",
+        "sender": "Yin Hotels 预订中心",
+        "title": "预订确认｜阿那亚 Yin Hotels · 无极海景套房｜10月13日至15日",
+        "body": "尊敬的 Mingbo：\n\n您的阿那亚 Yin Hotels 住宿预订已确认。\n\n酒店：Yin Hotels\n目的地：阿那亚\n房型：无极海景套房\n入住日期：2026年10月13日\n离店日期：2026年10月15日\n住宿晚数：2晚\n预订状态：已确认\n\n请在抵达时携带有效身份证件。入住、退房及其他服务安排以酒店现场确认为准。\n\n期待您的到来。\nYin Hotels 预订中心",
+        "folder": "收件箱",
+        "read": true,
+        "meta": {
+          "category": "酒店订单"
+        }
+      },
+      {
+        "id": "mail-timson",
+        "time": "2026-10-07 11:08",
+        "sender": "世纪优优",
+        "title": "蒂姆森｜商务直播行程单",
+        "body": "明伯，你好：\n\n蒂姆森商务直播行程单已整理，请确认直播执行安排。\n\n准备内容：产品资料熟悉、直播脚本确认、妆发与服装准备。\n到场后安排设备测试、灯光收音确认及流程彩排，随后按品牌确认版本完成直播。\n具体开播时间与场地由项目群统一通知。\n\n请回复确认已收到，相关调整请联系商务执行同事。\n世纪优优 · 商务执行组",
+        "folder": "收件箱",
+        "read": true,
+        "meta": {
+          "category": "工作"
+        }
       }
     ],
     "clock": [
@@ -9392,7 +9459,7 @@
         "title": "Matt💙",
         "sender": "Matt💙",
         "outgoing": false,
-        "time": "2026-10-30",
+        "time": "2026-10-30 23:17",
         "body": "我感覺我的耳朵有點耳鳴",
         "read": true,
         "meta": {
@@ -9404,7 +9471,7 @@
         "title": "Matt💙",
         "sender": "Matt💙",
         "outgoing": false,
-        "time": "2026-10-30",
+        "time": "2026-10-30 23:17",
         "body": "嗓子也有點啞",
         "read": true,
         "meta": {
@@ -9416,7 +9483,7 @@
         "title": "Matt💙",
         "sender": "Mingbo",
         "outgoing": true,
-        "time": "2026-10-30",
+        "time": "2026-10-30 23:17",
         "body": "哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈",
         "read": true,
         "meta": {
@@ -9428,7 +9495,7 @@
         "title": "Matt💙",
         "sender": "Mingbo",
         "outgoing": true,
-        "time": "2026-10-30",
+        "time": "2026-10-30 23:17",
         "body": "下次我们还玩！",
         "read": true,
         "meta": {
@@ -9440,7 +9507,7 @@
         "title": "Matt💙",
         "sender": "Matt💙",
         "outgoing": false,
-        "time": "2026-10-30",
+        "time": "2026-10-30 23:17",
         "body": "下次你閃身步之前能不能拉上我",
         "read": true,
         "meta": {
@@ -9452,7 +9519,7 @@
         "title": "Matt💙",
         "sender": "Mingbo",
         "outgoing": true,
-        "time": "2026-10-30",
+        "time": "2026-10-30 23:17",
         "body": "哈哈哈哈哈哈哈哈哈哈哈哈好",
         "read": true,
         "meta": {
@@ -9464,7 +9531,7 @@
         "title": "Matt💙",
         "sender": "Matt💙",
         "outgoing": false,
-        "time": "2026-10-30",
+        "time": "2026-10-30 23:17",
         "body": "。",
         "read": true,
         "meta": {
@@ -9678,3 +9745,4 @@
   "events": [],
   "tests": []
 }
+
