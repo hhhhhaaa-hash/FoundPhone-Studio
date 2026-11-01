@@ -792,24 +792,32 @@ export function FilesSkin(p: Props) {
             {list.map((i) => (
               <div key={i.id}>
                 <button onClick={() => p.onItem(i)}>
-                  {i.media ? <Media item={i} /> : <FileText size={49} />}
+                  {i.media ? (
+                    <Media item={i} />
+                  ) : i.kind === "audio" ? (
+                    <Music size={49} />
+                  ) : (
+                    <FileText size={49} />
+                  )}
                   <strong>{i.title}</strong>
                   <small>
                     {meta(i, "extension", "文件")} ·{" "}
                     {meta(i, "size", i.time.slice(0, 10))}
                   </small>
                 </button>
-                <button
-                  aria-label={`下载${i.title}文本`}
-                  onClick={() =>
-                    download(
-                      new Blob([i.body], { type: "text/plain" }),
-                      `${i.title}.txt`,
-                    )
-                  }
-                >
-                  <Download size={13} />
-                </button>
+                {i.kind !== "audio" && (
+                  <button
+                    aria-label={`下载${i.title}文本`}
+                    onClick={() =>
+                      download(
+                        new Blob([i.body], { type: "text/plain" }),
+                        `${i.title}.txt`,
+                      )
+                    }
+                  >
+                    <Download size={13} />
+                  </button>
+                )}
               </div>
             ))}
           </div>
@@ -830,20 +838,28 @@ export function FilesSkin(p: Props) {
 }
 export function MusicSkin(p: Props) {
   const { tab, setTab, items } = useContent(p, "资料库");
+  const [playlist, setPlaylist] = useState("");
+  const tracks = playlist
+    ? items.filter((i) => (i.folder || "我的音乐") === playlist)
+    : items;
   const [song, setSong] = useTrack(p, items);
   return (
     <div className="catalog-skin native-music">
       <Header p={p} />
       <div className="catalog-scroll">
-        <h1>{tab}</h1>
-        {tab === "歌单" ? (
+        <h1>{playlist || tab}</h1>
+        {playlist && (
+          <button className="playlist-back" onClick={() => setPlaylist("")}>
+            返回歌单
+          </button>
+        )}
+        {tab === "歌单" && !playlist ? (
           <div className="music-albums">
             {groupItems(items, "我的音乐").map((g) => (
               <button
                 key={g}
                 onClick={() => {
-                  const i = items.find((i) => (i.folder || "我的音乐") === g);
-                  if (i) setSong(i);
+                  setPlaylist(g);
                 }}
               >
                 <Music size={51} />
@@ -852,7 +868,7 @@ export function MusicSkin(p: Props) {
             ))}
           </div>
         ) : (
-          items.map((i, n) => (
+          tracks.map((i, n) => (
             <button
               className="music-track"
               key={i.id}
@@ -888,8 +904,9 @@ export function MusicSkin(p: Props) {
             aria-label="下一首"
             onClick={() =>
               setSong(
-                items[
-                  (items.findIndex((i) => i.id === song.id) + 1) % items.length
+                tracks[
+                  (tracks.findIndex((i) => i.id === song.id) + 1) %
+                    tracks.length
                 ],
               )
             }
@@ -901,7 +918,10 @@ export function MusicSkin(p: Props) {
       <Tabs
         tabs={["资料库", "歌单"]}
         value={tab}
-        set={setTab}
+        set={(t) => {
+          setTab(t);
+          setPlaylist("");
+        }}
         icons={[<Music />, <Folder />]}
       />
     </div>

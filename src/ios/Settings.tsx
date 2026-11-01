@@ -135,6 +135,13 @@ export function NativeSettings({
             <p className="settings-page-caption">
               {bluetooth ? "我的设备" : "蓝牙已关闭"}
             </p>
+            {bluetooth && (
+              <div className="settings-group">
+                {items
+                  .filter((i) => i.meta.bluetooth === "true")
+                  .map((i) => row(i.title, i.meta.status || "未连接"))}
+              </div>
+            )}
           </>
         );
       case "电池":
@@ -304,3 +311,4 @@ export function NativeSettings({
     </div>
   );
 }
+

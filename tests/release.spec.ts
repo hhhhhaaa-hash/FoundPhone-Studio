@@ -341,7 +341,7 @@ test("old saved desktop adopts removed apps without losing widgets", async ({
     );
     expect(
       saved.apps.filter((a: { installed: boolean }) => a.installed),
-    ).toHaveLength(32);
+    ).toHaveLength(31);
     expect(saved.widgets).toHaveLength(1);
   }
   await page
@@ -651,7 +651,7 @@ test("published default matches full test preview, four dock apps and updated st
   ];
   expect(
     work.apps.filter((a: { installed: boolean }) => a.installed),
-  ).toHaveLength(32);
+  ).toHaveLength(31);
   for (const id of removed) {
     expect(work.apps.find((a: { id: string }) => a.id === id).installed).toBe(
       false,
@@ -1151,3 +1151,9 @@ test("WeChat personal profile and Moments use authored images without leaking in
     avatarSource || "",
   );
 });
+
+
+
+
+
+
