@@ -372,6 +372,18 @@ function VerticalVideo({ p, item }: { p: Props; item: Item }) {
   return (
     <article className="vertical-video">
       <Media item={item} />
+      {/^https:\/\/www\.douyin\.com\/video\/\d+$/.test(
+        item.meta.sourceUrl || "",
+      ) && (
+        <a
+          className="douyin-work-source"
+          href={item.meta.sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          查看原作品
+        </a>
+      )}
       <div className="vertical-actions">
         <button
           aria-label={`作者${item.sender}`}
@@ -413,7 +425,12 @@ export function DouyinSkin(p: Props) {
   const profile = p.items.find(
     (i) => i.folder === "个人主页" && i.meta.profile === "true",
   );
-  const videos = items.filter((i) => i !== profile);
+  const followedAccounts = items.filter(
+    (i) => i.meta.followingAccount === "true",
+  );
+  const videos = items.filter(
+    (i) => i !== profile && i.meta.followingAccount !== "true",
+  );
   const list = tab === "推荐" ? videos : videos.filter((i) => i.folder === tab);
   const works = videos.filter((i) => ["我", "个人主页"].includes(i.folder));
   let sourceUrl = "";
@@ -447,12 +464,23 @@ export function DouyinSkin(p: Props) {
               ["关注", "following"],
               ["粉丝", "followers"],
               ["作品", "works"],
-            ].map(([label, key]) => (
-              <div key={key}>
-                <strong>{profile.meta[key] || "—"}</strong>
-                <span>{label}</span>
-              </div>
-            ))}
+            ].map(([label, key]) =>
+              key === "following" ? (
+                <button
+                  key={key}
+                  className="douyin-follow-count"
+                  onClick={() => setTab("关注")}
+                >
+                  <strong>{profile.meta[key] || "—"}</strong>
+                  <span>{label}</span>
+                </button>
+              ) : (
+                <div key={key}>
+                  <strong>{profile.meta[key] || "—"}</strong>
+                  <span>{label}</span>
+                </div>
+              ),
+            )}
           </div>
           {profile.body && <p className="douyin-profile-bio">{profile.body}</p>}
           {profile.meta.location && (
@@ -505,6 +533,18 @@ export function DouyinSkin(p: Props) {
             ))}
           </div>
           <div className="vertical-feed">
+            {tab === "关注" && (
+              <div className="douyin-following-list">
+                <h2>关注列表</h2>
+                {followedAccounts.map((i) => (
+                  <div key={i.id}>
+                    <Avatar name={i.title} src={i.avatar} />
+                    <strong>{i.title}</strong>
+                    <span>已关注</span>
+                  </div>
+                ))}
+              </div>
+            )}
             {list.map((i) => (
               <VerticalVideo key={i.id} p={p} item={i} />
             ))}

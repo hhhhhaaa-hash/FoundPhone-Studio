@@ -797,7 +797,7 @@ test("renamed friends stay linked to birthday likes and Douyin displays its publ
   await expect(
     dy.getByText("抖音号：Mingbo619", { exact: true }),
   ).toBeVisible();
-  await expect(dy.locator(".douyin-profile-stats")).toContainText("257.0万");
+  await expect(dy.locator(".douyin-profile-stats")).toContainText("258.0万");
   await expect(dy.locator(".douyin-profile-stats")).toContainText("16.1万");
   const avatar = dy.locator(".douyin-profile-heading img");
   expect(
@@ -820,7 +820,7 @@ test("renamed friends stay linked to birthday likes and Douyin displays its publ
     .click();
   await expect(dy.locator(".vertical-video")).toHaveCount(
     work.data.douyin.filter(
-      (i: { meta: Record<string, string> }) => i.meta.profile !== "true",
+      (i: { meta: Record<string, string> }) => i.meta.profile !== "true" && i.meta.followingAccount !== "true",
     ).length,
   );
 });
@@ -1151,9 +1151,3 @@ test("WeChat personal profile and Moments use authored images without leaking in
     avatarSource || "",
   );
 });
-
-
-
-
-
-

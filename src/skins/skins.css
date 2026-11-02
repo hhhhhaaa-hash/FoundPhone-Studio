@@ -3228,10 +3228,44 @@
   gap: 10px;
   margin: 26px 0;
 }
-.douyin-profile-stats > div {
+.douyin-profile-stats > div,
+.douyin-profile-stats > button {
   display: flex;
   flex-direction: column;
   gap: 6px;
+}
+.douyin-follow-count {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  text-align: left;
+}
+.douyin-following-list {
+  background: #151515;
+  color: #fff;
+  padding: 16px;
+}
+.douyin-following-list > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+}
+.douyin-following-list > div > span:last-child {
+  margin-left: auto;
+  color: #aaa;
+  font-size: 12px;
+}
+.douyin-work-source {
+  position: absolute;
+  left: 14px;
+  top: 16px;
+  z-index: 2;
+  color: #fff;
+  background: #0009;
+  padding: 7px 10px;
+  border-radius: 6px;
+  font-size: 12px;
 }
 .douyin-profile-stats strong {
   font-size: 18px;

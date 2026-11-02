@@ -14,8 +14,11 @@ const mimeTypes = {
   ".png": "image/png",
   ".gif": "image/gif",
   ".webp": "image/webp",
+  ".mp4": "video/mp4",
 };
 function matchesImage(bytes, mime) {
+  if (mime === "video/mp4")
+    return bytes.length >= 12 && bytes.subarray(4, 8).toString() === "ftyp";
   if (mime === "image/jpeg")
     return bytes[0] === 255 && bytes[1] === 216 && bytes[2] === 255;
   if (mime === "image/png")
@@ -39,7 +42,7 @@ export async function resolveStoryMedia(raw, storyFile) {
     if (cache.has(value)) return cache.get(value);
     const asset = value.slice("asset:".length);
     if (
-      !/^media\/[a-zA-Z0-9][a-zA-Z0-9_.-]*\.(?:jpg|jpeg|png|gif|webp)$/.test(
+      !/^media\/[a-zA-Z0-9][a-zA-Z0-9_.-]*\.(?:jpg|jpeg|png|gif|webp|mp4)$/.test(
         asset,
       )
     )
