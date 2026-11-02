@@ -145,7 +145,7 @@ test("Xiubo group has exactly three members and weather lists eight cities", asy
   const wx = page.locator(".wechat-ui");
   await wx.locator(".wx-chat-row").filter({ hasText: "修伯99" }).click();
   await expect(wx.locator(".wx-nav > strong")).toHaveText("修伯99 (3)");
-  await expect(wx.locator(".skin-message")).toHaveCount(0);
+  await expect(wx.locator(".skin-message")).toHaveCount(58);
   await wx.getByRole("button", { name: "聊天详情", exact: true }).click();
   await expect(wx.locator(".wx-group-member small")).toHaveText([
     "汉堡",
@@ -1151,3 +1151,13 @@ test("WeChat personal profile and Moments use authored images without leaking in
     avatarSource || "",
   );
 });
+
+
+
+
+
+
+
+
+
+

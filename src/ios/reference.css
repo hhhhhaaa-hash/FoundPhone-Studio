@@ -888,4 +888,15 @@
   background: #fafafa;
   color: #ffadb7;
 }
+.ios18 .wechat-ui .wx-group-message-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  max-width: 245px;
+}
+.ios18 .wechat-ui .wx-group-message-content > small {
+  color: #888;
+  font-size: 11px;
+}
 

@@ -131,7 +131,17 @@ function MessageList({
             {!whatsapp && !i.outgoing && (
               <Avatar name={i.sender} src={i.avatar} />
             )}
-            {!whatsapp && i.meta.voiceTranscript === "true" ? (
+            {!whatsapp && i.meta.groupMessage === "true" && !i.outgoing ? (
+              <div className="wx-group-message-content">
+                <small>{i.sender}</small>
+                <button
+                  className="skin-bubble"
+                  onClick={() => (creator ? onItem(i) : onRead(i.id))}
+                >
+                  {i.body}
+                </button>
+              </div>
+            ) : !whatsapp && i.meta.voiceTranscript === "true" ? (
               <div className="wx-voice-message">
                 <button
                   className="skin-bubble wx-voice-bar"
@@ -661,8 +671,12 @@ export function WeChatSkin(p: SkinProps) {
                   i.avatar ||
                   (i.outgoing
                     ? profile?.avatar
-                    : contactProfiles.find((c) => c.title === i.title)
-                        ?.avatar) ||
+                    : activeGroup
+                      ? groupMembers(activeGroup).find(
+                          (m) => m.name === i.sender,
+                        )?.item?.avatar
+                      : contactProfiles.find((c) => c.title === i.title)
+                          ?.avatar) ||
                   "",
               }))}
             creator={p.creator}
@@ -1426,3 +1440,4 @@ export function InstagramSkin(p: SkinProps) {
     </div>
   );
 }
+
