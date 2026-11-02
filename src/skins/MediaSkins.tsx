@@ -389,14 +389,14 @@ function VerticalVideo({ p, item }: { p: Props; item: Item }) {
           aria-label={`作者${item.sender}`}
           onClick={() => p.onItem(item)}
         >
-          <Avatar name={item.sender} />
+          <Avatar name={item.sender} src={item.avatar} />
         </button>
         <button
           aria-label={`喜欢${item.title}`}
           onClick={() => setLiked(!liked)}
         >
           <Heart size={29} fill={liked ? "#f44368" : "white"} />
-          <small>{item.likes + (liked ? 1 : 0)}</small>
+          <small>{item.meta.likes || item.likes + (liked ? 1 : 0)}</small>
         </button>
         <button aria-label={`评论${item.title}`} onClick={() => p.onItem(item)}>
           <MessageCircle size={29} />
@@ -432,7 +432,7 @@ export function DouyinSkin(p: Props) {
     (i) => i !== profile && i.meta.followingAccount !== "true",
   );
   const list = tab === "推荐" ? videos : videos.filter((i) => i.folder === tab);
-  const works = videos.filter((i) => ["我", "个人主页"].includes(i.folder));
+  const works = videos.filter((i) => i.meta.ownWork === "true" || ["我", "个人主页"].includes(i.folder));
   let sourceUrl = "";
   try {
     const url = new URL(profile?.meta.sourceUrl || "");

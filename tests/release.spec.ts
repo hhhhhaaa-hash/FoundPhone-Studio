@@ -812,7 +812,7 @@ test("renamed friends stay linked to birthday likes and Douyin displays its publ
   );
   await expect(link).toHaveAttribute("rel", "noopener noreferrer");
   await expect(
-    dy.getByText("作品暂未导入，可前往抖音查看。", { exact: true }),
+    dy.locator(".douyin-profile-works").getByText("和你有关这一生", { exact: true }),
   ).toBeVisible();
   await dy
     .locator(".catalog-tabs")
