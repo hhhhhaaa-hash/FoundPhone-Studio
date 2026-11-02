@@ -1,4 +1,5 @@
 import { test } from "node:test";
+import { createHash } from "node:crypto";
 import assert from "node:assert/strict";
 import {
   mkdtemp,
@@ -24,14 +25,59 @@ async function fixture(t) {
   return { root, file: join(root, "story.json") };
 }
 const jpeg = Buffer.from([255, 216, 255, 224, 0, 0]);
+test("video parts preserve exact bytes and reject corruption or unsafe paths", async (t) => {
+  const { root, file } = await fixture(t);
+  const bytes = Buffer.from([
+    0, 0, 0, 20, 102, 116, 121, 112, 105, 115, 111, 109,
+  ]);
+  const name = "clip.mp4",
+    part = "clip.mp4.part-01";
+  await writeFile(join(root, "media", name), bytes);
+  await writeFile(join(root, "media", part), bytes);
+  const manifest = {
+    bytes: bytes.length,
+    sha256: createHash("sha256").update(bytes).digest("hex"),
+    parts: [part],
+  };
+  const save = () =>
+    writeFile(
+      join(root, "media", name + ".parts.json"),
+      JSON.stringify(manifest),
+    );
+  const raw = { content: { douyin: [{ media: "asset:media/clip.mp4" }] } };
+  await save();
+  assert.equal(
+    (await resolveStoryMedia(raw, file)).content.douyin[0].media,
+    `data:video/mp4;base64,${bytes.toString("base64")}`,
+  );
+  manifest.sha256 = "0".repeat(64);
+  await save();
+  await assert.rejects(resolveStoryMedia(raw, file));
+  manifest.parts = ["../outside.mp4.part-01"];
+  await save();
+  await assert.rejects(resolveStoryMedia(raw, file));
+});
 test("local MP4 assets resolve with video MIME and reject mismatched bytes", async (t) => {
   const { root, file } = await fixture(t);
-  const bytes = Buffer.from([0, 0, 0, 20, 102, 116, 121, 112, 105, 115, 111, 109]);
+  const bytes = Buffer.from([
+    0, 0, 0, 20, 102, 116, 121, 112, 105, 115, 111, 109,
+  ]);
   await writeFile(join(root, "media", "clip.mp4"), bytes);
-  const result = await resolveStoryMedia({ content: { douyin: [{ media: "asset:media/clip.mp4" }] } }, file);
-  assert.equal(result.content.douyin[0].media, `data:video/mp4;base64,${bytes.toString("base64")}`);
+  const result = await resolveStoryMedia(
+    { content: { douyin: [{ media: "asset:media/clip.mp4" }] } },
+    file,
+  );
+  assert.equal(
+    result.content.douyin[0].media,
+    `data:video/mp4;base64,${bytes.toString("base64")}`,
+  );
   await writeFile(join(root, "media", "clip.mp4"), "<script>bad</script>");
-  await assert.rejects(resolveStoryMedia({ content: { douyin: [{ media: "asset:media/clip.mp4" }] } }, file));
+  await assert.rejects(
+    resolveStoryMedia(
+      { content: { douyin: [{ media: "asset:media/clip.mp4" }] } },
+      file,
+    ),
+  );
 });
 
 test("local images resolve in every author media container without changing input or inline data", async (t) => {

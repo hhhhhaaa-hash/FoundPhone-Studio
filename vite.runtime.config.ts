@@ -27,7 +27,7 @@ export default defineConfig(({ command }) => ({
           {
             urlPattern: ({ url, sameOrigin }) =>
               sameOrigin &&
-              /\/story-media\/[a-f0-9]{64}\.(jpg|png|gif|webp)$/.test(
+              /\/story-media\/[a-f0-9]{64}\.(jpg|png|gif|webp|mp4)$/.test(
                 url.pathname,
               ),
             handler: "CacheFirst",

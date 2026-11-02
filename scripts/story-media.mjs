@@ -1,4 +1,5 @@
 import { readFile, realpath } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import {
   dirname,
   resolve,
@@ -52,7 +53,47 @@ export async function resolveStoryMedia(raw, storyFile) {
     const inside = relative(root, target);
     if (isAbsolute(inside) || !inside.startsWith(`media${sep}`))
       throw Error("图片素材不能离开故事的 media 目录");
-    const bytes = await readFile(target);
+    let bytes = await readFile(target);
+    if (extname(asset) === ".mp4") {
+      let manifest;
+      try {
+        manifest = JSON.parse(await readFile(`${target}.parts.json`, "utf8"));
+      } catch (error) {
+        if (error.code !== "ENOENT") throw error;
+      }
+      if (manifest) {
+        if (
+          !Array.isArray(manifest.parts) ||
+          manifest.parts.length < 1 ||
+          manifest.parts.length > 32 ||
+          !Number.isInteger(manifest.bytes) ||
+          manifest.bytes > 10 * 1024 * 1024 ||
+          !/^[a-f0-9]{64}$/.test(manifest.sha256)
+        )
+          throw Error("无效视频分片清单");
+        const chunks = [];
+        for (const name of manifest.parts) {
+          if (!/^[a-zA-Z0-9][a-zA-Z0-9_.-]*\.mp4\.part-\d{2}$/.test(name))
+            throw Error("无效视频分片路径");
+          const chunk = await realpath(resolve(root, "media", name));
+          const chunkInside = relative(root, chunk);
+          if (isAbsolute(chunkInside) || !chunkInside.startsWith(`media${sep}`))
+            throw Error("视频分片不能离开素材目录");
+          chunks.push(await readFile(chunk));
+          if (
+            chunks.reduce((total, b) => total + b.length, 0) >
+            10 * 1024 * 1024
+          )
+            throw Error("视频分片总计不能超过10MB");
+        }
+        bytes = Buffer.concat(chunks);
+        if (
+          bytes.length !== manifest.bytes ||
+          createHash("sha256").update(bytes).digest("hex") !== manifest.sha256
+        )
+          throw Error("视频分片校验失败");
+      }
+    }
     if (bytes.length > 10 * 1024 * 1024)
       throw Error("单张图片素材不能超过10MB");
     const mime = mimeTypes[extname(asset)];

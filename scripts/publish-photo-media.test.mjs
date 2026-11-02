@@ -4,6 +4,27 @@ import { mkdtemp, readFile, readdir, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join, resolve, dirname, basename } from "node:path";
 import { publishPhotoMedia } from "./publish-photo-media.mjs";
+test("video is published separately with byte-identical media and deterministic hash", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "foundphone-gallery-"));
+  try {
+    const media = "data:video/mp4;base64,AAAAFGZ0eXBpc29t";
+    const work = { data: { douyin: [{ kind: "video", media }] } };
+    const result = await publishPhotoMedia(work, dir);
+    assert.match(
+      result.data.douyin[0].media,
+      /^\.\/story-media\/[a-f0-9]{64}\.mp4$/,
+    );
+    assert.deepEqual(
+      await readFile(join(dir, result.data.douyin[0].media)),
+      Buffer.from("AAAAFGZ0eXBpc29t", "base64"),
+    );
+    assert.equal(work.data.douyin[0].media, media);
+  } finally {
+    assert.equal(dirname(resolve(dir)), resolve(tmpdir()));
+    assert.ok(basename(dir).startsWith("foundphone-gallery-"));
+    await rm(dir, { recursive: true, force: true });
+  }
+});
 
 test("gallery images publish as deterministic local files without changing messages or input", async () => {
   const dir = await mkdtemp(join(tmpdir(), "foundphone-gallery-"));
