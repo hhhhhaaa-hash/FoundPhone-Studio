@@ -4405,3 +4405,96 @@
 .catalog-slot[hidden] {
   display: none;
 }
+.redbook-note > .app-nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.redbook-note > .app-nav strong {
+  flex: 1;
+  text-align: left;
+}
+.redbook-note > .app-nav > span:last-child {
+  border: 1px solid #ddd;
+  border-radius: 18px;
+  padding: 5px 12px;
+  font-size: 12px;
+}
+.redbook-note > .app-nav .catalog-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.redbook-gallery-wrap {
+  position: relative;
+}
+.redbook-gallery {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.redbook-gallery > img {
+  width: 100%;
+  min-width: 100%;
+  height: 430px;
+  object-fit: contain;
+  background: #f6f6f6;
+  scroll-snap-align: start;
+}
+.redbook-image-count {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: #0008;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  pointer-events: none;
+}
+.redbook-note-copy {
+  padding: 16px;
+}
+.redbook-note-copy h2 {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+.redbook-note-copy p {
+  white-space: pre-wrap;
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 0 0 20px;
+}
+.redbook-note-copy small {
+  display: block;
+  color: #999;
+  margin-bottom: 12px;
+}
+.redbook-note-copy a {
+  color: #315b83;
+  font-size: 13px;
+}
+.redbook-note-actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 12px;
+  background: white;
+  border-top: 1px solid #eee;
+}
+.redbook-note-actions > * {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+.redbook-note-actions button {
+  background: transparent;
+  color: inherit;
+}
+.redbook-masonry .catalog-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

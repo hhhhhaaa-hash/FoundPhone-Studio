@@ -12,7 +12,12 @@ export async function publishPhotoMedia(work, publicDir) {
     ...(published.data.photos ?? []),
     ...Object.entries(published.data)
       .filter(([app]) => app !== "photos")
-      .flatMap(([, items]) => items.filter((i) => i.kind === "video")),
+      .flatMap(([app, items]) =>
+        items.filter(
+          (i) =>
+            i.kind === "video" || (app === "redbook" && i.kind === "image"),
+        ),
+      ),
   ];
   for (const photo of records) {
     const match =

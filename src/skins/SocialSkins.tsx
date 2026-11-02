@@ -5,6 +5,7 @@ import {
   AtSign,
   Bookmark,
   Camera,
+  ChevronLeft,
   ChevronRight,
   Grid,
   Hash,
@@ -326,7 +327,98 @@ export function FacebookSkin(p: Props) {
   );
 }
 export function RedbookSkin(p: Props) {
-  const { tab, setTab, q, setQ, items } = useContent(p, "发现");
+  const { tab, setTab, q, setQ, items } = useContent(
+    { ...p, items: p.items.filter((i) => i.meta.gallery !== "true") },
+    "发现",
+  );
+  const [selected, setSelected] = useState("");
+  const [imageIndex, setImageIndex] = useState(0);
+  const [liked, setLiked] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const note = p.items.find((i) => i.id === selected);
+  if (note) {
+    const photos = p.items
+      .filter((i) => i.meta.postId === note.id)
+      .sort((a, b) => Number(a.meta.order) - Number(b.meta.order));
+    const url = /^https:\/\/xhslink\.cn\/o\/[a-zA-Z0-9]+$/.test(
+      note.meta.sourceUrl || "",
+    )
+      ? note.meta.sourceUrl
+      : "";
+    return (
+      <div className="catalog-skin redbook-ui redbook-note">
+        <div className="app-nav">
+          <button aria-label="返回发现" onClick={() => setSelected("")}>
+            <ChevronLeft />
+          </button>
+          <Avatar name={note.sender} src={note.avatar} />
+          <strong>{note.sender}</strong>
+          <span>{note.meta.following === "true" ? "已关注" : "关注"}</span>
+        </div>
+        <div className="catalog-scroll">
+          <div className="redbook-gallery-wrap">
+            <div
+              className="redbook-gallery"
+              onScroll={(e) =>
+                setImageIndex(
+                  Math.round(
+                    e.currentTarget.scrollLeft / e.currentTarget.clientWidth,
+                  ),
+                )
+              }
+            >
+              {(photos.length ? photos : [note]).map((i) => (
+                <Media key={i.id} item={i} />
+              ))}
+            </div>
+            <span className="redbook-image-count">
+              {imageIndex + 1}/{photos.length || 1}
+            </span>
+          </div>
+          <div className="redbook-note-copy">
+            <h2>{note.title}</h2>
+            <p>{note.body}</p>
+            <small>{note.meta.dateLabel}</small>
+            {url && (
+              <a href={url} target="_blank" rel="noopener noreferrer">
+                查看原笔记
+              </a>
+            )}
+          </div>
+        </div>
+        <footer className="redbook-note-actions">
+          <button
+            aria-label="点赞笔记"
+            aria-pressed={liked}
+            onClick={() => setLiked(!liked)}
+          >
+            <Heart
+              fill={liked ? "#ff2442" : "none"}
+              color={liked ? "#ff2442" : "currentColor"}
+            />
+            {note.likes +
+              (liked && note.meta.liked !== "true"
+                ? 1
+                : !liked && note.meta.liked === "true"
+                  ? -1
+                  : 0)}
+          </button>
+          <button
+            aria-label="收藏笔记"
+            aria-pressed={saved}
+            onClick={() => setSaved(!saved)}
+          >
+            <Bookmark fill={saved ? "#f8cc55" : "none"} />
+            {Number(note.meta.saves || 0) + (saved ? 1 : 0)}
+          </button>
+          <span>
+            <MessageCircle />
+            {note.meta.commentCount}
+          </span>
+        </footer>
+      </div>
+    );
+  }
   const list =
     tab === "收藏"
       ? items.filter((i) => i.favorite)
@@ -351,11 +443,19 @@ export function RedbookSkin(p: Props) {
         <SearchBox value={q} set={setQ} />
         <div className="redbook-masonry">
           {list.map((i) => (
-            <button key={i.id} onClick={() => p.onItem(i)}>
+            <button
+              key={i.id}
+              onClick={() => {
+                setSelected(i.id);
+                setImageIndex(0);
+                setLiked(i.meta.liked === "true");
+                setSaved(false);
+              }}
+            >
               <Media item={i} />
               <strong>{i.title}</strong>
               <div>
-                <Avatar name={i.sender} />
+                <Avatar name={i.sender} src={i.avatar} />
                 <small>{i.sender}</small>
                 <Heart size={12} />
                 <small>{i.likes}</small>
