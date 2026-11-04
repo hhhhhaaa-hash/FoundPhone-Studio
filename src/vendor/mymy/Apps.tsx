@@ -324,8 +324,10 @@ export function MymyInstagram(p: SkinProps) {
     [story, setStory] = useState(0),
     [draft, setDraft] = useState(""),
     [pop, setPop] = useState("");
+  const [imageIndex, setImageIndex] = useState(0);
+  const profile = p.items.find((i) => i.meta.profile === "true");
   const posts = p.items.filter(
-      (i) => i.folder !== "私信" && i.meta.story !== "true",
+      (i) => i.folder !== "私信" && i.meta.story !== "true" && i.meta.profile !== "true" && i.meta.gallery !== "true",
     ),
     stories = p.items.filter((i) => i.meta.story === "true"),
     dms = p.items.filter((i) => i.folder === "私信"),
@@ -350,6 +352,7 @@ export function MymyInstagram(p: SkinProps) {
     if (p.creator || i.password) p.onItem(i);
     else {
       read(p, i);
+      setImageIndex(0);
       setSelected(i);
     }
   };
@@ -374,7 +377,10 @@ export function MymyInstagram(p: SkinProps) {
           setPop(i.id);
         }}
       >
-        <Media item={i} />
+        <div className="instagram-carousel" onScroll={(e) => setImageIndex(Math.round(e.currentTarget.scrollLeft / e.currentTarget.clientWidth))}>
+          {(p.items.filter((x) => x.meta.postId === i.id).sort((a,b) => Number(a.meta.order)-Number(b.meta.order)).length ? p.items.filter((x) => x.meta.postId === i.id).sort((a,b) => Number(a.meta.order)-Number(b.meta.order)) : [i]).map((x) => <Media key={x.id} item={x} />)}
+        </div>
+        {selected && <span className="instagram-carousel-count">{imageIndex + 1}/{p.items.filter((x) => x.meta.postId === i.id).length || 1}</span>}
         {pop === i.id && (
           <Heart
             className="mymy-heart-pop"
@@ -401,10 +407,11 @@ export function MymyInstagram(p: SkinProps) {
             setSheet(i);
           }}
         >
-          <MessageCircle />
+          <MessageCircle /> {i.meta.commentCount || i.comments.length}
         </button>
+        <span className="instagram-repost-count"><Repeat2 /> {i.meta.reposts || "0"}</span>
         <button aria-label="分享帖子" onClick={() => setTab("私信")}>
-          <Send />
+          <Send /> {i.meta.shares || "0"}
         </button>
         <button
           className="mymy-save"
@@ -426,7 +433,7 @@ export function MymyInstagram(p: SkinProps) {
       </button>
       <button className="cmall" onClick={() => setSheet(i)}>
         查看评论{" "}
-        {i.comments.length +
+        {Number(i.meta.commentCount || i.comments.length) +
           replies.filter((r) => r.startsWith(i.id + "\t")).length}
       </button>
       <p className="igt">{i.time}</p>
@@ -443,7 +450,7 @@ export function MymyInstagram(p: SkinProps) {
             <ArrowLeft />
           </button>
           <span className="igl2">
-            {selected ? "帖子" : tab === "主页" ? "Instagram" : tab}
+            {selected ? "帖子" : tab === "主页" ? "Instagram" : tab === "个人主页" ? profile?.title || tab : tab}
           </span>
           <button aria-label="打开私信" onClick={() => setTab("私信")}>
             <Send />
@@ -476,23 +483,23 @@ export function MymyInstagram(p: SkinProps) {
           {!selected && tab === "个人主页" && (
             <>
               <div className="pf">
-                <Avatar name={p.owner || "机主"} />
+                <Avatar name={profile?.sender || p.owner || "机主"} src={profile?.avatar} />
                 <div className="ps">
                   <div>
-                    <b>{posts.length}</b>
+                    <b>{profile?.meta.postCount || posts.length}</b>
                     <small>帖子</small>
                   </div>
                   <div>
-                    <b>—</b>
+                    <b>{profile?.meta.followers || "—"}</b>
                     <small>粉丝</small>
                   </div>
                   <div>
-                    <b>—</b>
+                    <b>{profile?.meta.following || "—"}</b>
                     <small>关注</small>
                   </div>
                 </div>
               </div>
-              <p className="pn">{p.owner}</p>
+              <p className="pn">{profile?.sender || p.owner}</p><p className="instagram-profile-bio">{profile?.body}</p>{profile?.meta.followedBy && <p className="instagram-followed-by">{profile.meta.followedBy} 关注了</p>}
               <div className="ptab">
                 <div className="on">
                   <Grid />

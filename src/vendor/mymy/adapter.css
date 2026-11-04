@@ -634,3 +634,12 @@
 .mymy-x .x-owner-profile p {color:#71767b;}
 .mymy-x .kzxv img {width:100%;height:auto;display:block;}
 .ios18 .x-post-detail .post-detail-body > img {display:block;width:100%;height:auto;border-radius:12px;}
+
+.mymy-instagram .instagram-carousel {display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;}
+.mymy-instagram .instagram-carousel > img {flex:0 0 100%;width:100%;min-width:100%;height:auto;object-fit:contain;scroll-snap-align:start;}
+.mymy-instagram .carw {position:relative;}
+.mymy-instagram .instagram-carousel-count {position:absolute;right:12px;top:12px;background:#0008;color:white;border-radius:20px;padding:5px 10px;}
+.mymy-instagram .instagram-profile-bio {white-space:pre-wrap;padding:0 16px;font-size:15px;line-height:1.6;}
+.mymy-instagram .instagram-followed-by {padding:12px 16px;font-size:13px;font-weight:600;}
+.mymy-instagram .instagram-repost-count {display:flex;align-items:center;gap:4px;}
+.mymy-instagram .iga {font-size:12px;gap:10px;}
