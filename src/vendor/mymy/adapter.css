@@ -647,3 +647,6 @@
 .mymy-instagram .iga > button, .mymy-instagram .iga > .instagram-repost-count {display:inline-flex;flex-direction:row;align-items:center;justify-content:center;gap:5px;flex-shrink:0;white-space:nowrap;line-height:1;font-size:12px;}
 .mymy-instagram .iga svg {flex-shrink:0;vertical-align:middle;}
 
+.mymy-instagram .iga {gap:10px;padding-left:12px;padding-right:12px;}
+.mymy-instagram .iga > button, .mymy-instagram .iga > .instagram-repost-count {font-size:12px;gap:4px;}
+

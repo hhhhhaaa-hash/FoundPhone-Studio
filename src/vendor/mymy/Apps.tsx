@@ -399,6 +399,7 @@ export function MymyInstagram(p: SkinProps) {
             fill={liked.includes(i.id) ? "#ff3040" : "none"}
             color={liked.includes(i.id) ? "#ff3040" : "currentColor"}
           />
+          {(i.likes + (liked.includes(i.id) ? 1 : 0)).toLocaleString("en-US")}
         </button>
         <button
           aria-label={"评论" + i.title}
@@ -422,7 +423,6 @@ export function MymyInstagram(p: SkinProps) {
           <Bookmark fill={saved.includes(i.id) ? "currentColor" : "none"} />
         </button>
       </div>
-      <p className="lk2">{i.likes + (liked.includes(i.id) ? 1 : 0)} 次赞</p>
       <button
         className="igc"
         onClick={() => {
@@ -800,3 +800,4 @@ export function MymyX(p: SkinProps) {
     </div>
   );
 }
+
