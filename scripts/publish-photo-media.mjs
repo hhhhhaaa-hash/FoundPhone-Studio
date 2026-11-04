@@ -15,7 +15,7 @@ export async function publishPhotoMedia(work, publicDir) {
       .flatMap(([app, items]) =>
         items.filter(
           (i) =>
-            i.kind === "video" || (app === "redbook" && i.kind === "image"),
+            i.kind === "video" || (["redbook", "instagram"].includes(app) && i.kind === "image"),
         ),
       ),
   ];
