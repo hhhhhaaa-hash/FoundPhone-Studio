@@ -644,6 +644,8 @@ export function MymyX(p: SkinProps) {
     [reposts, setReposts] = useSkinState<string[]>(p, "mymyXReposts", []),
     [marks, setMarks] = useSkinState<string[]>(p, "mymyXMarks", []),
     [query, setQuery] = useState("");
+  const profile = p.items.find((i) => i.meta.profile === "true");
+  const posts = p.items.filter((i) => i.meta.profile !== "true").sort((a, b) => b.time.localeCompare(a.time));
   const isLiked = (id: string) =>
     typeof p.ui?.["liked-" + id] === "boolean"
       ? Boolean(p.ui["liked-" + id])
@@ -665,12 +667,13 @@ export function MymyX(p: SkinProps) {
             <ArrowLeft />
           </button>
           <div className="kzxlg">𝕏</div>
+          <button aria-label="X个人主页" onClick={() => setTab("个人主页")}>{profile?.title || p.owner}</button>
           <button aria-label="切换X外观" onClick={() => setDark(!dark)}>
             <User />
           </button>
         </header>
         <div className="kzxtb">
-          {["为你推荐", "正在关注", "添加 +", "时间"].map((t) => (
+          {["为你推荐", "正在关注", "个人主页"].map((t) => (
             <button
               className={t === tab ? "on" : ""}
               key={t}
@@ -690,16 +693,17 @@ export function MymyX(p: SkinProps) {
           />
         )}
         <div className="kzxfd">
-          {p.items
-            .filter((i) => (i.title + i.body).includes(query))
+          {tab === "个人主页" && profile && <section className="x-owner-profile"><span className="catalog-avatar round"><User /></span><h2>{profile.title}</h2><p>@{profile.meta.handle}</p><span>{posts.length} 帖子</span></section>}
+          {posts
+            .filter((i) => (i.title + i.body).includes(query) && (tab !== "正在关注" || i.folder === "正在关注"))
             .map((i) => (
               <article className="kzxt" key={i.id}>
-                <Avatar name={i.sender} src={i.avatar} />
+                {i.meta.defaultAvatar === "true" ? <span className="catalog-avatar round"><User /></span> : <Avatar name={i.sender} src={i.avatar} />}
                 <div className="kzxb">
                   <div className="kzxn">
                     <b>{i.sender}</b>
                     <small>
-                      @{i.meta.handle || "user"} · {i.time.slice(-5)}
+                      @{i.meta.handle || "user"} · {i.time.slice(0, 10)}
                     </small>
                     <em>
                       <MoreHorizontal size={18} />

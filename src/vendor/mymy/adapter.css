@@ -628,3 +628,9 @@
   width: 25px;
   height: 25px;
 }
+
+.mymy-x .x-owner-profile {padding:20px 16px;border-bottom:1px solid #536471;}
+.mymy-x .x-owner-profile h2 {margin:10px 0 4px;}
+.mymy-x .x-owner-profile p {color:#71767b;}
+.mymy-x .kzxv img {width:100%;height:auto;display:block;}
+.ios18 .x-post-detail .post-detail-body > img {display:block;width:100%;height:auto;border-radius:12px;}

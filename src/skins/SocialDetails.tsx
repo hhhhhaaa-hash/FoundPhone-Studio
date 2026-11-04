@@ -13,6 +13,7 @@ import {
   Crown,
   Copy,
   Send,
+  User,
   Home,
   Search,
   Bell,
@@ -126,7 +127,7 @@ export function SocialDetail(p: {
       </header>
       <div className="post-detail-scroll">
         <div className="post-detail-author">
-          <Avatar name={item.sender} src={item.avatar} />
+          {item.meta.defaultAvatar === "true" ? <span className="catalog-avatar round"><User /></span> : <Avatar name={item.sender} src={item.avatar} />}
           <div>
             <strong>{item.sender || "用户"}</strong>
             <small>
