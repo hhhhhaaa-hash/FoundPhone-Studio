@@ -58,7 +58,7 @@ function Actions({ p, item }: { p: Props; item: Item }) {
 function PostHeader({ item, p }: { item: Item; p: Props }) {
   return (
     <button className="social-author" onClick={() => p.onItem(item)}>
-      <Avatar name={item.sender} />
+      <Avatar name={item.sender} src={item.avatar} />
       <span>
         <strong>{item.sender}</strong>
         <small>{meta(item, "handle", item.time)}</small>
@@ -76,7 +76,7 @@ function WeiboActions({ p, item }: { p: Props; item: Item }) {
       </button>
       <button aria-label={`评论${item.title}`} onClick={() => p.onItem(item)}>
         <MessageCircle size={17} />
-        {item.comments.length || "评论"}
+        {meta(item, "commentCount") || item.comments.length || "评论"}
       </button>
       <button
         aria-label={`喜欢${item.title}`}
@@ -84,7 +84,7 @@ function WeiboActions({ p, item }: { p: Props; item: Item }) {
         onClick={() => setLiked(!liked)}
       >
         <ThumbsUp size={17} fill={liked ? "currentColor" : "none"} />
-        {item.likes + (liked ? 1 : 0) || "赞"}
+        {item.likes >= 10000 ? ((item.likes + (liked ? 1 : 0)) / 10000).toFixed(1) + "万" : item.likes + (liked ? 1 : 0) || "赞"}
       </button>
     </div>
   );
@@ -92,7 +92,9 @@ function WeiboActions({ p, item }: { p: Props; item: Item }) {
 export function WeiboSkin(p: Props) {
   const { tab, setTab, q, setQ, items } = useContent(p, "关注");
   const [feed, setFeed] = useState("全部");
-  const list = feed === "全部" ? items : items.filter((i) => i.folder === feed);
+  const profile = p.items.find((i) => meta(i, "profile") === "true");
+  const posts = items.filter((i) => meta(i, "profile") !== "true");
+  const list = posts.filter((i) => tab === "我" ? meta(i, "ownPost") === "true" : feed === "全部" || i.folder === feed);
   return (
     <div className="catalog-skin weibo-ui">
       <Header p={p} />
@@ -109,16 +111,25 @@ export function WeiboSkin(p: Props) {
       </div>
       <div className="catalog-scroll">
         {tab === "我" ? (
-          <div className="weibo-profile">
-            <Avatar name={p.owner ?? "我"} />
-            <h2>{p.owner ?? "我"}</h2>
-            <span>{items.length} 条微博</span>
-          </div>
+          <section className="weibo-account">
+            <div className="weibo-account-cover" />
+            <div className="weibo-account-info">
+              <Avatar name={profile?.title || "我"} src={profile?.avatar} />
+              <h2>{profile?.title || "我"} <small>♂ · {meta(profile, "vip")}</small></h2>
+              <span className="weibo-lucky">{meta(profile, "badge")}</span>
+              <div className="weibo-account-counts"><span><b>{meta(profile, "followers")}</b> 粉丝</span><span><b>{meta(profile, "following")}</b> 关注</span><span><b>{meta(profile, "engagement")}</b> 转评赞</span></div>
+              <div className="weibo-account-tags"><span>娱乐明星领域 互动数飙升</span><span>昨日发博1</span><span>本月互动人数{meta(profile, "monthlyInteractions")}</span><span>近30天视频播放量{meta(profile, "videoViews")}</span></div>
+              <p>ⓥ {profile?.body}</p><p>ⓘ {meta(profile, "location")}</p><p>工作邮箱：{meta(profile, "email")}</p><p>♋ {meta(profile, "zodiac")}</p><p>好友 {meta(profile, "friends")} 人</p>
+              <div className="weibo-account-extras"><span>超话<br />{meta(profile, "superFans")}粉丝</span><span>粉丝群<br />{meta(profile, "fanGroups")}个群聊</span><span>直播<br />查看精彩回放</span></div>
+            </div>
+            <div className="weibo-own-tabs">动态  <b>微博</b>  视频  超话  相册</div>
+            <div className="weibo-own-total">全部微博（{meta(profile, "posts")}）</div>
+          </section>
         ) : (
           <>
             <SearchBox value={q} set={setQ} />
             <div className="weibo-feed-filter">
-              {["全部", ...groupItems(items).filter((g) => g !== "未分类")].map(
+              {["全部", ...groupItems(posts).filter((g) => g !== "未分类")].map(
                 (g) => (
                   <button key={g} onClick={() => setFeed(g)}>
                     {g}

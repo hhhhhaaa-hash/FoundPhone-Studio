@@ -4498,3 +4498,31 @@
   height: 100%;
   object-fit: cover;
 }
+
+/* Authored Weibo account information. */
+.ios18 .weibo-account { background:white; }
+.ios18 .weibo-account-cover {height:95px;background:linear-gradient(#86b4ba,#d2e2d8 70%,#eed3a9);}
+.ios18 .weibo-account-info {padding:0 14px 12px;}
+.ios18 .weibo-account-info > .catalog-avatar {width:70px;height:70px;margin-top:-27px;border:3px solid white;}
+.ios18 .weibo-account-info h2 {font-size:22px;margin:8px 0;}
+.ios18 .weibo-account-info h2 small {font-size:12px;color:#b68521;}
+.ios18 .weibo-lucky {color:#8c9bac;background:#f4f5f8;padding:4px 12px;border-radius:15px;font-size:12px;}
+.ios18 .weibo-account-counts {display:flex;gap:15px;margin:18px 0;color:#999;font-size:12px;}
+.ios18 .weibo-account-counts b {color:#333;font-size:18px;}
+.ios18 .weibo-account-tags {display:flex;flex-wrap:wrap;gap:8px;}
+.ios18 .weibo-account-tags span {font-size:11px;color:#ff7200;background:#fff3eb;border-radius:16px;padding:4px 8px;}
+.ios18 .weibo-account-info p {font-size:12px;color:#999;margin:10px 0;overflow-wrap:anywhere;}
+.ios18 .weibo-account-extras {display:flex;gap:8px;color:#888;font-size:12px;}
+.ios18 .weibo-account-extras span {flex:1;background:#f7f7f7;padding:10px;border-radius:9px;line-height:1.8;}
+.ios18 .weibo-own-tabs {padding:14px 10px;text-align:center;color:#999;}
+.ios18 .weibo-own-tabs b {color:#333;border-bottom:3px solid #ff7900;padding-bottom:12px;}
+.ios18 .weibo-own-total {padding:12px;background:#eee;color:#999;font-size:12px;}
+.ios18 .weibo-post .social-body p {white-space:pre-wrap;}
+.ios18 .weibo-post .social-author strong {color:#ff7800;}
+.ios18 .weibo-post-detail .post-detail-body > img {display:block;width:100%;height:auto;border-radius:5px;margin-top:14px;}
+.ios18 .weibo-post-detail .post-detail-body > .rich-body {font-size:16px;line-height:1.65;white-space:pre-wrap;}
+.ios18 .weibo-post-detail .post-detail-author strong {color:#ff7900;}
+.ios18 .weibo-post .social-body > img {display:block;width:100%;height:auto;border-radius:5px;}
+.ios18 .weibo-post .social-body > p {font-size:15px;line-height:1.65;}
+.ios18 .weibo-post .social-author {justify-content:flex-start;text-align:left;}
+.ios18 .weibo-post-detail .post-detail-body > .detail-body {font-size:16px;line-height:1.65;white-space:pre-wrap;}

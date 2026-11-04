@@ -41,7 +41,7 @@ export function SocialDetail(p: {
     [followed, setFollowed] = useSkinState<boolean>(
       p,
       "followed-" + item.sender,
-      false,
+      meta(item, "followed") === "true",
     ),
     [extra, setExtra] = useSkinState<string[]>(p, "replies-" + item.id, []);
   const [tab, setTab] = useState("评论"),
@@ -50,6 +50,7 @@ export function SocialDetail(p: {
     [menu, setMenu] = useState(false),
     [sort, setSort] = useState(false),
     [copied, setCopied] = useState(false);
+  const commentTotal = Number(meta(item, "commentCount", String(item.comments.length))) + extra.length;
   const comments = [...item.comments, ...extra],
     replies = sort ? [...comments].reverse() : comments;
   const copy = async () => {
@@ -71,7 +72,7 @@ export function SocialDetail(p: {
     <div className="post-detail-actions">
       <button aria-label="查看评论" onClick={() => setTab("评论")}>
         <MessageCircle />
-        {count(comments.length)}
+        {count(commentTotal)}
       </button>
       <button aria-label="查看转发" onClick={() => setTab("转发")}>
         <Repeat2 />
@@ -86,7 +87,7 @@ export function SocialDetail(p: {
           fill={liked ? "#f91880" : "none"}
           color={liked ? "#f91880" : undefined}
         />
-        {count(item.likes + (liked ? 1 : 0))}
+        {(weibo && item.likes >= 10000 ? ((item.likes + (liked ? 1 : 0)) / 10000).toFixed(1) + "万" : count(item.likes + (liked ? 1 : 0)))}
       </button>
       <button
         aria-label="收藏帖子"
@@ -130,7 +131,7 @@ export function SocialDetail(p: {
             <strong>{item.sender || "用户"}</strong>
             <small>
               {weibo
-                ? item.time + " " + meta(item, "location")
+                ? item.time + (meta(item, "source") ? " 来自 " + meta(item, "source") : "") + " " + meta(item, "location")
                 : meta(item, "handle", item.sender ? "@" + item.sender : "")}
             </small>
           </div>
@@ -184,9 +185,9 @@ export function SocialDetail(p: {
               >
                 {name}{" "}
                 {name === "评论"
-                  ? count(comments.length)
+                  ? count(commentTotal)
                   : name === "赞"
-                    ? count(item.likes + (liked ? 1 : 0))
+                    ? (weibo && item.likes >= 10000 ? ((item.likes + (liked ? 1 : 0)) / 10000).toFixed(1) + "万" : count(item.likes + (liked ? 1 : 0)))
                     : meta(item, "reposts", "0")}
               </button>
             ))}
