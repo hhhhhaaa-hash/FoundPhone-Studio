@@ -345,9 +345,12 @@ export function RedbookSkin(p: Props) {
   const [selected, setSelected] = useState("");
   const [imageIndex, setImageIndex] = useState(0);
   const [liked, setLiked] = useState(false);
-  const [saved, setSaved] = useState(false);
+  const [savedIds, setSavedIds] = useSkinState<string[]>(p, "redbook-saved-notes", []);
+  const [unsavedIds, setUnsavedIds] = useSkinState<string[]>(p, "redbook-unsaved-notes", []);
+  const isSaved = (i: Item) => !unsavedIds.includes(i.id) && (i.favorite || savedIds.includes(i.id));
   const note = p.items.find((i) => i.id === selected);
   if (note) {
+    const saved = isSaved(note);
     const photos = p.items
       .filter((i) => i.meta.postId === note.id)
       .sort((a, b) => Number(a.meta.order) - Number(b.meta.order));
@@ -417,10 +420,13 @@ export function RedbookSkin(p: Props) {
           <button
             aria-label="收藏笔记"
             aria-pressed={saved}
-            onClick={() => setSaved(!saved)}
+            onClick={() => {
+              setSavedIds(saved ? savedIds.filter((id) => id !== note.id) : [...savedIds.filter((id) => id !== note.id), note.id]);
+              setUnsavedIds(saved ? [...unsavedIds.filter((id) => id !== note.id), note.id] : unsavedIds.filter((id) => id !== note.id));
+            }}
           >
             <Bookmark fill={saved ? "#f8cc55" : "none"} />
-            {Number(note.meta.saves || 0) + (saved ? 1 : 0)}
+            {Number(note.meta.saves || 0) + (saved && !note.favorite ? 1 : !saved && note.favorite ? -1 : 0)}
           </button>
           <span>
             <MessageCircle />
@@ -432,9 +438,9 @@ export function RedbookSkin(p: Props) {
   }
   const list =
     tab === "收藏"
-      ? items.filter((i) => i.favorite)
+      ? items.filter(isSaved)
       : tab === "关注"
-        ? items.filter((i) => i.folder === "关注")
+        ? items.filter((i) => i.folder === "关注" || i.meta.following === "true")
         : items;
   return (
     <div className="catalog-skin redbook-ui">
@@ -460,7 +466,6 @@ export function RedbookSkin(p: Props) {
                 setSelected(i.id);
                 setImageIndex(0);
                 setLiked(i.meta.liked === "true");
-                setSaved(false);
               }}
             >
               <Media item={i} />
