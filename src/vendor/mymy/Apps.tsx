@@ -506,7 +506,7 @@ export function MymyInstagram(p: SkinProps) {
                 </div>
               </div>
               <div className="pg2">
-                {posts.map((i) => (
+                {posts.filter((i) => !profile || i.meta.ownPost === "true").map((i) => (
                   <button key={i.id} onClick={() => openPost(i)}>
                     <Media item={i} />
                   </button>
@@ -800,4 +800,3 @@ export function MymyX(p: SkinProps) {
     </div>
   );
 }
-
