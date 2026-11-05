@@ -536,7 +536,7 @@ export function WeChatSkin(p: SkinProps) {
                   key={i.id}
                   item={i}
                   avatar={activeContact.avatar}
-                  contacts={contactProfiles}
+                  contacts={profile ? [...contactProfiles, profile] : contactProfiles}
                   gallery={galleryFor(i)}
                   onItem={p.onItem}
                 />
@@ -718,7 +718,7 @@ export function WeChatSkin(p: SkinProps) {
                   ? profile?.avatar
                   : contactProfiles.find((c) => c.title === i.sender)?.avatar
               }
-              contacts={contactProfiles}
+              contacts={profile ? [...contactProfiles, profile] : contactProfiles}
               gallery={galleryFor(i)}
               onItem={p.onItem}
             />
@@ -1440,4 +1440,3 @@ export function InstagramSkin(p: SkinProps) {
     </div>
   );
 }
-
