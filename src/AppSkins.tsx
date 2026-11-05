@@ -411,6 +411,12 @@ export function WeChatSkin(p: SkinProps) {
     conversations.splice(from, 1);
     conversations.splice(conversations.indexOf(before), 0, group.title);
   }
+  const conversationRank = (title: string) => {
+    const record = [...contactProfiles, ...groups].find((i) => i.title === title);
+    const value = record?.meta.conversationOrder;
+    return value === undefined ? Number.MAX_SAFE_INTEGER : Number(value);
+  };
+  conversations.sort((a, b) => conversationRank(a) - conversationRank(b));
   const contacts = [
     ...new Set([
       ...contactProfiles.map((i) => i.title),
