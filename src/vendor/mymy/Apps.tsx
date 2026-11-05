@@ -748,7 +748,7 @@ export function MymyX(p: SkinProps) {
                       onClick={() => toggle(i.id, reposts, setReposts)}
                     >
                       <Repeat2 />
-                      {reposts.includes(i.id) ? 1 : 0}
+                      {Number(i.meta.reposts || 0) + (reposts.includes(i.id) ? 1 : 0)}
                     </button>
                     <button
                       aria-label={"点赞" + i.title}

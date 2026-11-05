@@ -217,7 +217,7 @@ export function SocialDetail(p: {
                 body = hasName ? c.slice(split + 1) : c;
               return (
                 <article key={index} className="post-detail-comment">
-                  <Avatar name={name} />
+                  <Avatar name={name} src={meta(item, "commentAvatar" + item.comments.indexOf(c))} />
                   <div>
                     <strong>{name}</strong>
                     <p>{body}</p>
@@ -306,3 +306,4 @@ export function SocialDetail(p: {
     </div>
   );
 }
+
