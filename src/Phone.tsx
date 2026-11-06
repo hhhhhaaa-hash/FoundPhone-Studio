@@ -64,6 +64,7 @@ import {
 } from "./schema";
 import { dispatch, choose, visible, advance } from "./engine";
 import { db } from "./persistence";
+import { restorePageSession } from "./pageSession";
 export function AppIcon({
   id,
   name,
@@ -204,7 +205,7 @@ function PhoneRuntime({
       .then((saved) => {
         if (!active) return;
         if (saved && saved.state.revision === work.updatedAt)
-          setOwn(saved.state);
+          setOwn(restorePageSession(work, saved.state));
         else {
           setOwn(dispatch(work, initialRuntime(work), "start"));
           if (saved) setLoadError("作品已更新，已开始新的进度。");
@@ -1309,4 +1310,3 @@ function AppContent({
 function UsersIcon() {
   return <PhoneIcon size={17} />;
 }
-

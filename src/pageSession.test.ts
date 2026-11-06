@@ -1,0 +1,26 @@
+import { expect, it } from "vitest";
+import { createWork } from "./demo";
+import { initialRuntime, makeItem } from "./schema";
+import { restorePageSession } from "./pageSession";
+it("rearms only configured page-session events without losing unrelated progress", () => {
+  const work = createWork();
+  work.data.phone = [makeItem({id:"call", meta:{replayOnOpen:"true",replayNodes:"trigger,delay",replayMessage:"message",replayAlbumKey:"albumUnlocked:heart",replayMessageNotice:"msg",replayCallNotice:"ring"}})];
+  const saved = initialRuntime(work);
+  saved.completed = ["trigger","delay","unrelated"];
+  saved.unlocked = ["message","photo"];
+  saved.read = ["message","note"];
+  saved.scheduled = [{nodeId:"delay",due:100},{nodeId:"other",due:200}];
+  saved.notifications = ["msg","ring","keep"];
+  saved.incomingCall = {caller:"Matt",target:"call",status:"answered"};
+  saved.ui = {photos:{"albumUnlocked:heart":true},notes:{saved:true}};
+  const next = restorePageSession(work,saved);
+  expect(next.completed).toEqual(["unrelated"]);
+  expect(next.unlocked).toEqual(["photo"]);
+  expect(next.read).toEqual(["note"]);
+  expect(next.scheduled).toEqual([{nodeId:"other",due:200}]);
+  expect(next.notifications).toEqual(["keep"]);
+  expect(next.incomingCall).toBeNull();
+  expect(next.ui).toEqual({photos:{},notes:{saved:true}});
+  expect(saved.completed).toContain("trigger");
+  expect(restorePageSession(work,next)).toEqual(next);
+});
