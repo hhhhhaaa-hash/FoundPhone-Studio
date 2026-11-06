@@ -310,6 +310,7 @@ function WeChatMomentPost({
             ))}
           </div>
         )}
+        {item.meta.location && <p className="wx-moment-location">⌖ {item.meta.location}</p>}
         <small>
           {date
             ? `${date[1]}年${Number(date[2])}月${Number(date[3])}日${date[4] ? ` ${date[4]}:${date[5]}` : ""}`
