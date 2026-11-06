@@ -409,7 +409,7 @@ export function CameraSkin(p: Props) {
 }
 export function SafariSkin(p: Props) {
   const [q, setQ] = useState(""),
-    [tab, setTab] = useState("书签");
+    [tab, setTab] = useState(p.items.length && p.items.every((i) => i.folder === "历史记录") ? "历史记录" : "书签");
   const items = p.items
     .filter((i) =>
       (i.title + i.body + meta(i, "url"))
@@ -430,10 +430,10 @@ export function SafariSkin(p: Props) {
           {items.map((i) => (
             <button key={i.id} onClick={() => p.onItem(i)}>
               <span>
-                <Globe size={28} />
+                {i.meta.recordType === "search" ? <Search size={28} /> : <Globe size={28} />}
               </span>
               <strong>{i.title}</strong>
-              <small>{meta(i, "url")}</small>
+              <small>{i.meta.recordType === "search" ? "搜索记录" : meta(i, "url")}</small>
             </button>
           ))}
         </div>
@@ -1071,3 +1071,4 @@ export function FindSkin(p: Props) {
     </div>
   );
 }
+
