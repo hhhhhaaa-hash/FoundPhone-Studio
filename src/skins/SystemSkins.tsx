@@ -463,6 +463,14 @@ export function SafariSkin(p: Props) {
 export function NotesSkin(p: Props) {
   const { q, setQ, items } = useContent(p, "备忘录");
   const [folder, setFolder] = useState<string | null>(null);
+  const [lockedNote, setLockedNote] = useState<Item | null>(null);
+  const [faceUnlocked, setFaceUnlocked] = useState(false);
+  if (lockedNote) return <div className="catalog-skin native-notes">
+    <header className="app-nav"><button aria-label="返回备忘录" onClick={() => {setLockedNote(null);setFaceUnlocked(false);}}><ChevronLeft /></button><strong>{lockedNote.title}</strong><button aria-label="锁定备忘录" onClick={() => setFaceUnlocked(false)}><LockKeyhole /></button></header>
+    <div className="catalog-scroll notes-face-lock">
+      <h2>{lockedNote.title}</h2>
+      {faceUnlocked ? <p>{lockedNote.body || "暂无内容"}</p> : <><LockKeyhole size={42} /><p>此备忘录已锁定</p><button onClick={() => setFaceUnlocked(true)}>使用 Face ID 解锁</button></>}
+    </div></div>;
   const list = folder
     ? items.filter((i) => (i.folder || "备忘录") === folder)
     : items;
@@ -491,13 +499,13 @@ export function NotesSkin(p: Props) {
         )}
         <div className="notes-list">
           {list.map((i) => (
-            <button key={i.id} onClick={() => p.onItem(i)}>
+            <button key={i.id} onClick={() => {if(i.meta.faceIdOnly === "true"){setLockedNote(i);setFaceUnlocked(false);}else p.onItem(i);}}>
               <strong>
-                {i.password && <LockKeyhole size={12} />} {i.title}
+                {(i.password || i.meta.faceIdOnly === "true") && <LockKeyhole size={12} />} {i.title}
               </strong>
               <p>
                 <time>{i.time.slice(5, 10)}</time>{" "}
-                {i.password ? "已锁定的备忘录" : i.body.split("\n")[0]}
+                {(i.password || i.meta.faceIdOnly === "true") ? "已锁定的备忘录" : i.body.split("\n")[0]}
               </p>
               <small>{i.folder}</small>
             </button>
@@ -557,6 +565,7 @@ export function CalendarSkin(p: Props) {
               onClick={() => setDay(i + 1)}
             >
               {i + 1}
+              {p.items.find((x) => x.time.startsWith(`${prefix}-${String(i + 1).padStart(2, "0")}`))?.meta.marker && <span className="calendar-day-marker">{p.items.find((x) => x.time.startsWith(`${prefix}-${String(i + 1).padStart(2, "0")}`))?.meta.marker}</span>}
               {p.items.some((x) =>
                 x.time.startsWith(
                   `${prefix}-${String(i + 1).padStart(2, "0")}`,
@@ -574,7 +583,7 @@ export function CalendarSkin(p: Props) {
             key={i.id}
             onClick={() => p.onItem(i)}
           >
-            <time>{i.time.slice(-5)}</time>
+            <time>{i.meta.allDay === "true" ? "全天" : i.time.slice(-5)}</time>
             <div>
               <strong>{i.title}</strong>
               <p>{meta(i, "location", i.body)}</p>
@@ -1061,4 +1070,3 @@ export function FindSkin(p: Props) {
     </div>
   );
 }
-

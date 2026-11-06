@@ -4526,3 +4526,7 @@
 .ios18 .weibo-post .social-body > p {font-size:15px;line-height:1.65;}
 .ios18 .weibo-post .social-author {justify-content:flex-start;text-align:left;}
 .ios18 .weibo-post-detail .post-detail-body > .detail-body {font-size:16px;line-height:1.65;white-space:pre-wrap;}
+
+.ios18 .calendar-grid button .calendar-day-marker {display:block;font-size:12px;line-height:1;}
+.ios18 .notes-face-lock {text-align:center;padding:40px 20px;}
+.ios18 .notes-face-lock > button {color:#ac7900;padding:12px 20px;background:#fff4cb;border-radius:12px;}
