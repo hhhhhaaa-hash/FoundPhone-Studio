@@ -47,7 +47,7 @@ function apply(a: Action, s: Runtime, w: Work) {
       s.notifications.push(String(a.value));
       break;
     case "call":
-      s.notifications.push(`${String(a.value)} 来电`);
+      s.notifications.push(`${w.data.phone?.find((i) => i.id === a.key)?.meta.app === "wechat" ? "微信：" : ""}${String(a.value)} 来电`);
       s.incomingCall = {
         caller: String(a.value),
         target: a.key,

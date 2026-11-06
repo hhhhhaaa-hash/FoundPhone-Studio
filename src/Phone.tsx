@@ -612,10 +612,10 @@ function PhoneRuntime({
             <div className="incoming-call-screen">
               <small>
                 {s.incomingCall.status === "ringing" ? "来电" : "通话中"} ·
-                作品内模拟
+                {work.data.phone?.find((i) => i.id === s.incomingCall?.target)?.meta.app === "wechat" ? "微信语音通话" : "作品内模拟"}
               </small>
               <div className="incoming-avatar">
-                {s.incomingCall.caller.slice(0, 1)}
+                {safeMedia(work.data.phone?.find((i) => i.id === s.incomingCall?.target)?.avatar || "") ? <img src={safeMedia(work.data.phone?.find((i) => i.id === s.incomingCall?.target)?.avatar || "")} alt="" /> : s.incomingCall.caller.slice(0, 1)}
               </div>
               <h2>{s.incomingCall.caller}</h2>
               {s.incomingCall.status === "answered" &&
@@ -624,7 +624,7 @@ function PhoneRuntime({
                     (i) => i.id === s.incomingCall?.target,
                   );
                   return record?.kind === "audio" && safeMedia(record.media) ? (
-                    <audio controls src={safeMedia(record.media)} />
+                    <audio controls autoPlay aria-label="通话音频" src={safeMedia(record.media)} />
                   ) : (
                     <p>这是一通虚构来电。</p>
                   );

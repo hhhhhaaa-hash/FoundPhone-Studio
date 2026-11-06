@@ -901,3 +901,5 @@
 }
 
 .ios18 .wechat-ui .wx-moment-location {margin:8px 0 5px;color:#576b95;font-size:12px;}
+
+.incoming-avatar img {width:100%;height:100%;object-fit:cover;border-radius:inherit;}

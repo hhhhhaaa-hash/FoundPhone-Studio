@@ -293,6 +293,7 @@ export function PhotosSkin(p: Props) {
               e.preventDefault();
               if (password === passwords.get(album)) {
                 setUnlocked((v) => [...v, album]);
+                p.onUi?.("albumUnlocked:" + album, true);
                 setPassword("");
                 setError("");
               } else setError("密码不正确");
