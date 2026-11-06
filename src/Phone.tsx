@@ -624,7 +624,7 @@ function PhoneRuntime({
                     (i) => i.id === s.incomingCall?.target,
                   );
                   return record?.kind === "audio" && safeMedia(record.media) ? (
-                    <audio controls autoPlay aria-label="通话音频" src={safeMedia(record.media)} />
+                    <audio hidden autoPlay aria-label="通话音频" src={safeMedia(record.media)} />
                   ) : (
                     <p>这是一通虚构来电。</p>
                   );
@@ -1309,3 +1309,4 @@ function AppContent({
 function UsersIcon() {
   return <PhoneIcon size={17} />;
 }
+
