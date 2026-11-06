@@ -179,6 +179,7 @@ export function NativeDetail({
           <div className="native-detail-scroll native-reader">
             <h1>{item.title}</h1>
             <RichText value={item.richText} fallback={item.body} />
+            {/^https?:\/\//.test(item.meta.url || "") && <a href={item.meta.url} target="_blank" rel="noopener noreferrer">打开网页</a>}
           </div>
           <footer className="native-reader-address">
             <Search size={16} />
